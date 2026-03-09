@@ -1,0 +1,587 @@
+/**
+ * estilos globais e variáveis CSS
+ * qualquer página pode usar estas cores e transições
+ */
+:root {
+  --cor-primaria: #7181da;
+  --cor-secundaria: #f0f0f0;
+  --cor-texto: #333;
+  --cor-texto-hover: #ffffff;
+  /* cor de texto ao passar o mouse */
+
+  --cor-primaria-escura: #143e4b;
+  --cor-secundaria-escura: #181515;
+  --cor-texto-escuro: #f4f4f4;
+  /* cor de texto para o modo escuro */
+  --cor-texto-escura: #ffffff;
+
+  /* cor usada pela borda de célula selecionada */
+  --borda-selecionada: var(--cor-primaria);
+
+
+  /* ---- Transições ---- */
+  --duracao-transicao-curta: 0.2s;
+  --duracao-transicao-media: 0.3s;
+
+  /* cores ordenadas por categoria química (nome em português) */
+  --categoria-alcalino: #fff59d;
+  /* amarelo metais alcalinos */
+  --categoria-alcalino-terroso: #a8d5ba;
+  /* verde claro alcalino-terrosos */
+  --categoria-metal-transicao: #ffcccb;
+  /* rosa metais de transição */
+  --categoria-pos-transicao: #ffd180;
+  /* laranja pós-transição */
+  --categoria-metaloide: #eceff1;
+  /* cinza metaloides (semimetais) */
+  --categoria-nao-metal: #b3e5fc;
+  /* azul claro não-metais */
+  --categoria-halogenio: #dda0dd;
+  /* roxo halogênios */
+  --categoria-gas-nobre: #c5cae9;
+  /* azul pálido gases nobres */
+  --categoria-lantanideo: #dcedc8;
+  /* verde muito claro lantanídeos */
+  --categoria-actinideo: #aae566;
+  /* mesma cor actinídeos */
+  --categoria-outro: #ffffff;
+  /* branco padrão */
+
+  /* versões escuras das categorias (para modo escuro) */
+  --categoria-alcalino-escuro: #bfa742;
+  --categoria-alcalino-terroso-escuro: #6a8a5f;
+  --categoria-metal-transicao-escuro: #b77676;
+  --categoria-pos-transicao-escuro: #a87b3f;
+  --categoria-metaloide-escuro: #999999;
+  --categoria-nao-metal-escuro: #6080a0;
+  --categoria-halogenio-escuro: #8b5698;
+  --categoria-gas-nobre-escuro: #7274a0;
+  --categoria-lantanideo-escuro: #899a89;
+  --categoria-actinideo-escuro: #416841;
+  --categoria-outro-escuro: #bbbbbb;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--cor-secundaria);
+  color: var(--cor-texto);
+  transition: background var(--duracao-transicao-media), color var(--duracao-transicao-media);
+}
+
+/* modo escuro */
+/* modo escuro global: variáveis e fundo de body */
+body.escuro {
+  background: var(--cor-secundaria-escura);
+  color: var(--cor-texto-escuro);
+
+  /* borda selecionada adapta-se ao tema */
+  --borda-selecionada: var(--cor-primaria-escura);
+
+  /* reatribuir categorias para versões mais escuras */
+  --categoria-alcalino: var(--categoria-alcalino-escuro);
+  --categoria-alcalino-terroso: var(--categoria-alcalino-terroso-escuro);
+  --categoria-metal-transicao: var(--categoria-metal-transicao-escuro);
+  --categoria-pos-transicao: var(--categoria-pos-transicao-escuro);
+  --categoria-metaloide: var(--categoria-metaloide-escuro);
+  --categoria-nao-metal: var(--categoria-nao-metal-escuro);
+  --categoria-halogenio: var(--categoria-halogenio-escuro);
+  --categoria-gas-nobre: var(--categoria-gas-nobre-escuro);
+  --categoria-lantanideo: var(--categoria-lantanideo-escuro);
+  --categoria-actinideo: var(--categoria-actinideo-escuro);
+  --categoria-outro: var(--categoria-outro-escuro);
+}
+
+/* ajustar quadrante de conteúdo quando o modo está escuro */
+body.escuro .conteudo {
+  background: var(--cor-secundaria-escura);
+  color: var(--cor-texto-escuro);
+}
+
+/* ------------------------------------------------------------------ */
+/* SEÇÃO: MENU (válida em todas as páginas) */
+/* menu horizontal */
+.menuinicial {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background: var(--cor-primaria);
+  transition: background 0.3s;
+}
+
+/* modo escuro - menu */
+body.escuro .menuinicial {
+  background: var(--cor-primaria-escura);
+}
+
+body.escuro .menuinicial a {
+  color: var(--cor-texto-escuro);
+}
+
+/* links do menu */
+
+#tituloopcao1 {
+  text-align: center;
+  margin: 2rem 0;
+  /* cor herdada para acompanhar o tema */
+}
+
+.menuinicial a {
+  text-decoration: none;
+  color: var(--cor-texto);
+  align-content: center;
+}
+
+.menuinicial a:hover {
+  color: var(--cor-texto-hover);
+}
+
+
+
+/* ------------------------------------------------------------------ */
+/* SEÇÃO: CONTEÚDO PRINCIPAL (todas as páginas) */
+.conteudo {
+  flex: 1;
+  padding: 1.8rem;
+  background: var(--cor-secundaria);
+  color: var(--cor-texto);
+  transition: background var(--duracao-transicao-media), color var(--duracao-transicao-media);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* modo escuro - conteúdo */
+body.escuro .conteudo {
+  background: var(--cor-secundaria-escura);
+  color: var(--cor-texto-escuro);
+}
+
+/* ------------------------------------------------------------------ */
+/* SEÇÃO: CARTÃO + DESCRIÇÃO (página opção1) */
+.nomeedescricao {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1008px;
+  padding: 5px;
+  margin: 1rem auto;
+  background: var(--cor-secundaria);
+  color: var(--cor-texto);
+  border: 1px solid #999;
+  box-sizing: border-box;
+  transition: background var(--duracao-transicao-curta), color var(--duracao-transicao-curta);
+}
+
+/* modo escuro - cartão/descrição */
+body.escuro .nomeedescricao {
+  background: var(--cor-secundaria-escura);
+  color: var(--cor-texto-escuro);
+  border-color: var(--cor-texto-escuro);
+}
+
+/* cartão exibindo informações do elemento (estilizado como célula ampliada) */
+.cardnomeelemento {
+  border: 10px solid #33333325;
+  flex: 0 0 130px;
+  width: 130px;
+  height: 130px;
+  padding: 4px;
+  opacity: 0.30;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  color: var(--cor-texto);
+  transition: background var(--duracao-transicao-curta), color var(--duracao-transicao-curta), border 0.2s;
+}
+
+/* modo escuro - cartão */
+body.escuro .cardnomeelemento {
+  background: var(--cor-secundaria-escura);
+  color: var(--cor-texto-escuro);
+}
+
+.cardnomeelemento:hover,
+.cardnomeelemento.ativo {
+  opacity: 1;
+}
+
+/* números, símbolo e outros campos dentro do cartão */
+.cardnomeelemento .numeroCard {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.cardnomeelemento .simboloCard {
+  margin-top: 25px;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.cardnomeelemento .nomeCard {
+  margin-top: 4px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.cardnomeelemento .massaCard {
+  margin-top: auto;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.cardnomeelemento .camadasCard {
+  position: absolute;
+  top: 2px;
+  right: 4px;
+  font-size: 0.6rem;
+  text-align: right;
+  white-space: pre-line;
+}
+
+/* ================================
+   FILTRAGEM LATERAL
+================================ */
+.filtragem {
+  display: flex;
+  flex: 0 0 150px;
+  width: 200px;
+  height: 158px;
+  font-size: 0.6rem;
+}
+
+/* ================================
+   DESCRIÇÃO DO ELEMENTO
+================================ */
+.descricaodoelemento {
+  flex: 1 1 auto;
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  padding: 8px;
+  font-size: 0.8rem;
+
+  background: var(--cor-secundaria);
+  color: var(--cor-texto);
+
+  box-sizing: border-box;
+  cursor: default;
+
+  transition:
+    background var(--duracao-transicao-curta),
+    color var(--duracao-transicao-curta);
+}
+
+body.escuro .descricaodoelemento {
+  background: var(--cor-secundaria-escura);
+  color: var(--cor-texto-escuro);
+}
+
+/* ================================
+   ESTRUTURA DOS GRUPOS
+================================ */
+.metal,
+.nao-metal {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.metal {
+  margin-bottom: 1rem;
+}
+
+.nao-metal {
+  align-items: center;
+}
+
+/* bloco dos metais f */
+.metais-f-bloco {
+  display: flex;
+  flex-direction: column;
+}
+
+/* metaloide vertical */
+.metaloide {
+  writing-mode: vertical-rl;
+  margin-top: 11px;
+}
+
+/* ================================
+   ITENS DO FILTRO
+================================ */
+.filtro-item {
+  padding: 4px;
+  cursor: pointer;
+}
+
+.filtro-item:hover {
+  filter: brightness(0.8);
+  transition: var(--duracao-transicao-curta);
+}
+
+/* ================================
+   CORES DAS CATEGORIAS
+================================ */
+
+#metal-alcalino {
+  background: var(--categoria-alcalino);
+}
+
+#metal-alcalino-terroso {
+  background: var(--categoria-alcalino-terroso);
+}
+
+#metal-transicao {
+  background: var(--categoria-metal-transicao);
+}
+
+#metal-pos-transicao {
+  background: var(--categoria-pos-transicao);
+}
+
+#lantanideo {
+  background: var(--categoria-lantanideo);
+}
+
+#actinideo {
+  background: var(--categoria-actinideo);
+}
+
+#metaloide {
+  background: var(--categoria-metaloide);
+}
+
+#nao-metal {
+  background: var(--categoria-nao-metal);
+}
+
+#halogenio {
+  background: var(--categoria-halogenio);
+}
+
+#gas-nobre {
+  background: var(--categoria-gas-nobre);
+}
+
+/* ------------------------------------------------------------------ */
+/* SEÇÃO: TABELA PERIÓDICA (página opção1) */
+
+/* cabeçalho de grupos alinhado à tabela periódica */
+/* quando o grupo está dentro da tabela, utiliza-se display:contents para
+   deixar apenas os <span> como itens da grade. Isso permite a linha
+   adicional sem interromper a estrutura do grid. */
+.grupos{
+  display: contents;
+}
+
+.grupos span {
+  grid-row: 1;                /* força todos os números na primeira linha */
+  text-align: center;
+  display: flex;
+  align-items: center;        /* centraliza verticalmente dentro da célula */
+  justify-content: center;    /* já tem horizontal, reforça em flex */
+}
+
+.tabela-periodica {
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(18, minmax(45px, 1fr));
+  grid-auto-rows: 50px;
+  gap: 1px;
+  justify-content: center;
+  cursor: default;
+  border: 1px solid #999;
+  width: 100%;
+  max-width: 1008px;
+  grid-template-columns: repeat(18, minmax(20px, 1fr));
+  /* mantém 18 colunas, mas permite encolher para telas menores */
+}
+
+/* modo escuro - tabela */
+body.escuro .tabela-periodica {
+  border-color: var(--cor-secundaria);
+}
+
+.celula-elemento {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  background-color: #fff;
+  padding: 2px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: filter var(--duracao-transicao-curta);
+  border: 3px solid #33333325;
+
+}
+
+/* destaque ao passar o mouse */
+.celula-elemento:hover {
+  transition: var(--duracao-transicao-curta);
+  transform: scale(1.05);
+  filter: brightness(1.05);
+  z-index: 2;
+}
+
+/* elemento selecionado (após clique) */
+.celula-elemento.selecionado {
+  filter: brightness(1.3);
+  border: 2px solid var(--borda-selecionada);
+}
+
+/* números invisíveis até hover/selecção */
+.celula-elemento .numero {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 0.6rem;
+  display: none;
+}
+
+.celula-elemento:hover .numero,
+.celula-elemento.selecionado .numero {
+  display: block;
+}
+
+.celula-elemento .simbolo {
+  font-size: 0.9rem;
+  font-weight: bold;
+  white-space: pre-line; /* permite \n para quebra de linha dentro do símbolo */
+}
+
+/* ---------- estilos de células customizadas (início/listagem) ---------- */
+.tabela-periodica .celula-elemento.celulas-comeco-lact .simbolo {
+  font-size: 0.5rem;
+  /* pre-line já herdado acima */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* ------------------------------------------------------------------------ */
+
+.celula-elemento .nome {
+  font-size: 0.4rem;
+  text-align: center;
+  line-height: 1em;
+}
+
+/* estilo para bloco‑f (lantanídeos/actinídeos) */
+.celula-elemento.fbloco {
+  margin-top: 0.3rem;
+  font-size: 0.6rem;
+}
+
+.tabela-periodica .celula-elemento.celulas-listagem-lact {
+  border: none;
+  cursor: default;
+  opacity: 0.6;
+}
+/* impedir animação ao passar por cima das de listagem */
+.tabela-periodica .celula-elemento.celulas-listagem-lact:hover {
+  transform: none;
+  filter: none;
+}
+
+
+/* manter as 18 colunas, mas fazê‑las encolherem para caber
+   evita estouro quando itens do bloco‑f estão em colunas altas */
+@media (max-width: 1120px) {
+  .conteudo {
+    padding: 0rem 5%;
+  }
+
+  /* ambos cabeçalho e tabela utilizam as mesmas regras responsivas */
+  .grupos,
+  .tabela-periodica {
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns: repeat(18, minmax(20px, 1fr));
+    grid-auto-rows: 50px;
+  }
+
+  .celula-elemento {
+    font-size: 0.6rem;
+  }
+
+  .celula-elemento .simbolo {
+    font-size: 0.9rem;
+  }
+
+  .celula-elemento .nome {
+    display: none;
+    /* esconde o nome em telas menores para evitar poluição visual */
+  }
+
+}
+
+@media (max-width: 765px) {
+  .conteudo {
+    padding: 0rem;
+  }
+
+  /* manter cabeçalho visível igual à tabela quando encolhe */
+  .grupos,
+  .tabela-periodica {
+    grid-auto-rows: 50px;
+  }
+
+  .celula-elemento {
+    font-size: 0.5rem;
+    padding: 1px;
+  }
+
+  .celula-elemento .simbolo {
+    font-size: 0.8rem;
+  }
+
+  .celula-elemento .nome {
+    display: none;
+  }
+
+  .nomeedescricao {
+    height: 250px;
+  }
+}
+
+/* ----------------------------------------------------------------- */
+/* estilos específicos de páginas futuras (opção2, opção3, opção4)     */
+/* cada nova página pode usar classes ou seletores próprios abaixo   */
+
+/* página opção2 */
+/* .pagina-opcao2 { }
+   .pagina-opcao2 h1 { }
+*/
+
+/* página opção3 */
+/* .pagina-opcao3 { }
+   .pagina-opcao3 .alguma-coisa { }
+*/
+
+/* página opção4 */
+/* .pagina-opcao4 { }
+   .pagina-opcao4 .outro { }
+*/

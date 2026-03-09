@@ -1,0 +1,1889 @@
+[
+  {
+    "numero": 1,
+    "nome": "Hidrogênio",
+    "simbolo": "H",
+    "descricao": "O hidrogênio é o elemento químico mais simples e mais abundante do universo. Seu átomo possui apenas um próton e um elétron. Na Terra, raramente é encontrado isolado, aparecendo principalmente combinado em substâncias como água (H₂O) e compostos orgânicos. É um gás incolor, inodoro e altamente inflamável.",
+    "uso": [
+      "Produção de amônia (fertilizantes)",
+      "Combustível em foguetes",
+      "Células de combustível (energia limpa)",
+      "Refino de petróleo",
+      "Produção de metanol"
+    ],
+    "grupo": "1",
+    "descricao_questionario": "Este elemento é o elemento químico mais simples e mais abundante do universo. Seu átomo possui apenas um próton e um elétron. Na Terra, raramente é encontrado isolado, aparecendo principalmente combinado em substâncias como água (H₂O) e compostos orgânicos. É um gás incolor, inodoro e altamente inflamável.",
+    "massa_molar": 1,
+    "camadas_eletrons": "1",
+    "categoria_filtro": "nao-metal"
+  },
+  {
+    "numero": 2,
+    "nome": "Hélio",
+    "simbolo": "He",
+    "descricao": "O hélio é um gás nobre extremamente leve e quimicamente inerte. Possui o segundo menor ponto de ebulição entre todos os elementos e praticamente não reage com outras substâncias. É formado principalmente em reações nucleares dentro das estrelas.",
+    "uso": [
+      "Enchimento de balões e dirigíveis",
+      "Resfriamento de ímãs supercondutores (ressonância magnética)",
+      "Atmosferas inertes em soldagem",
+      "Criogenia",
+      "Misturas respiratórias para mergulho profundo"
+    ],
+    "grupo": "18",
+    "descricao_questionario": "Este elemento é um gás nobre extremamente leve e quimicamente inerte. Possui o segundo menor ponto de ebulição entre todos os elementos e praticamente não reage com outras substâncias. É formado principalmente em reações nucleares dentro das estrelas.",
+    "massa_molar": 2,
+    "camadas_eletrons": "2",
+    "categoria_filtro": "gas-nobre"
+  },
+  {
+    "numero": 3,
+    "nome": "Lítio",
+    "simbolo": "Li",
+    "descricao": "O lítio é um metal alcalino extremamente leve e macio, altamente reativo, especialmente com água. É o metal sólido mais leve existente. Devido à sua alta densidade energética, tornou-se essencial para tecnologias modernas de armazenamento de energia.",
+    "uso": [
+      "Baterias de celulares, notebooks e carros elétricos",
+      "Tratamento de transtorno bipolar (carbonato de lítio)",
+      "Ligas metálicas leves para aeronaves",
+      "Vidros e cerâmicas especiais"
+    ],
+    "grupo": "1",
+    "descricao_questionario": "Este elemento é um metal alcalino extremamente leve e macio, altamente reativo, especialmente com água. É o metal sólido mais leve existente. Devido à sua alta densidade energética, tornou-se essencial para tecnologias modernas de armazenamento de energia.",
+    "massa_molar": 3,
+    "camadas_eletrons": "2-1",
+    "categoria_filtro": "metal-alcalino"
+  },
+  {
+    "numero": 4,
+    "nome": "Berílio",
+    "simbolo": "Be",
+    "descricao": "O berílio é um metal alcalino-terroso duro, leve e quebradiço. Possui alta resistência mecânica e excelente estabilidade térmica. Entretanto, é altamente tóxico quando inalado em forma de poeira.",
+    "uso": [
+      "Componentes aeroespaciais",
+      "Espelhos de telescópios",
+      "Janelas para tubos de raios X",
+      "Ligas metálicas com cobre"
+    ],
+    "grupo": "2",
+    "descricao_questionario": "Este elemento é um metal alcalino-terroso duro, leve e quebradiço. Possui alta resistência mecânica e excelente estabilidade térmica. Entretanto, é altamente tóxico quando inalado em forma de poeira.",
+    "massa_molar": 4,
+    "camadas_eletrons": "2-2",
+    "categoria_filtro": "metal-alcalino-terroso"
+  },
+  {
+    "numero": 5,
+    "nome": "Boro",
+    "simbolo": "B",
+    "descricao": "O boro é um metaloide que possui propriedades intermediárias entre metais e não metais. É relativamente raro na natureza e geralmente encontrado em minerais como o bórax. Apresenta alta resistência térmica e química.",
+    "uso": [
+      "Vidros resistentes ao calor (vidro borossilicato)",
+      "Detergentes e sabões",
+      "Fertilizantes",
+      "Materiais semicondutores",
+      "Barras de controle em reatores nucleares"
+    ],
+    "grupo": "13",
+    "descricao_questionario": "Este elemento é um metaloide que possui propriedades intermediárias entre metais e não metais. É relativamente raro na natureza e geralmente encontrado em minerais como o bórax. Apresenta alta resistência térmica e química.",
+    "massa_molar": 5,
+    "camadas_eletrons": "2-3",
+    "categoria_filtro": "metaloide"
+  },
+  {
+    "numero": 6,
+    "nome": "Carbono",
+    "simbolo": "C",
+    "descricao": "O carbono é um dos elementos mais importantes para a vida. Possui a capacidade única de formar longas cadeias e estruturas complexas, originando a enorme diversidade de compostos orgânicos. Apresenta várias formas alotrópicas, como grafite, diamante e grafeno.",
+    "uso": [
+      "Base de toda a química orgânica",
+      "Combustíveis fósseis",
+      "Produção de aço",
+      "Diamantes industriais",
+      "Materiais avançados como nanotubos de carbono"
+    ],
+    "grupo": "14",
+    "descricao_questionario": "Este elemento é um dos elementos mais importantes para a vida. Possui a capacidade única de formar longas cadeias e estruturas complexas, originando a enorme diversidade de compostos orgânicos. Apresenta várias formas alotrópicas, como grafite, diamante e grafeno.",
+    "massa_molar": 6,
+    "camadas_eletrons": "2-4",
+    "categoria_filtro": "nao-metal"
+  },
+  {
+    "numero": 7,
+    "nome": "Nitrogênio",
+    "simbolo": "N",
+    "descricao": "O nitrogênio é um gás incolor e inodoro que compõe cerca de 78% da atmosfera terrestre. É relativamente pouco reativo em condições normais devido à forte ligação tripla entre seus átomos. É essencial para proteínas, DNA e outros compostos biológicos.",
+    "uso": [
+      "Produção de fertilizantes (amônia)",
+      "Atmosfera inerte em processos industriais",
+      "Conservação de alimentos",
+      "Criogenia (nitrogênio líquido)"
+    ],
+    "grupo": "15",
+    "descricao_questionario": "Este elemento é um gás incolor e inodoro que compõe cerca de 78% da atmosfera terrestre. É relativamente pouco reativo em condições normais devido à forte ligação tripla entre seus átomos. É essencial para proteínas, DNA e outros compostos biológicos.",
+    "massa_molar": 7,
+    "camadas_eletrons": "2-5",
+    "categoria_filtro": "nao-metal"
+  },
+  {
+    "numero": 8,
+    "nome": "Oxigênio",
+    "simbolo": "O",
+    "descricao": "O oxigênio é um elemento extremamente reativo e essencial para a respiração da maioria dos organismos vivos. Representa cerca de 21% da atmosfera terrestre. Participa de inúmeras reações químicas, especialmente processos de combustão e oxidação.",
+    "uso": [
+      "Medicina (oxigenoterapia)",
+      "Soldagem e corte de metais",
+      "Produção de aço",
+      "Tratamento de água",
+      "Combustível oxidante em foguetes"
+    ],
+    "grupo": "16",
+    "descricao_questionario": "Este elemento é um elemento extremamente reativo e essencial para a respiração da maioria dos organismos vivos. Representa cerca de 21% da atmosfera terrestre. Participa de inúmeras reações químicas, especialmente processos de combustão e oxidação.",
+    "massa_molar": 8,
+    "camadas_eletrons": "2-6",
+    "categoria_filtro": "nao-metal"
+  },
+  {
+    "numero": 9,
+    "nome": "Flúor",
+    "simbolo": "F",
+    "descricao": "O flúor é o elemento mais eletronegativo da tabela periódica. É um halogênio extremamente reativo e corrosivo, capaz de reagir com praticamente todos os elementos. Na natureza aparece apenas em compostos.",
+    "uso": [
+      "Pasta de dente (fluoretos)",
+      "Produção de Teflon",
+      "Indústria química",
+      "Processamento de urânio"
+    ],
+    "grupo": "17",
+    "descricao_questionario": "Este elemento é o elemento mais eletronegativo da tabela periódica. É um halogênio extremamente reativo e corrosivo, capaz de reagir com praticamente todos os elementos. Na natureza aparece apenas em compostos.",
+    "massa_molar": 9,
+    "camadas_eletrons": "2-7",
+    "categoria_filtro": "nao-metal"
+  },
+  {
+    "numero": 10,
+    "nome": "Neônio",
+    "simbolo": "Ne",
+    "descricao": "O neônio é um gás nobre inerte e raro na atmosfera terrestre. Quando submetido a descargas elétricas em tubos de vidro, emite uma luz vermelho-alaranjada característica.",
+    "uso": [
+      "Letreiros luminosos",
+      "Indicadores elétricos",
+      "Tubos de descarga"
+    ],
+    "grupo": "18",
+    "descricao_questionario": "Este elemento é um gás nobre inerte e raro na atmosfera terrestre. Quando submetido a descargas elétricas em tubos de vidro, emite uma luz vermelho-alaranjada característica.",
+    "massa_molar": 10,
+    "camadas_eletrons": "2-8",
+    "categoria_filtro": "gas-nobre"
+  },
+  {
+    "numero": 11,
+    "nome": "Sódio",
+    "simbolo": "Na",
+    "descricao": "Metal alcalino muito reativo, macio e prateado. Reage violentamente com água e oxigênio. Na natureza ocorre principalmente como cloreto de sódio (sal de cozinha).",
+    "uso": [
+      "Sal de cozinha",
+      "Conservação de alimentos",
+      "Lâmpadas de vapor de sódio",
+      "Indústria química"
+    ],
+    "grupo": "1",
+    "descricao_questionario": "Metal alcalino muito reativo, macio e prateado. Reage violentamente com água e oxigênio. Na natureza ocorre principalmente como cloreto de este elemento (sal de cozinha).",
+    "massa_molar": 11,
+    "camadas_eletrons": "2-8-1",
+    "categoria_filtro": "metal-alcalino"
+  },
+  {
+    "numero": 12,
+    "nome": "Magnésio",
+    "simbolo": "Mg",
+    "descricao": "Metal leve e relativamente resistente. É essencial para organismos vivos, participando da molécula de clorofila nas plantas.",
+    "uso": [
+      "Ligas metálicas leves",
+      "Fogos de artifício",
+      "Indústria automotiva",
+      "Suplementos alimentares"
+    ],
+    "grupo": "2",
+    "descricao_questionario": "Metal leve e relativamente resistente. É essencial para organismos vivos, participando da molécula de clorofila nas plantas.",
+    "massa_molar": 12,
+    "camadas_eletrons": "2-8-2",
+    "categoria_filtro": "metal-alcalino-terroso"
+  },
+  {
+    "numero": 13,
+    "nome": "Alumínio",
+    "simbolo": "Al",
+    "descricao": "Metal leve, maleável e resistente à corrosão graças à formação de uma camada protetora de óxido. É um dos metais mais abundantes da crosta terrestre.",
+    "uso": [
+      "Embalagens (latas, papel alumínio)",
+      "Construção civil",
+      "Aviões",
+      "Cabos elétricos"
+    ],
+    "grupo": "13",
+    "descricao_questionario": "Metal leve, maleável e resistente à corrosão graças à formação de uma camada protetora de óxido. É um dos metais mais abundantes da crosta terrestre.",
+    "massa_molar": 13,
+    "camadas_eletrons": "2-8-3",
+    "categoria_filtro": "metal-pos-transicao"
+  },
+  {
+    "numero": 14,
+    "nome": "Silício",
+    "simbolo": "Si",
+    "descricao": "Metaloide muito abundante na crosta terrestre. Forma a base de minerais como quartzo e silicatos. Possui propriedades semicondutoras fundamentais para eletrônica.",
+    "uso": [
+      "Chips de computador",
+      "Painéis solares",
+      "Vidro e cerâmica",
+      "Eletrônica"
+    ],
+    "grupo": "14",
+    "descricao_questionario": "Metaloide muito abundante na crosta terrestre. Forma a base de minerais como quartzo e silicatos. Possui propriedades semicondutoras fundamentais para eletrônica.",
+    "massa_molar": 14,
+    "camadas_eletrons": "2-8-4",
+    "categoria_filtro": "metaloide"
+  },
+  {
+    "numero": 15,
+    "nome": "Fósforo",
+    "simbolo": "P",
+    "descricao": "Não metal altamente reativo. Possui várias formas alotrópicas (branco, vermelho e negro). É essencial para organismos vivos, participando do DNA, RNA e ATP.",
+    "uso": [
+      "Fertilizantes",
+      "Fósforos",
+      "Detergentes",
+      "Produtos químicos industriais"
+    ],
+    "grupo": "15",
+    "descricao_questionario": "Não metal altamente reativo. Possui várias formas alotrópicas (branco, vermelho e negro). É essencial para organismos vivos, participando do DNA, RNA e ATP.",
+    "massa_molar": 15,
+    "camadas_eletrons": "2-8-5",
+    "categoria_filtro": "nao-metal"
+  },
+  {
+    "numero": 16,
+    "nome": "Enxofre",
+    "simbolo": "S",
+    "descricao": "Não metal amarelo encontrado em depósitos naturais e em compostos minerais. É essencial para proteínas e diversos processos biológicos.",
+    "uso": [
+      "Produção de ácido sulfúrico",
+      "Fertilizantes",
+      "Vulcanização da borracha",
+      "Fungicidas"
+    ],
+    "grupo": "16",
+    "descricao_questionario": "Não metal amarelo encontrado em depósitos naturais e em compostos minerais. É essencial para proteínas e diversos processos biológicos.",
+    "massa_molar": 16,
+    "camadas_eletrons": "2-8-6",
+    "categoria_filtro": "nao-metal"
+  },
+  {
+    "numero": 17,
+    "nome": "Cloro",
+    "simbolo": "Cl",
+    "descricao": "Halogênio gasoso de cor verde-amarelada, altamente reativo e tóxico. Forma diversos compostos importantes, como o cloreto de sódio.",
+    "uso": [
+      "Tratamento de água",
+      "Produção de PVC",
+      "Desinfetantes",
+      "Indústria química"
+    ],
+    "grupo": "17",
+    "descricao_questionario": "Halogênio gasoso de cor verde-amarelada, altamente reativo e tóxico. Forma diversos compostos importantes, como o cloreto de sódio.",
+    "massa_molar": 17,
+    "camadas_eletrons": "2-8-7",
+    "categoria_filtro": "nao-metal"
+  },
+  {
+    "numero": 18,
+    "nome": "Argônio",
+    "simbolo": "Ar",
+    "descricao": "Gás nobre que constitui cerca de 0,93% da atmosfera terrestre. É quimicamente inerte em condições normais.",
+    "uso": [
+      "Atmosfera protetora em soldagem",
+      "Lâmpadas incandescentes",
+      "Indústria metalúrgica"
+    ],
+    "grupo": "18",
+    "descricao_questionario": "Gás nobre que constitui cerca de 0,93% da atmosfera terrestre. É quimicamente inerte em condições normais.",
+    "massa_molar": 18,
+    "camadas_eletrons": "2-8-8",
+    "categoria_filtro": "gas-nobre"
+  },
+  {
+    "numero": 19,
+    "nome": "Potássio",
+    "simbolo": "K",
+    "descricao": "Metal alcalino extremamente reativo, essencial para o funcionamento de células vivas. Reage rapidamente com água e oxigênio.",
+    "uso": [
+      "Fertilizantes agrícolas",
+      "Medicina",
+      "Sabões especiais"
+    ],
+    "grupo": "1",
+    "descricao_questionario": "Metal alcalino extremamente reativo, essencial para o funcionamento de células vivas. Reage rapidamente com água e oxigênio.",
+    "massa_molar": 19,
+    "camadas_eletrons": "2-8-9",
+    "categoria_filtro": "metal-alcalino"
+  },
+  {
+    "numero": 20,
+    "nome": "Cálcio",
+    "simbolo": "Ca",
+    "descricao": "Metal alcalino-terroso abundante na natureza. É um componente fundamental de ossos, dentes e conchas.",
+    "uso": [
+      "Produção de cimento e cal",
+      "Construção civil",
+      "Suplementos alimentares",
+      "Metalurgia"
+    ],
+    "grupo": "2",
+    "descricao_questionario": "Metal alcalino-terroso abundante na natureza. É um componente fundamental de ossos, dentes e conchas.",
+    "massa_molar": 20,
+    "camadas_eletrons": "2-8-10",
+    "categoria_filtro": "metal-alcalino-terroso"
+  },
+  {
+    "numero": 21,
+    "nome": "Escândio",
+    "simbolo": "Sc",
+    "descricao": "O escândio é um metal de transição relativamente raro, leve e prateado. Possui propriedades semelhantes às do alumínio, mas é menos abundante na crosta terrestre. Normalmente aparece em minerais dispersos e raramente em depósitos concentrados. Quando oxidado, forma um óxido resistente ao calor.",
+    "uso": [
+      "Ligas metálicas leves para aeronaves",
+      "Equipamentos esportivos de alta performance",
+      "Lâmpadas de vapor metálico",
+      "Pesquisa em materiais avançados"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Este elemento é um metal de transição relativamente raro, leve e prateado. Possui propriedades semelhantes às do alumínio, mas é menos abundante na crosta terrestre. Normalmente aparece em minerais dispersos e raramente em depósitos concentrados. Quando oxidado, forma um óxido resistente ao calor.",
+    "massa_molar": 21,
+    "camadas_eletrons": "2-8-11",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 22,
+    "nome": "Titânio",
+    "simbolo": "Ti",
+    "descricao": "O titânio é um metal de transição muito resistente, leve e altamente resistente à corrosão. Sua resistência mecânica combinada com baixa densidade o torna extremamente valioso em aplicações tecnológicas e aeroespaciais. Também apresenta excelente biocompatibilidade.",
+    "uso": [
+      "Implantes médicos e próteses",
+      "Indústria aeroespacial",
+      "Estruturas navais",
+      "Pigmento branco (dióxido de titânio)"
+    ],
+    "grupo": "4",
+    "descricao_questionario": "Este elemento é um metal de transição muito resistente, leve e altamente resistente à corrosão. Sua resistência mecânica combinada com baixa densidade o torna extremamente valioso em aplicações tecnológicas e aeroespaciais. Também apresenta excelente biocompatibilidade.",
+    "massa_molar": 22,
+    "camadas_eletrons": "2-8-12",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 23,
+    "nome": "Vanádio",
+    "simbolo": "V",
+    "descricao": "O vanádio é um metal de transição duro, prateado e resistente à corrosão. É frequentemente encontrado em minerais e também em pequenas quantidades em combustíveis fósseis. Forma compostos com diferentes estados de oxidação.",
+    "uso": [
+      "Produção de aços de alta resistência",
+      "Ligas metálicas para ferramentas",
+      "Baterias redox de vanádio",
+      "Catalisadores industriais"
+    ],
+    "grupo": "5",
+    "descricao_questionario": "Este elemento é um metal de transição duro, prateado e resistente à corrosão. É frequentemente encontrado em minerais e também em pequenas quantidades em combustíveis fósseis. Forma compostos com diferentes estados de oxidação.",
+    "massa_molar": 23,
+    "camadas_eletrons": "2-8-13",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 24,
+    "nome": "Cromo",
+    "simbolo": "Cr",
+    "descricao": "O cromo é um metal brilhante, duro e altamente resistente à corrosão. É o elemento responsável pela resistência à corrosão do aço inoxidável. Possui vários estados de oxidação e forma compostos com cores intensas.",
+    "uso": [
+      "Aço inoxidável",
+      "Cromagem de superfícies metálicas",
+      "Pigmentos industriais",
+      "Curtimento de couro"
+    ],
+    "grupo": "6",
+    "descricao_questionario": "Este elemento é um metal brilhante, duro e altamente resistente à corrosão. É o elemento responsável pela resistência à corrosão do aço inoxidável. Possui vários estados de oxidação e forma compostos com cores intensas.",
+    "massa_molar": 24,
+    "camadas_eletrons": "2-8-14",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 25,
+    "nome": "Manganês",
+    "simbolo": "Mn",
+    "descricao": "O manganês é um metal duro e quebradiço encontrado principalmente em minerais de óxidos. Desempenha um papel essencial em processos industriais e também em sistemas biológicos, atuando em enzimas importantes.",
+    "uso": [
+      "Produção de aço",
+      "Baterias alcalinas",
+      "Pigmentos",
+      "Fertilizantes"
+    ],
+    "grupo": "7",
+    "descricao_questionario": "Este elemento é um metal duro e quebradiço encontrado principalmente em minerais de óxidos. Desempenha um papel essencial em processos industriais e também em sistemas biológicos, atuando em enzimas importantes.",
+    "massa_molar": 25,
+    "camadas_eletrons": "2-8-15",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 26,
+    "nome": "Ferro",
+    "simbolo": "Fe",
+    "descricao": "O ferro é um dos metais mais importantes da civilização humana. É o principal componente do aço e está presente em grande quantidade na crosta terrestre e no núcleo do planeta. Também é essencial para organismos vivos, participando da hemoglobina.",
+    "uso": [
+      "Produção de aço",
+      "Construção civil",
+      "Máquinas e veículos",
+      "Estruturas metálicas"
+    ],
+    "grupo": "8",
+    "descricao_questionario": "Este elemento é um dos metais mais importantes da civilização humana. É o principal componente do aço e está presente em grande quantidade na crosta terrestre e no núcleo do planeta. Também é essencial para organismos vivos, participando da hemoglobina.",
+    "massa_molar": 26,
+    "camadas_eletrons": "2-8-16",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 27,
+    "nome": "Cobalto",
+    "simbolo": "Co",
+    "descricao": "O cobalto é um metal duro e ferromagnético. Possui grande importância tecnológica devido à sua capacidade de formar ligas resistentes ao calor. Também é essencial em pequenas quantidades para organismos vivos.",
+    "uso": [
+      "Baterias de íons de lítio",
+      "Superligas para turbinas",
+      "Pigmentos azuis",
+      "Catalisadores"
+    ],
+    "grupo": "9",
+    "descricao_questionario": "Este elemento é um metal duro e ferromagnético. Possui grande importância tecnológica devido à sua capacidade de formar ligas resistentes ao calor. Também é essencial em pequenas quantidades para organismos vivos.",
+    "massa_molar": 27,
+    "camadas_eletrons": "2-8-17",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 28,
+    "nome": "Níquel",
+    "simbolo": "Ni",
+    "descricao": "O níquel é um metal prateado resistente à corrosão e com propriedades magnéticas. Ocorre naturalmente em minerais e também em meteoritos. Forma ligas muito resistentes.",
+    "uso": [
+      "Aço inoxidável",
+      "Moedas",
+      "Baterias",
+      "Revestimentos anticorrosão"
+    ],
+    "grupo": "10",
+    "descricao_questionario": "Este elemento é um metal prateado resistente à corrosão e com propriedades magnéticas. Ocorre naturalmente em minerais e também em meteoritos. Forma ligas muito resistentes.",
+    "massa_molar": 28,
+    "camadas_eletrons": "2-8-18",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 29,
+    "nome": "Cobre",
+    "simbolo": "Cu",
+    "descricao": "O cobre é um metal avermelhado extremamente bom condutor de eletricidade e calor. Foi um dos primeiros metais utilizados pela humanidade e desempenha papel fundamental na tecnologia moderna.",
+    "uso": [
+      "Fiação elétrica",
+      "Motores e geradores",
+      "Tubulações",
+      "Componentes eletrônicos"
+    ],
+    "grupo": "11",
+    "descricao_questionario": "Este elemento é um metal avermelhado extremamente bom condutor de eletricidade e calor. Foi um dos primeiros metais utilizados pela humanidade e desempenha papel fundamental na tecnologia moderna.",
+    "massa_molar": 29,
+    "camadas_eletrons": "2-8-18-1",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 30,
+    "nome": "Zinco",
+    "simbolo": "Zn",
+    "descricao": "O zinco é um metal relativamente reativo que se oxida facilmente, formando uma camada protetora que impede corrosão adicional. É amplamente utilizado para proteger outros metais.",
+    "uso": [
+      "Galvanização de aço",
+      "Ligas metálicas (latão)",
+      "Baterias",
+      "Suplementos nutricionais"
+    ],
+    "grupo": "12",
+    "descricao_questionario": "Este elemento é um metal relativamente reativo que se oxida facilmente, formando uma camada protetora que impede corrosão adicional. É amplamente utilizado para proteger outros metais.",
+    "massa_molar": 30,
+    "camadas_eletrons": "2-8-18-2",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 31,
+    "nome": "Gálio",
+    "simbolo": "Ga",
+    "descricao": "O gálio é um metal macio com baixo ponto de fusão, podendo derreter próximo da temperatura corporal. É encontrado em pequenas quantidades em minerais de alumínio e zinco.",
+    "uso": [
+      "LEDs",
+      "Lasers semicondutores",
+      "Circuitos eletrônicos",
+      "Painéis solares"
+    ],
+    "grupo": "13",
+    "descricao_questionario": "Este elemento é um metal macio com baixo ponto de fusão, podendo derreter próximo da temperatura corporal. É encontrado em pequenas quantidades em minerais de alumínio e zinco.",
+    "massa_molar": 31,
+    "camadas_eletrons": "2-8-18-3",
+    "categoria_filtro": "metal-pos-transicao"
+  },
+  {
+    "numero": 32,
+    "nome": "Germânio",
+    "simbolo": "Ge",
+    "descricao": "O germânio é um metaloide com propriedades semicondutoras semelhantes às do silício. Foi muito importante nos primeiros transistores eletrônicos.",
+    "uso": [
+      "Fibra óptica",
+      "Eletrônica",
+      "Detectores infravermelhos",
+      "Painéis solares"
+    ],
+    "grupo": "14",
+    "descricao_questionario": "Este elemento é um metaloide com propriedades semicondutoras semelhantes às do silício. Foi muito importante nos primeiros transistores eletrônicos.",
+    "massa_molar": 32,
+    "camadas_eletrons": "2-8-18-4",
+    "categoria_filtro": "metaloide"
+  },
+  {
+    "numero": 33,
+    "nome": "Arsênio",
+    "simbolo": "As",
+    "descricao": "O arsênio é um metaloide tóxico encontrado em minerais sulfetados. Apesar de sua toxicidade, possui aplicações tecnológicas importantes.",
+    "uso": [
+      "Semicondutores",
+      "Conservantes de madeira (uso reduzido)",
+      "Inseticidas antigos",
+      "Ligas metálicas"
+    ],
+    "grupo": "15",
+    "descricao_questionario": "Este elemento é um metaloide tóxico encontrado em minerais sulfetados. Apesar de sua toxicidade, possui aplicações tecnológicas importantes.",
+    "massa_molar": 33,
+    "camadas_eletrons": "2-8-18-5",
+    "categoria_filtro": "metaloide"
+  },
+  {
+    "numero": 34,
+    "nome": "Selênio",
+    "simbolo": "Se",
+    "descricao": "O selênio é um não metal que possui propriedades fotocondutoras. É essencial em pequenas quantidades para organismos vivos.",
+    "uso": [
+      "Eletrônica",
+      "Vidros especiais",
+      "Suplementos nutricionais",
+      "Células solares"
+    ],
+    "grupo": "16",
+    "descricao_questionario": "Este elemento é um não metal que possui propriedades fotocondutoras. É essencial em pequenas quantidades para organismos vivos.",
+    "massa_molar": 34,
+    "camadas_eletrons": "2-8-18-6",
+    "categoria_filtro": "nao-metal"
+  },
+  {
+    "numero": 35,
+    "nome": "Bromo",
+    "simbolo": "Br",
+    "descricao": "O bromo é o único não metal líquido à temperatura ambiente. É um halogênio altamente reativo e tóxico.",
+    "uso": [
+      "Retardantes de chama",
+      "Produtos químicos industriais",
+      "Tratamento de água",
+      "Fotografia (histórico)"
+    ],
+    "grupo": "17",
+    "descricao_questionario": "Este elemento é o único não metal líquido à temperatura ambiente. É um halogênio altamente reativo e tóxico.",
+    "massa_molar": 35,
+    "camadas_eletrons": "2-8-18-7",
+    "categoria_filtro": "nao-metal"
+  },
+  {
+    "numero": 36,
+    "nome": "Criptônio",
+    "simbolo": "Kr",
+    "descricao": "O criptônio é um gás nobre raro presente em pequenas quantidades na atmosfera. É quimicamente pouco reativo.",
+    "uso": [
+      "Lâmpadas de alta intensidade",
+      "Fotografia de alta velocidade",
+      "Lasers"
+    ],
+    "grupo": "18",
+    "descricao_questionario": "Este elemento é um gás nobre raro presente em pequenas quantidades na atmosfera. É quimicamente pouco reativo.",
+    "massa_molar": 36,
+    "camadas_eletrons": "2-8-18-8",
+    "categoria_filtro": "gas-nobre"
+  },
+  {
+    "numero": 37,
+    "nome": "Rubídio",
+    "simbolo": "Rb",
+    "descricao": "O rubídio é um metal alcalino extremamente reativo, macio e prateado. Reage violentamente com água e ar.",
+    "uso": [
+      "Relógios atômicos",
+      "Pesquisa científica",
+      "Dispositivos eletrônicos experimentais"
+    ],
+    "grupo": "1",
+    "descricao_questionario": "Este elemento é um metal alcalino extremamente reativo, macio e prateado. Reage violentamente com água e ar.",
+    "massa_molar": 37,
+    "camadas_eletrons": "2-8-18-9",
+    "categoria_filtro": "metal-alcalino"
+  },
+  {
+    "numero": 38,
+    "nome": "Estrôncio",
+    "simbolo": "Sr",
+    "descricao": "O estrôncio é um metal alcalino-terroso macio e reativo. Seus compostos produzem uma chama vermelha intensa.",
+    "uso": [
+      "Fogos de artifício",
+      "Ímãs cerâmicos",
+      "Pesquisa científica"
+    ],
+    "grupo": "2",
+    "descricao_questionario": "Este elemento é um metal alcalino-terroso macio e reativo. Seus compostos produzem uma chama vermelha intensa.",
+    "massa_molar": 38,
+    "camadas_eletrons": "2-8-18-10",
+    "categoria_filtro": "metal-alcalino-terroso"
+  },
+  {
+    "numero": 39,
+    "nome": "Ítrio",
+    "simbolo": "Y",
+    "descricao": "O ítrio é um metal de transição frequentemente associado aos elementos de terras raras. Possui propriedades importantes em materiais avançados.",
+    "uso": [
+      "Supercondutores",
+      "LEDs",
+      "Lasers",
+      "Cerâmicas avançadas"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Este elemento é um metal de transição frequentemente associado aos elementos de terras raras. Possui propriedades importantes em materiais avançados.",
+    "massa_molar": 39,
+    "camadas_eletrons": "2-8-18-11",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 40,
+    "nome": "Zircônio",
+    "simbolo": "Zr",
+    "descricao": "O zircônio é um metal altamente resistente à corrosão e ao calor. Possui baixa absorção de nêutrons, o que o torna ideal para aplicações nucleares.",
+    "uso": [
+      "Reatores nucleares",
+      "Ligas metálicas resistentes",
+      "Cerâmica técnica",
+      "Equipamentos químicos"
+    ],
+    "grupo": "4",
+    "descricao_questionario": "Este elemento é um metal altamente resistente à corrosão e ao calor. Possui baixa absorção de nêutrons, o que o torna ideal para aplicações nucleares.",
+    "massa_molar": 40,
+    "camadas_eletrons": "2-8-18-12",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 41,
+    "nome": "Nióbio",
+    "simbolo": "Nb",
+    "descricao": "O nióbio é um metal de transição prateado, relativamente macio e altamente resistente à corrosão. Possui boa estabilidade térmica e forma ligas extremamente resistentes. É encontrado principalmente em minerais como columbita e pirocloro. O Brasil possui algumas das maiores reservas mundiais desse elemento.",
+    "uso": [
+      "Ligas de aço de alta resistência",
+      "Indústria aeroespacial",
+      "Supercondutores",
+      "Equipamentos médicos"
+    ],
+    "grupo": "5",
+    "descricao_questionario": "Este elemento é um metal de transição prateado, relativamente macio e altamente resistente à corrosão. Possui boa estabilidade térmica e forma ligas extremamente resistentes. É encontrado principalmente em minerais como columbita e pirocloro. O Brasil possui algumas das maiores reservas mundiais desse elemento.",
+    "massa_molar": 41,
+    "camadas_eletrons": "2-8-18-13",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 42,
+    "nome": "Molibdênio",
+    "simbolo": "Mo",
+    "descricao": "O molibdênio é um metal de transição duro, com alto ponto de fusão. Possui grande resistência térmica e química. Frequentemente aparece em minerais como molibdenita.",
+    "uso": [
+      "Ligas metálicas resistentes ao calor",
+      "Aços especiais",
+      "Catalisadores industriais",
+      "Lubrificantes sólidos"
+    ],
+    "grupo": "6",
+    "descricao_questionario": "Este elemento é um metal de transição duro, com alto ponto de fusão. Possui grande resistência térmica e química. Frequentemente aparece em minerais como molibdenita.",
+    "massa_molar": 42,
+    "camadas_eletrons": "2-8-18-14",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 43,
+    "nome": "Tecnécio",
+    "simbolo": "Tc",
+    "descricao": "O tecnécio foi o primeiro elemento produzido artificialmente em laboratório. É radioativo e não possui isótopos estáveis. Na natureza aparece apenas em quantidades extremamente pequenas.",
+    "uso": [
+      "Medicina nuclear (diagnóstico por imagem)",
+      "Pesquisa científica"
+    ],
+    "grupo": "7",
+    "descricao_questionario": "Este elemento foi o primeiro elemento produzido artificialmente em laboratório. É radioativo e não possui isótopos estáveis. Na natureza aparece apenas em quantidades extremamente pequenas.",
+    "massa_molar": 43,
+    "camadas_eletrons": "2-8-18-15",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 44,
+    "nome": "Rutênio",
+    "simbolo": "Ru",
+    "descricao": "O rutênio é um metal raro do grupo da platina, duro e resistente à corrosão. Possui várias aplicações em catálise e eletrônica.",
+    "uso": [
+      "Catalisadores químicos",
+      "Ligas metálicas",
+      "Eletrônica",
+      "Revestimentos resistentes"
+    ],
+    "grupo": "8",
+    "descricao_questionario": "Este elemento é um metal raro do grupo da platina, duro e resistente à corrosão. Possui várias aplicações em catálise e eletrônica.",
+    "massa_molar": 44,
+    "camadas_eletrons": "2-8-18-16",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 45,
+    "nome": "Ródio",
+    "simbolo": "Rh",
+    "descricao": "O ródio é um metal extremamente raro, brilhante e altamente resistente à corrosão. Pertence ao grupo da platina e possui grande valor comercial.",
+    "uso": [
+      "Catalisadores automotivos",
+      "Revestimento de joias",
+      "Equipamentos industriais"
+    ],
+    "grupo": "9",
+    "descricao_questionario": "Este elemento é um metal extremamente raro, brilhante e altamente resistente à corrosão. Pertence ao grupo da platina e possui grande valor comercial.",
+    "massa_molar": 45,
+    "camadas_eletrons": "2-8-18-17",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 46,
+    "nome": "Paládio",
+    "simbolo": "Pd",
+    "descricao": "O paládio é um metal precioso prateado, muito resistente à corrosão e capaz de absorver grandes quantidades de hidrogênio.",
+    "uso": [
+      "Catalisadores automotivos",
+      "Eletrônica",
+      "Joalheria",
+      "Armazenamento de hidrogênio"
+    ],
+    "grupo": "10",
+    "descricao_questionario": "Este elemento é um metal precioso prateado, muito resistente à corrosão e capaz de absorver grandes quantidades de hidrogênio.",
+    "massa_molar": 46,
+    "camadas_eletrons": "2-8-18-18",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 47,
+    "nome": "Prata",
+    "simbolo": "Ag",
+    "descricao": "A prata é um metal precioso brilhante e o melhor condutor elétrico e térmico entre todos os metais. Foi amplamente utilizada como moeda ao longo da história.",
+    "uso": [
+      "Joias e moedas",
+      "Circuitos eletrônicos",
+      "Espelhos",
+      "Fotografia (histórico)"
+    ],
+    "grupo": "11",
+    "descricao_questionario": "Este elemento é um metal precioso brilhante e o melhor condutor elétrico e térmico entre todos os metais. Foi amplamente utilizada como moeda ao longo da história.",
+    "massa_molar": 47,
+    "camadas_eletrons": "2-8-18-19",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 48,
+    "nome": "Cádmio",
+    "simbolo": "Cd",
+    "descricao": "O cádmio é um metal relativamente macio e altamente tóxico. Geralmente aparece associado a minerais de zinco.",
+    "uso": [
+      "Baterias recarregáveis (Ni-Cd)",
+      "Pigmentos",
+      "Revestimentos anticorrosão"
+    ],
+    "grupo": "12",
+    "descricao_questionario": "Este elemento é um metal relativamente macio e altamente tóxico. Geralmente aparece associado a minerais de zinco.",
+    "massa_molar": 48,
+    "camadas_eletrons": "2-8-18-20",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 49,
+    "nome": "Índio",
+    "simbolo": "In",
+    "descricao": "O índio é um metal macio e maleável que pode ser cortado com uma faca. Possui baixo ponto de fusão e é importante na indústria eletrônica.",
+    "uso": [
+      "Telas LCD",
+      "Painéis solares",
+      "Ligas metálicas",
+      "Semicondutores"
+    ],
+    "grupo": "13",
+    "descricao_questionario": "Este elemento é um metal macio e maleável que pode ser cortado com uma faca. Possui baixo ponto de fusão e é importante na indústria eletrônica.",
+    "massa_molar": 49,
+    "camadas_eletrons": "2-8-18-21",
+    "categoria_filtro": "metal-pos-transicao"
+  },
+  {
+    "numero": 50,
+    "nome": "Estanho",
+    "simbolo": "Sn",
+    "descricao": "O estanho é um metal macio e resistente à corrosão. Foi amplamente utilizado na antiguidade na produção do bronze.",
+    "uso": [
+      "Soldas eletrônicas",
+      "Latas de alimentos (estanhagem)",
+      "Ligas metálicas"
+    ],
+    "grupo": "14",
+    "descricao_questionario": "Este elemento é um metal macio e resistente à corrosão. Foi amplamente utilizado na antiguidade na produção do bronze.",
+    "massa_molar": 50,
+    "camadas_eletrons": "2-8-18-22",
+    "categoria_filtro": "metal-pos-transicao"
+  },
+  {
+    "numero": 51,
+    "nome": "Antimônio",
+    "simbolo": "Sb",
+    "descricao": "O antimônio é um metaloide quebradiço com aparência metálica. Seus compostos são utilizados desde a antiguidade.",
+    "uso": [
+      "Retardantes de chama",
+      "Ligas metálicas",
+      "Baterias"
+    ],
+    "grupo": "15",
+    "descricao_questionario": "Este elemento é um metaloide quebradiço com aparência metálica. Seus compostos são utilizados desde a antiguidade.",
+    "massa_molar": 51,
+    "camadas_eletrons": "2-8-18-23",
+    "categoria_filtro": "metaloide"
+  },
+  {
+    "numero": 52,
+    "nome": "Telúrio",
+    "simbolo": "Te",
+    "descricao": "O telúrio é um metaloide raro com propriedades semicondutoras. É relativamente frágil e ocorre em minerais de ouro.",
+    "uso": [
+      "Ligas metálicas",
+      "Painéis solares",
+      "Eletrônica"
+    ],
+    "grupo": "16",
+    "descricao_questionario": "Este elemento é um metaloide raro com propriedades semicondutoras. É relativamente frágil e ocorre em minerais de ouro.",
+    "massa_molar": 52,
+    "camadas_eletrons": "2-8-18-24",
+    "categoria_filtro": "metaloide"
+  },
+  {
+    "numero": 53,
+    "nome": "Iodo",
+    "simbolo": "I",
+    "descricao": "O iodo é um halogênio sólido de cor violeta escura que sublima facilmente formando vapor roxo. É essencial para a produção de hormônios da tireoide.",
+    "uso": [
+      "Antissépticos",
+      "Sal iodado",
+      "Medicina",
+      "Fotografia"
+    ],
+    "grupo": "17",
+    "descricao_questionario": "Este elemento é um halogênio sólido de cor violeta escura que sublima facilmente formando vapor roxo. É essencial para a produção de hormônios da tireoide.",
+    "massa_molar": 53,
+    "camadas_eletrons": "2-8-18-25",
+    "categoria_filtro": "nao-metal"
+  },
+  {
+    "numero": 54,
+    "nome": "Xenônio",
+    "simbolo": "Xe",
+    "descricao": "O xenônio é um gás nobre pesado e raro presente em pequenas quantidades na atmosfera. Apesar de ser inerte, pode formar alguns compostos em condições especiais.",
+    "uso": [
+      "Lâmpadas de alta intensidade",
+      "Flash fotográfico",
+      "Propulsão de satélites",
+      "Anestesia experimental"
+    ],
+    "grupo": "18",
+    "descricao_questionario": "Este elemento é um gás nobre pesado e raro presente em pequenas quantidades na atmosfera. Apesar de ser inerte, pode formar alguns compostos em condições especiais.",
+    "massa_molar": 54,
+    "camadas_eletrons": "2-8-18-26",
+    "categoria_filtro": "gas-nobre"
+  },
+  {
+    "numero": 55,
+    "nome": "Césio",
+    "simbolo": "Cs",
+    "descricao": "O césio é um metal alcalino extremamente reativo, macio e dourado. Reage violentamente com água.",
+    "uso": [
+      "Relógios atômicos",
+      "Pesquisa científica",
+      "Equipamentos eletrônicos"
+    ],
+    "grupo": "1",
+    "descricao_questionario": "Este elemento é um metal alcalino extremamente reativo, macio e dourado. Reage violentamente com água.",
+    "massa_molar": 55,
+    "camadas_eletrons": "2-8-18-27",
+    "categoria_filtro": "metal-alcalino"
+  },
+  {
+    "numero": 56,
+    "nome": "Bário",
+    "simbolo": "Ba",
+    "descricao": "O bário é um metal alcalino-terroso relativamente reativo. Seus compostos são usados em várias aplicações industriais.",
+    "uso": [
+      "Contraste em exames de raio-X",
+      "Fogos de artifício (cor verde)",
+      "Indústria química"
+    ],
+    "grupo": "2",
+    "descricao_questionario": "Este elemento é um metal alcalino-terroso relativamente reativo. Seus compostos são usados em várias aplicações industriais.",
+    "massa_molar": 56,
+    "camadas_eletrons": "2-8-18-28",
+    "categoria_filtro": "metal-alcalino-terroso"
+  },
+  {
+    "numero": 57,
+    "nome": "Lantânio",
+    "simbolo": "La",
+    "descricao": "O lantânio é um metal macio pertencente às terras raras. Oxida facilmente no ar.",
+    "uso": [
+      "Lentes de câmera",
+      "Catalisadores",
+      "Ligas metálicas"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Este elemento é um metal macio pertencente às terras raras. Oxida facilmente no ar.",
+    "massa_molar": 57,
+    "camadas_eletrons": "2-8-18-29",
+    "categoria_filtro": "lantanideo"
+  },
+  {
+    "numero": 58,
+    "nome": "Cério",
+    "simbolo": "Ce",
+    "descricao": "O cério é o lantanídeo mais abundante. Oxida facilmente e pode existir em diferentes estados de oxidação.",
+    "uso": [
+      "Catalisadores automotivos",
+      "Polimento de vidro",
+      "Ligas metálicas"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Este elemento é o lantanídeo mais abundante. Oxida facilmente e pode existir em diferentes estados de oxidação.",
+    "massa_molar": 58,
+    "camadas_eletrons": "2-8-18-30",
+    "categoria_filtro": "lantanideo"
+  },
+  {
+    "numero": 59,
+    "nome": "Praseodímio",
+    "simbolo": "Pr",
+    "descricao": "Metal macio das terras raras, com coloração prateada e grande reatividade química.",
+    "uso": [
+      "Ímãs permanentes",
+      "Vidros especiais",
+      "Ligas metálicas"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Metal macio das terras raras, com coloração prateada e grande reatividade química.",
+    "massa_molar": 59,
+    "camadas_eletrons": "2-8-18-31",
+    "categoria_filtro": "lantanideo"
+  },
+  {
+    "numero": 60,
+    "nome": "Neodímio",
+    "simbolo": "Nd",
+    "descricao": "O neodímio é um dos lantanídeos mais importantes tecnologicamente. Forma ímãs extremamente fortes quando combinado com ferro e boro.",
+    "uso": [
+      "Ímãs de alto desempenho",
+      "Motores elétricos",
+      "Fones de ouvido",
+      "Turbinas eólicas"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Este elemento é um dos lantanídeos mais importantes tecnologicamente. Forma ímãs extremamente fortes quando combinado com ferro e boro.",
+    "massa_molar": 60,
+    "camadas_eletrons": "2-8-18-32",
+    "categoria_filtro": "lantanideo"
+  },
+  {
+    "numero": 61,
+    "nome": "Promécio",
+    "simbolo": "Pm",
+    "descricao": "O promécio é um elemento das terras raras e todos os seus isótopos são radioativos. É extremamente raro na natureza e aparece principalmente como produto da fissão nuclear em reatores. Possui propriedades químicas semelhantes às dos outros lantanídeos.",
+    "uso": [
+      "Baterias nucleares de pequena escala",
+      "Instrumentos científicos",
+      "Pesquisa em materiais radioativos"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Este elemento é um elemento das terras raras e todos os seus isótopos são radioativos. É extremamente raro na natureza e aparece principalmente como produto da fissão nuclear em reatores. Possui propriedades químicas semelhantes às dos outros lantanídeos.",
+    "massa_molar": 61,
+    "camadas_eletrons": "2-8-18-32-1",
+    "categoria_filtro": "lantanideo"
+  },
+  {
+    "numero": 62,
+    "nome": "Samário",
+    "simbolo": "Sm",
+    "descricao": "O samário é um metal relativamente duro das terras raras. Oxida lentamente no ar e reage com água. Seus compostos possuem propriedades magnéticas importantes.",
+    "uso": [
+      "Ímãs de samário-cobalto",
+      "Reatores nucleares",
+      "Lasers",
+      "Catalisadores"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Este elemento é um metal relativamente duro das terras raras. Oxida lentamente no ar e reage com água. Seus compostos possuem propriedades magnéticas importantes.",
+    "massa_molar": 62,
+    "camadas_eletrons": "2-8-18-32-2",
+    "categoria_filtro": "lantanideo"
+  },
+  {
+    "numero": 63,
+    "nome": "Európio",
+    "simbolo": "Eu",
+    "descricao": "O európio é um dos lantanídeos mais reativos. É relativamente macio e oxida rapidamente quando exposto ao ar.",
+    "uso": [
+      "Fósforos em telas e televisores",
+      "LEDs",
+      "Segurança de cédulas (marcadores fluorescentes)"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Este elemento é um dos lantanídeos mais reativos. É relativamente macio e oxida rapidamente quando exposto ao ar.",
+    "massa_molar": 63,
+    "camadas_eletrons": "2-8-18-32-3",
+    "categoria_filtro": "lantanideo"
+  },
+  {
+    "numero": 64,
+    "nome": "Gadolínio",
+    "simbolo": "Gd",
+    "descricao": "O gadolínio é um metal prateado das terras raras que apresenta propriedades magnéticas especiais. Possui alta capacidade de absorver nêutrons.",
+    "uso": [
+      "Contraste em ressonância magnética",
+      "Reatores nucleares",
+      "Ligas magnéticas"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Este elemento é um metal prateado das terras raras que apresenta propriedades magnéticas especiais. Possui alta capacidade de absorver nêutrons.",
+    "massa_molar": 64,
+    "camadas_eletrons": "2-8-18-32-4",
+    "categoria_filtro": "lantanideo"
+  },
+  {
+    "numero": 65,
+    "nome": "Térbio",
+    "simbolo": "Tb",
+    "descricao": "O térbio é um metal relativamente macio que pertence às terras raras. Seus compostos apresentam propriedades luminescentes.",
+    "uso": [
+      "Fósforos verdes em telas",
+      "Ligas magnetoestritivas",
+      "Sensores"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Este elemento é um metal relativamente macio que pertence às terras raras. Seus compostos apresentam propriedades luminescentes.",
+    "massa_molar": 65,
+    "camadas_eletrons": "2-8-18-32-5",
+    "categoria_filtro": "lantanideo"
+  },
+  {
+    "numero": 66,
+    "nome": "Disprósio",
+    "simbolo": "Dy",
+    "descricao": "O disprósio é um metal prateado relativamente macio. Possui propriedades magnéticas muito fortes e alta estabilidade térmica.",
+    "uso": [
+      "Ímãs de alta potência",
+      "Motores elétricos",
+      "Equipamentos eletrônicos"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Este elemento é um metal prateado relativamente macio. Possui propriedades magnéticas muito fortes e alta estabilidade térmica.",
+    "massa_molar": 66,
+    "camadas_eletrons": "2-8-18-32-6",
+    "categoria_filtro": "lantanideo"
+  },
+  {
+    "numero": 67,
+    "nome": "Hólmio",
+    "simbolo": "Ho",
+    "descricao": "O hólmio possui um dos maiores momentos magnéticos entre todos os elementos químicos. É um metal relativamente macio.",
+    "uso": [
+      "Lasers",
+      "Ímãs especiais",
+      "Pesquisa científica"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Este elemento possui um dos maiores momentos magnéticos entre todos os elementos químicos. É um metal relativamente macio.",
+    "massa_molar": 67,
+    "camadas_eletrons": "2-8-18-32-7",
+    "categoria_filtro": "lantanideo"
+  },
+  {
+    "numero": 68,
+    "nome": "Érbio",
+    "simbolo": "Er",
+    "descricao": "O érbio é um metal das terras raras relativamente estável no ar. Seus íons possuem propriedades ópticas importantes.",
+    "uso": [
+      "Amplificadores de fibra óptica",
+      "Lasers médicos",
+      "Vidros especiais"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Este elemento é um metal das terras raras relativamente estável no ar. Seus íons possuem propriedades ópticas importantes.",
+    "massa_molar": 68,
+    "camadas_eletrons": "2-8-18-32-8",
+    "categoria_filtro": "lantanideo"
+  },
+  {
+    "numero": 69,
+    "nome": "Túlio",
+    "simbolo": "Tm",
+    "descricao": "O túlio é um dos lantanídeos mais raros. É relativamente macio e prateado.",
+    "uso": [
+      "Equipamentos médicos portáteis de raios X",
+      "Lasers especializados",
+      "Pesquisa científica"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Este elemento é um dos lantanídeos mais raros. É relativamente macio e prateado.",
+    "massa_molar": 69,
+    "camadas_eletrons": "2-8-18-32-9",
+    "categoria_filtro": "lantanideo"
+  },
+  {
+    "numero": 70,
+    "nome": "Itérbio",
+    "simbolo": "Yb",
+    "descricao": "O itérbio é um metal macio das terras raras. É relativamente estável comparado a outros lantanídeos.",
+    "uso": [
+      "Lasers industriais",
+      "Relógios atômicos experimentais",
+      "Ligas metálicas"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Este elemento é um metal macio das terras raras. É relativamente estável comparado a outros lantanídeos.",
+    "massa_molar": 70,
+    "camadas_eletrons": "2-8-18-32-10",
+    "categoria_filtro": "lantanideo"
+  },
+  {
+    "numero": 71,
+    "nome": "Lutécio",
+    "simbolo": "Lu",
+    "descricao": "O lutécio é o último elemento da série dos lantanídeos. É relativamente denso e duro comparado aos demais.",
+    "uso": [
+      "Detectores de radiação",
+      "Catalisadores",
+      "Pesquisa médica"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Este elemento é o último elemento da série dos lantanídeos. É relativamente denso e duro comparado aos demais.",
+    "massa_molar": 71,
+    "camadas_eletrons": "2-8-18-32-11",
+    "categoria_filtro": "lantanideo"
+  },
+  {
+    "numero": 72,
+    "nome": "Háfnio",
+    "simbolo": "Hf",
+    "descricao": "O háfnio é um metal muito resistente ao calor e à corrosão. Possui grande capacidade de absorver nêutrons.",
+    "uso": [
+      "Barras de controle de reatores nucleares",
+      "Ligas resistentes ao calor",
+      "Componentes eletrônicos"
+    ],
+    "grupo": "4",
+    "descricao_questionario": "Este elemento é um metal muito resistente ao calor e à corrosão. Possui grande capacidade de absorver nêutrons.",
+    "massa_molar": 72,
+    "camadas_eletrons": "2-8-18-32-12",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 73,
+    "nome": "Tântalo",
+    "simbolo": "Ta",
+    "descricao": "O tântalo é um metal extremamente resistente à corrosão química e possui alto ponto de fusão.",
+    "uso": [
+      "Capacitores eletrônicos",
+      "Equipamentos médicos",
+      "Indústria química"
+    ],
+    "grupo": "5",
+    "descricao_questionario": "Este elemento é um metal extremamente resistente à corrosão química e possui alto ponto de fusão.",
+    "massa_molar": 73,
+    "camadas_eletrons": "2-8-18-32-13",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 74,
+    "nome": "Tungstênio",
+    "simbolo": "W",
+    "descricao": "O tungstênio possui o maior ponto de fusão entre todos os metais. É extremamente duro e resistente ao calor.",
+    "uso": [
+      "Filamentos de lâmpadas",
+      "Ferramentas de corte",
+      "Indústria aeroespacial"
+    ],
+    "grupo": "6",
+    "descricao_questionario": "Este elemento possui o maior ponto de fusão entre todos os metais. É extremamente duro e resistente ao calor.",
+    "massa_molar": 74,
+    "camadas_eletrons": "2-8-18-32-14",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 75,
+    "nome": "Rênio",
+    "simbolo": "Re",
+    "descricao": "O rênio é um dos metais mais raros da crosta terrestre. Possui grande resistência ao calor.",
+    "uso": [
+      "Superligas para turbinas",
+      "Catalisadores",
+      "Indústria aeroespacial"
+    ],
+    "grupo": "7",
+    "descricao_questionario": "Este elemento é um dos metais mais raros da crosta terrestre. Possui grande resistência ao calor.",
+    "massa_molar": 75,
+    "camadas_eletrons": "2-8-18-32-15",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 76,
+    "nome": "Ósmio",
+    "simbolo": "Os",
+    "descricao": "O ósmio é o elemento natural mais denso conhecido. É extremamente duro e raro.",
+    "uso": [
+      "Pontas de instrumentos de precisão",
+      "Ligas metálicas especiais",
+      "Catalisadores"
+    ],
+    "grupo": "8",
+    "descricao_questionario": "Este elemento é o elemento natural mais denso conhecido. É extremamente duro e raro.",
+    "massa_molar": 76,
+    "camadas_eletrons": "2-8-18-32-16",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 77,
+    "nome": "Irídio",
+    "simbolo": "Ir",
+    "descricao": "O irídio é um metal extremamente resistente à corrosão e a altas temperaturas. É um dos elementos mais raros da Terra.",
+    "uso": [
+      "Velas de ignição",
+      "Equipamentos científicos",
+      "Ligas metálicas"
+    ],
+    "grupo": "9",
+    "descricao_questionario": "Este elemento é um metal extremamente resistente à corrosão e a altas temperaturas. É um dos elementos mais raros da Terra.",
+    "massa_molar": 77,
+    "camadas_eletrons": "2-8-18-32-17",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 78,
+    "nome": "Platina",
+    "simbolo": "Pt",
+    "descricao": "A platina é um metal precioso altamente resistente à corrosão e muito estável quimicamente.",
+    "uso": [
+      "Catalisadores automotivos",
+      "Joias",
+      "Equipamentos médicos",
+      "Indústria química"
+    ],
+    "grupo": "10",
+    "descricao_questionario": "Este elemento é um metal precioso altamente resistente à corrosão e muito estável quimicamente.",
+    "massa_molar": 78,
+    "camadas_eletrons": "2-8-18-32-18",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 79,
+    "nome": "Ouro",
+    "simbolo": "Au",
+    "descricao": "O ouro é um metal precioso extremamente maleável e resistente à corrosão. Foi usado como moeda e símbolo de riqueza por milhares de anos.",
+    "uso": [
+      "Joias",
+      "Reservas financeiras",
+      "Eletrônica de precisão",
+      "Odontologia"
+    ],
+    "grupo": "11",
+    "descricao_questionario": "Este elemento é um metal precioso extremamente maleável e resistente à corrosão. Foi usado como moeda e símbolo de riqueza por milhares de anos.",
+    "massa_molar": 79,
+    "camadas_eletrons": "2-8-18-32-19",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 80,
+    "nome": "Mercúrio",
+    "simbolo": "Hg",
+    "descricao": "O mercúrio é o único metal líquido à temperatura ambiente. É altamente tóxico e forma vapores perigosos.",
+    "uso": [
+      "Termômetros antigos",
+      "Lâmpadas fluorescentes",
+      "Equipamentos científicos",
+      "Processos industriais"
+    ],
+    "grupo": "12",
+    "descricao_questionario": "Este elemento é o único metal líquido à temperatura ambiente. É altamente tóxico e forma vapores perigosos.",
+    "massa_molar": 80,
+    "camadas_eletrons": "2-8-18-32-20",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 81,
+    "nome": "Tálio",
+    "simbolo": "Tl",
+    "descricao": "O tálio é um metal pesado, macio e altamente tóxico. Possui aparência prateada, mas escurece rapidamente quando exposto ao ar. No passado foi utilizado em pesticidas, mas seu uso foi reduzido devido à toxicidade.",
+    "uso": [
+      "Detectores de radiação",
+      "Equipamentos eletrônicos",
+      "Vidros especiais"
+    ],
+    "grupo": "13",
+    "descricao_questionario": "Este elemento é um metal pesado, macio e altamente tóxico. Possui aparência prateada, mas escurece rapidamente quando exposto ao ar. No passado foi utilizado em pesticidas, mas seu uso foi reduzido devido à toxicidade.",
+    "massa_molar": 81,
+    "camadas_eletrons": "2-8-18-32-21",
+    "categoria_filtro": "metal-pos-transicao"
+  },
+  {
+    "numero": 82,
+    "nome": "Chumbo",
+    "simbolo": "Pb",
+    "descricao": "O chumbo é um metal pesado, denso e macio. Foi amplamente utilizado na antiguidade, mas hoje seu uso é controlado devido à toxicidade.",
+    "uso": [
+      "Baterias automotivas",
+      "Blindagem contra radiação",
+      "Soldas industriais",
+      "Pesos e contrapesos"
+    ],
+    "grupo": "14",
+    "descricao_questionario": "Este elemento é um metal pesado, denso e macio. Foi amplamente utilizado na antiguidade, mas hoje seu uso é controlado devido à toxicidade.",
+    "massa_molar": 82,
+    "camadas_eletrons": "2-8-18-32-22",
+    "categoria_filtro": "metal-pos-transicao"
+  },
+  {
+    "numero": 83,
+    "nome": "Bismuto",
+    "simbolo": "Bi",
+    "descricao": "O bismuto é um metal pesado relativamente estável e menos tóxico que outros metais do mesmo grupo. Forma cristais coloridos característicos.",
+    "uso": [
+      "Medicamentos",
+      "Cosméticos",
+      "Ligas metálicas de baixo ponto de fusão"
+    ],
+    "grupo": "15",
+    "descricao_questionario": "Este elemento é um metal pesado relativamente estável e menos tóxico que outros metais do mesmo grupo. Forma cristais coloridos característicos.",
+    "massa_molar": 83,
+    "camadas_eletrons": "2-8-18-32-23",
+    "categoria_filtro": "metal-pos-transicao"
+  },
+  {
+    "numero": 84,
+    "nome": "Polônio",
+    "simbolo": "Po",
+    "descricao": "O polônio é um elemento altamente radioativo descoberto por Marie Curie. É extremamente raro na natureza.",
+    "uso": [
+      "Fontes de calor em equipamentos espaciais",
+      "Eliminadores de eletricidade estática",
+      "Pesquisa científica"
+    ],
+    "grupo": "16",
+    "descricao_questionario": "Este elemento é um elemento altamente radioativo descoberto por Marie Curie. É extremamente raro na natureza.",
+    "massa_molar": 84,
+    "camadas_eletrons": "2-8-18-32-24",
+    "categoria_filtro": "metal-pos-transicao"
+  },
+  {
+    "numero": 85,
+    "nome": "Astato",
+    "simbolo": "At",
+    "descricao": "O astato é um halogênio extremamente raro e radioativo. Existem apenas quantidades minúsculas na natureza.",
+    "uso": [
+      "Pesquisa científica",
+      "Estudos em medicina nuclear experimental"
+    ],
+    "grupo": "17",
+    "descricao_questionario": "Este elemento é um halogênio extremamente raro e radioativo. Existem apenas quantidades minúsculas na natureza.",
+    "massa_molar": 85,
+    "camadas_eletrons": "2-8-18-32-25",
+    "categoria_filtro": "nao-metal"
+  },
+  {
+    "numero": 86,
+    "nome": "Radônio",
+    "simbolo": "Rn",
+    "descricao": "O radônio é um gás nobre radioativo produzido pela decomposição do urânio e do rádio no solo. Pode acumular-se em ambientes fechados.",
+    "uso": [
+      "Pesquisa científica",
+      "Estudos geológicos"
+    ],
+    "grupo": "18",
+    "descricao_questionario": "Este elemento é um gás nobre radioativo produzido pela decomposição do urânio e do rádio no solo. Pode acumular-se em ambientes fechados.",
+    "massa_molar": 86,
+    "camadas_eletrons": "2-8-18-32-26",
+    "categoria_filtro": "gas-nobre"
+  },
+  {
+    "numero": 87,
+    "nome": "Frâncio",
+    "simbolo": "Fr",
+    "descricao": "O frâncio é um metal alcalino extremamente raro e altamente radioativo. É um dos elementos mais instáveis da tabela periódica.",
+    "uso": [
+      "Pesquisa científica"
+    ],
+    "grupo": "1",
+    "descricao_questionario": "Este elemento é um metal alcalino extremamente raro e altamente radioativo. É um dos elementos mais instáveis da tabela periódica.",
+    "massa_molar": 87,
+    "camadas_eletrons": "2-8-18-32-27",
+    "categoria_filtro": "metal-alcalino"
+  },
+  {
+    "numero": 88,
+    "nome": "Rádio",
+    "simbolo": "Ra",
+    "descricao": "O rádio é um metal alcalino-terroso altamente radioativo. Foi utilizado no passado em tintas luminosas.",
+    "uso": [
+      "Radioterapia (histórico)",
+      "Pesquisa nuclear"
+    ],
+    "grupo": "2",
+    "descricao_questionario": "Este elemento é um metal alcalino-terroso altamente radioativo. Foi utilizado no passado em tintas luminosas.",
+    "massa_molar": 88,
+    "camadas_eletrons": "2-8-18-32-28",
+    "categoria_filtro": "metal-alcalino-terroso"
+  },
+  {
+    "numero": 89,
+    "nome": "Actínio",
+    "simbolo": "Ac",
+    "descricao": "O actínio é um metal radioativo que dá nome à série dos actinídeos. Possui forte emissão de radiação.",
+    "uso": [
+      "Fontes de nêutrons",
+      "Pesquisa nuclear"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Este elemento é um metal radioativo que dá nome à série dos actinídeos. Possui forte emissão de radiação.",
+    "massa_molar": 89,
+    "camadas_eletrons": "2-8-18-32-29",
+    "categoria_filtro": "actinideo"
+  },
+  {
+    "numero": 90,
+    "nome": "Tório",
+    "simbolo": "Th",
+    "descricao": "O tório é um metal radioativo relativamente abundante. Possui potencial como combustível nuclear alternativo ao urânio.",
+    "uso": [
+      "Combustível nuclear experimental",
+      "Ligas metálicas",
+      "Equipamentos científicos"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Este elemento é um metal radioativo relativamente abundante. Possui potencial como combustível nuclear alternativo ao urânio.",
+    "massa_molar": 90,
+    "camadas_eletrons": "2-8-18-32-30",
+    "categoria_filtro": "actinideo"
+  },
+  {
+    "numero": 91,
+    "nome": "Protactínio",
+    "simbolo": "Pa",
+    "descricao": "O protactínio é um metal radioativo raro. É altamente tóxico e difícil de isolar.",
+    "uso": [
+      "Pesquisa nuclear"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Este elemento é um metal radioativo raro. É altamente tóxico e difícil de isolar.",
+    "massa_molar": 91,
+    "camadas_eletrons": "2-8-18-32-31",
+    "categoria_filtro": "actinideo"
+  },
+  {
+    "numero": 92,
+    "nome": "Urânio",
+    "simbolo": "U",
+    "descricao": "O urânio é um metal pesado radioativo muito importante para a produção de energia nuclear. Também ocorre naturalmente em minerais como uraninita.",
+    "uso": [
+      "Combustível nuclear",
+      "Armas nucleares",
+      "Pesquisa científica"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Este elemento é um metal pesado radioativo muito importante para a produção de energia nuclear. Também ocorre naturalmente em minerais como uraninita.",
+    "massa_molar": 92,
+    "camadas_eletrons": "2-8-18-32-32",
+    "categoria_filtro": "actinideo"
+  },
+  {
+    "numero": 93,
+    "nome": "Netúnio",
+    "simbolo": "Np",
+    "descricao": "O netúnio é um elemento radioativo produzido artificialmente em reatores nucleares.",
+    "uso": [
+      "Pesquisa nuclear",
+      "Produção de plutônio"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Este elemento é um elemento radioativo produzido artificialmente em reatores nucleares.",
+    "massa_molar": 93,
+    "camadas_eletrons": "2-8-18-32-32-1",
+    "categoria_filtro": "actinideo"
+  },
+  {
+    "numero": 94,
+    "nome": "Plutônio",
+    "simbolo": "Pu",
+    "descricao": "O plutônio é um elemento radioativo altamente tóxico. Pode ser produzido em reatores nucleares a partir do urânio.",
+    "uso": [
+      "Armas nucleares",
+      "Combustível nuclear",
+      "Geradores termoelétricos espaciais"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Este elemento é um elemento radioativo altamente tóxico. Pode ser produzido em reatores nucleares a partir do urânio.",
+    "massa_molar": 94,
+    "camadas_eletrons": "2-8-18-32-32-2",
+    "categoria_filtro": "actinideo"
+  },
+  {
+    "numero": 95,
+    "nome": "Amerício",
+    "simbolo": "Am",
+    "descricao": "O amerício é um elemento sintético radioativo.",
+    "uso": [
+      "Detectores de fumaça",
+      "Pesquisa científica"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Este elemento é um elemento sintético radioativo.",
+    "massa_molar": 95,
+    "camadas_eletrons": "2-8-18-32-32-3",
+    "categoria_filtro": "actinideo"
+  },
+  {
+    "numero": 96,
+    "nome": "Cúrio",
+    "simbolo": "Cm",
+    "descricao": "O cúrio é um elemento radioativo sintético descoberto em homenagem a Marie e Pierre Curie.",
+    "uso": [
+      "Geradores termoelétricos",
+      "Pesquisa nuclear"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Este elemento é um elemento radioativo sintético descoberto em homenagem a Marie e Pierre Curie.",
+    "massa_molar": 96,
+    "camadas_eletrons": "2-8-18-32-32-4",
+    "categoria_filtro": "actinideo"
+  },
+  {
+    "numero": 97,
+    "nome": "Berquélio",
+    "simbolo": "Bk",
+    "descricao": "Elemento sintético radioativo produzido em laboratório.",
+    "uso": [
+      "Pesquisa científica"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Elemento sintético radioativo produzido em laboratório.",
+    "massa_molar": 97,
+    "camadas_eletrons": "2-8-18-32-32-5",
+    "categoria_filtro": "actinideo"
+  },
+  {
+    "numero": 98,
+    "nome": "Califórnio",
+    "simbolo": "Cf",
+    "descricao": "Elemento radioativo extremamente raro e poderoso emissor de nêutrons.",
+    "uso": [
+      "Fontes de nêutrons",
+      "Detecção de materiais",
+      "Pesquisa nuclear"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Elemento radioativo extremamente raro e poderoso emissor de nêutrons.",
+    "massa_molar": 98,
+    "camadas_eletrons": "2-8-18-32-32-6",
+    "categoria_filtro": "actinideo"
+  },
+  {
+    "numero": 99,
+    "nome": "Einstênio",
+    "simbolo": "Es",
+    "descricao": "Elemento sintético descoberto nos resíduos de testes nucleares.",
+    "uso": [
+      "Pesquisa científica"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Elemento sintético descoberto nos resíduos de testes nucleares.",
+    "massa_molar": 99,
+    "camadas_eletrons": "2-8-18-32-32-7",
+    "categoria_filtro": "actinideo"
+  },
+  {
+    "numero": 100,
+    "nome": "Férmio",
+    "simbolo": "Fm",
+    "descricao": "Elemento altamente radioativo criado artificialmente.",
+    "uso": [
+      "Pesquisa científica"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Elemento altamente radioativo criado artificialmente.",
+    "massa_molar": 100,
+    "camadas_eletrons": "2-8-18-32-32-8",
+    "categoria_filtro": "actinideo"
+  },
+  {
+    "numero": 101,
+    "nome": "Mendelévio",
+    "simbolo": "Md",
+    "descricao": "Elemento sintético criado em aceleradores de partículas.",
+    "uso": [
+      "Pesquisa científica"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Elemento sintético criado em aceleradores de partículas.",
+    "massa_molar": 101,
+    "camadas_eletrons": "2-8-18-32-32-9",
+    "categoria_filtro": "actinideo"
+  },
+  {
+    "numero": 102,
+    "nome": "Nobélio",
+    "simbolo": "No",
+    "descricao": "Elemento radioativo extremamente instável.",
+    "uso": [
+      "Pesquisa científica"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Elemento radioativo extremamente instável.",
+    "massa_molar": 102,
+    "camadas_eletrons": "2-8-18-32-32-10",
+    "categoria_filtro": "actinideo"
+  },
+  {
+    "numero": 103,
+    "nome": "Laurêncio",
+    "simbolo": "Lr",
+    "descricao": "Último elemento da série dos actinídeos. Altamente instável.",
+    "uso": [
+      "Pesquisa científica"
+    ],
+    "grupo": "3",
+    "descricao_questionario": "Último elemento da série dos actinídeos. Altamente instável.",
+    "massa_molar": 103,
+    "camadas_eletrons": "2-8-18-32-32-11",
+    "categoria_filtro": "actinideo"
+  },
+  {
+    "numero": 104,
+    "nome": "Rutherfordio",
+    "simbolo": "Rf",
+    "descricao": "Elemento sintético superpesado criado em laboratório.",
+    "uso": [
+      "Pesquisa científica"
+    ],
+    "grupo": "4",
+    "descricao_questionario": "Elemento sintético superpesado criado em laboratório.",
+    "massa_molar": 104,
+    "camadas_eletrons": "2-8-18-32-32-12",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 105,
+    "nome": "Dúbnio",
+    "simbolo": "Db",
+    "descricao": "Elemento superpesado altamente instável.",
+    "uso": [
+      "Pesquisa científica"
+    ],
+    "grupo": "5",
+    "descricao_questionario": "Elemento superpesado altamente instável.",
+    "massa_molar": 105,
+    "camadas_eletrons": "2-8-18-32-32-13",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 106,
+    "nome": "Seabórgio",
+    "simbolo": "Sg",
+    "descricao": "Elemento sintético extremamente instável.",
+    "uso": [
+      "Pesquisa científica"
+    ],
+    "grupo": "6",
+    "descricao_questionario": "Elemento sintético extremamente instável.",
+    "massa_molar": 106,
+    "camadas_eletrons": "2-8-18-32-32-14",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 107,
+    "nome": "Bóhrio",
+    "simbolo": "Bh",
+    "descricao": "Elemento superpesado produzido artificialmente.",
+    "uso": [
+      "Pesquisa científica"
+    ],
+    "grupo": "7",
+    "descricao_questionario": "Elemento superpesado produzido artificialmente.",
+    "massa_molar": 107,
+    "camadas_eletrons": "2-8-18-32-32-15",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 108,
+    "nome": "Hássio",
+    "simbolo": "Hs",
+    "descricao": "Elemento radioativo produzido em aceleradores de partículas.",
+    "uso": [
+      "Pesquisa científica"
+    ],
+    "grupo": "8",
+    "descricao_questionario": "Elemento radioativo produzido em aceleradores de partículas.",
+    "massa_molar": 108,
+    "camadas_eletrons": "2-8-18-32-32-16",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 109,
+    "nome": "Meitnério",
+    "simbolo": "Mt",
+    "descricao": "Elemento superpesado extremamente instável.",
+    "uso": [
+      "Pesquisa científica"
+    ],
+    "grupo": "9",
+    "descricao_questionario": "Elemento superpesado extremamente instável.",
+    "massa_molar": 109,
+    "camadas_eletrons": "2-8-18-32-32-17",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 110,
+    "nome": "Darmstádio",
+    "simbolo": "Ds",
+    "descricao": "Elemento sintético superpesado produzido em laboratório.",
+    "uso": [
+      "Pesquisa científica"
+    ],
+    "grupo": "10",
+    "descricao_questionario": "Elemento sintético superpesado produzido em laboratório.",
+    "massa_molar": 110,
+    "camadas_eletrons": "2-8-18-32-32-18",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 111,
+    "nome": "Roentgênio",
+    "simbolo": "Rg",
+    "descricao": "Elemento sintético radioativo.",
+    "uso": [
+      "Pesquisa científica"
+    ],
+    "grupo": "11",
+    "descricao_questionario": "Elemento sintético radioativo.",
+    "massa_molar": 111,
+    "camadas_eletrons": "2-8-18-32-32-18-1",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 112,
+    "nome": "Copernício",
+    "simbolo": "Cn",
+    "descricao": "Elemento superpesado que apresenta características semelhantes ao mercúrio.",
+    "uso": [
+      "Pesquisa científica"
+    ],
+    "grupo": "12",
+    "descricao_questionario": "Elemento superpesado que apresenta características semelhantes ao mercúrio.",
+    "massa_molar": 112,
+    "camadas_eletrons": "2-8-18-32-32-18-2",
+    "categoria_filtro": "metal-transicao"
+  },
+  {
+    "numero": 113,
+    "nome": "Nihônio",
+    "simbolo": "Nh",
+    "descricao": "Elemento sintético descoberto por cientistas japoneses.",
+    "uso": [
+      "Pesquisa científica"
+    ],
+    "grupo": "13",
+    "descricao_questionario": "Elemento sintético descoberto por cientistas japoneses.",
+    "massa_molar": 113,
+    "camadas_eletrons": "2-8-18-32-32-18-3",
+    "categoria_filtro": "metal-pos-transicao"
+  },
+  {
+    "numero": 114,
+    "nome": "Fleróvio",
+    "simbolo": "Fl",
+    "descricao": "Elemento superpesado que pode possuir propriedades semelhantes aos gases nobres.",
+    "uso": [
+      "Pesquisa científica"
+    ],
+    "grupo": "14",
+    "descricao_questionario": "Elemento superpesado que pode possuir propriedades semelhantes aos gases nobres.",
+    "massa_molar": 114,
+    "camadas_eletrons": "2-8-18-32-32-18-4",
+    "categoria_filtro": "metal-pos-transicao"
+  },
+  {
+    "numero": 115,
+    "nome": "Moscóvio",
+    "simbolo": "Mc",
+    "descricao": "Elemento sintético altamente instável.",
+    "uso": [
+      "Pesquisa científica"
+    ],
+    "grupo": "15",
+    "descricao_questionario": "Elemento sintético altamente instável.",
+    "massa_molar": 115,
+    "camadas_eletrons": "2-8-18-32-32-18-5",
+    "categoria_filtro": "metal-pos-transicao"
+  },
+  {
+    "numero": 116,
+    "nome": "Livermório",
+    "simbolo": "Lv",
+    "descricao": "Elemento radioativo superpesado criado em laboratório.",
+    "uso": [
+      "Pesquisa científica"
+    ],
+    "grupo": "16",
+    "descricao_questionario": "Elemento radioativo superpesado criado em laboratório.",
+    "massa_molar": 116,
+    "camadas_eletrons": "2-8-18-32-32-18-6",
+    "categoria_filtro": "metal-pos-transicao"
+  },
+  {
+    "numero": 117,
+    "nome": "Tenessino",
+    "simbolo": "Ts",
+    "descricao": "Elemento sintético extremamente raro que pertence ao grupo dos halogênios.",
+    "uso": [
+      "Pesquisa científica"
+    ],
+    "grupo": "17",
+    "descricao_questionario": "Elemento sintético extremamente raro que pertence ao grupo dos halogênios.",
+    "massa_molar": 117,
+    "camadas_eletrons": "2-8-18-32-32-18-7",
+    "categoria_filtro": "nao-metal"
+  },
+  {
+    "numero": 118,
+    "nome": "Oganessônio",
+    "simbolo": "Og",
+    "descricao": "O oganessônio é o elemento mais pesado conhecido da tabela periódica. Foi sintetizado artificialmente e possui vida extremamente curta.",
+    "uso": [
+      "Pesquisa científica sobre estrutura da matéria"
+    ],
+    "grupo": "18",
+    "descricao_questionario": "Este elemento é o elemento mais pesado conhecido da tabela periódica. Foi sintetizado artificialmente e possui vida extremamente curta.",
+    "massa_molar": 118,
+    "camadas_eletrons": "2-8-18-32-32-18-8",
+    "categoria_filtro": "gas-nobre"
+  }
+]

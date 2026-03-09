@@ -1,0 +1,128 @@
+<h1 id="tituloopcao1">Tabela Periódica</h1>
+<div class="nomeedescricao">
+  <div class="cardnomeelemento">
+    <div class="numeroCard"></div>
+    <div class="simboloCard"></div>
+    <div class="nomeCard">Nome do elemento</div>
+    <div class="massaCard"></div>
+    <div class="camadasCard"></div>
+  </div>
+  <div class="descricaodoelemento">
+    <p></p>
+  </div>
+  <div class="filtragem">
+
+    <!-- METAIS -->
+    <div class="grupo metal">
+
+      <p class="titulo-filtro">Metal</p>
+
+      <div class="itens-filtro">
+
+        <div id="metal-alcalino" class="filtro-item">
+          <p>Metal alcalino</p>
+        </div>
+
+        <div id="metal-alcalino-terroso" class="filtro-item">
+          <p>Metal alcalino-terroso</p>
+        </div>
+
+        <div class="metais-f-bloco">
+          <div id="lantanideo" class="filtro-item">
+            <p>Lantanídeo</p>
+          </div>
+
+          <div id="actinideo" class="filtro-item">
+            <p>Actinídeo</p>
+          </div>
+        </div>
+
+        <div id="metal-transicao" class="filtro-item">
+          <p>Metal de transição</p>
+        </div>
+
+        <div id="metal-pos-transicao" class="filtro-item">
+          <p>Metal pós-transição</p>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- METALOIDES -->
+    <div class="grupo metaloide">
+
+      <div id="metaloide" class="filtro-item">
+        <p>Metaloides</p>
+      </div>
+
+    </div>
+
+
+    <!-- NÃO METAIS -->
+    <div class="grupo nao-metal">
+
+      <p class="titulo-filtro">Não metal</p>
+
+      <div class="itens-filtro">
+
+        <div id="nao-metal" class="filtro-item">
+          <p>Não metais</p>
+        </div>
+
+        <div id="halogenio" class="filtro-item">
+          <p>Halogênios</p>
+        </div>
+
+        <div id="gas-nobre" class="filtro-item">
+          <p>Gás nobre</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<div class="tabela-periodica">
+  <div class="grupos">
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>4</span>
+    <span>5</span>
+    <span>6</span>
+    <span>7</span>
+    <span>8</span>
+    <span>9</span>
+    <span>10</span>
+    <span>11</span>
+    <span>12</span>
+    <span>13</span>
+    <span>14</span>
+    <span>15</span>
+    <span>16</span>
+    <span>17</span>
+    <span>18</span>
+  </div>
+  {{#each elementos}}
+
+  <!-- célula de um elemento -->
+  <div class="celula-elemento {{extraClass}}{{#if isFblock}} fbloco {{series}}{{/if}}"
+    data-numero="{{numero}}"
+    data-simbolo="{{simbolo}}"
+    data-nome="{{nome}}"
+    data-massa="{{massa_molar}}"
+    data-camadas="{{camadas_eletrons}}"
+    data-descricao="{{descricao}}"
+    data-categoria="{{category}}"
+    style="grid-row:{{row}};grid-column:{{col}};background:var(--{{cssVar}})">
+
+    <div class="numero">{{numero}}</div>
+    <div class="simbolo">{{simbolo}}</div>
+    <div class="nome">{{nome}}</div>
+
+  </div>
+  
+  {{/each}}
+</div>
