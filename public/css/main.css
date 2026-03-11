@@ -1,0 +1,259 @@
+/**
+ * estilos globais e variáveis CSS
+ * qualquer página pode usar estas cores e transições
+ */
+:root {
+  --cor-primaria: #f5f9fb;
+  --cor-secundaria: #008c75;
+  --cor-terciaria: #dceeee;
+  --cor-texto: #000000;
+  --cor-texto-hover: #008c75;
+  /* cor de texto ao passar o mouse */
+
+  --cor-primaria-escura: #030a10;
+  --cor-secundaria-escura: #00bca2;
+  --cor-terciaria-escura: #031c1f;
+  --cor-texto-escuro: #ffffff;
+  --cor-texto-escuro-hover: #00bca2;
+
+  /* cor usada pela borda de célula selecionada */
+  --borda-selecionada: var(--cor-primaria);
+
+
+  /* ---- Transições ---- */
+  --duracao-transicao-curta: 0.2s;
+  --duracao-transicao-media: 0.3s;
+
+  /* cores ordenadas por categoria química (nome em português) */
+  --categoria-alcalino: #fff59d;
+  /* amarelo metais alcalinos */
+  --categoria-alcalino-terroso: #a8d5ba;
+  /* verde claro alcalino-terrosos */
+  --categoria-metal-transicao: #ffcccb;
+  /* rosa metais de transição */
+  --categoria-pos-transicao: #ffd180;
+  /* laranja pós-transição */
+  --categoria-metaloide: #eceff1;
+  /* cinza metaloides (semimetais) */
+  --categoria-nao-metal: #b3e5fc;
+  /* azul claro não-metais */
+  --categoria-halogenio: #dda0dd;
+  /* roxo halogênios */
+  --categoria-gas-nobre: #c5cae9;
+  /* azul pálido gases nobres */
+  --categoria-lantanideo: #dcedc8;
+  /* verde muito claro lantanídeos */
+  --categoria-actinideo: #aae566;
+  /* mesma cor actinídeos */
+  --categoria-outro: #ffffff;
+  /* branco padrão */
+
+  /* versões escuras das categorias (para modo escuro) */
+  --categoria-alcalino-escuro: #bfa742;
+  --categoria-alcalino-terroso-escuro: #6a8a5f;
+  --categoria-metal-transicao-escuro: #b77676;
+  --categoria-pos-transicao-escuro: #a87b3f;
+  --categoria-metaloide-escuro: #999999;
+  --categoria-nao-metal-escuro: #6080a0;
+  --categoria-halogenio-escuro: #8b5698;
+  --categoria-gas-nobre-escuro: #7274a0;
+  --categoria-lantanideo-escuro: #899a89;
+  --categoria-actinideo-escuro: #416841;
+  --categoria-outro-escuro: #bbbbbb;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--cor-primaria);
+  color: var(--cor-texto);
+  transition: background var(--duracao-transicao-media), color var(--duracao-transicao-media);
+}
+
+/* modo escuro */
+/* modo escuro global: variáveis e fundo de body */
+body.escuro {
+  background: var(--cor-primaria-escura);
+  color: var(--cor-texto-escuro);
+
+  /* borda selecionada adapta-se ao tema */
+  --borda-selecionada: var(--cor-primaria-escura);
+
+  /* reatribuir categorias para versões mais escuras */
+  --categoria-alcalino: var(--categoria-alcalino-escuro);
+  --categoria-alcalino-terroso: var(--categoria-alcalino-terroso-escuro);
+  --categoria-metal-transicao: var(--categoria-metal-transicao-escuro);
+  --categoria-pos-transicao: var(--categoria-pos-transicao-escuro);
+  --categoria-metaloide: var(--categoria-metaloide-escuro);
+  --categoria-nao-metal: var(--categoria-nao-metal-escuro);
+  --categoria-halogenio: var(--categoria-halogenio-escuro);
+  --categoria-gas-nobre: var(--categoria-gas-nobre-escuro);
+  --categoria-lantanideo: var(--categoria-lantanideo-escuro);
+  --categoria-actinideo: var(--categoria-actinideo-escuro);
+  --categoria-outro: var(--categoria-outro-escuro);
+}
+
+/* ajustar quadrante de conteúdo quando o modo está escuro */
+body.escuro .conteudo {
+  background: var(--cor-primaria-escura);
+  color: var(--cor-texto-escuro);
+}
+
+.geral {
+  display: flex;
+  flex-direction: column;
+  /* stretch children para que a área de conteúdo atinja o max-width
+     em telas grandes; antes o align-items:center fazia o .conteudo encolher
+     ao tamanho da tabela. */
+  align-items: stretch;
+  width: 100%;
+  max-width: 1008px;
+  margin: 0 auto;
+  /* centraliza o container na janela */
+  padding: 0 1rem;
+  /* espaçamento lateral responsivo */
+}
+
+/* agrupamentos dentro do menu */
+.menuinicial {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* separa links à esquerda do botão à direita */
+  padding: 1rem;
+  background: var(--cor-primaria);
+  transition: background 0.3s;
+}
+
+#botaoTema {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#iconeTema {
+  transition: transform 0.4s;
+  color: var(--cor-secundaria);
+  font-size: 1.6rem;
+}
+
+body.escuro #iconeTema {
+  transform: rotate(360deg);
+  color: var(--cor-secundaria-escura);
+}
+
+
+.logoeopcoes {
+  display: flex;
+  gap: 1rem;
+}
+
+.claroeescuro {
+  display: flex;
+}
+
+/* modo escuro - menu */
+body.escuro .menuinicial {
+  background: var(--cor-primaria-escura);
+}
+
+body.escuro .menuinicial a {
+  color: var(--cor-texto-escuro);
+}
+
+/* links do menu */
+
+.menuinicial a {
+  text-decoration: none;
+  color: var(--cor-texto);
+  align-content: center;
+  
+}
+
+.menuinicial a:hover {
+  color: var(--cor-texto-hover);
+}
+
+body.escuro .menuinicial a:hover {
+  color: var(--cor-texto-escuro-hover);
+}
+
+#icone-tema {
+  cursor: pointer;
+  transition: filter var(--duracao-transicao-curta);
+}
+
+.logoescrita {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffffff;
+  background: var(--cor-secundaria);
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20%;
+}
+
+body.escuro #logo {
+  background: var(--cor-secundaria-escura);
+  color: #000000;
+}
+
+#escrita {
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+#hubdequimica {
+  font-size: 0.9rem;
+  font-weight: normal;
+}
+
+/* ------------------------------------------------------------------ */
+/* SEÇÃO: CONTEÚDO PRINCIPAL (todas as páginas) */
+.conteudo {
+  flex: 1;
+  background: var(--cor-primaria);
+  color: var(--cor-texto);
+  transition: background var(--duracao-transicao-media), color var(--duracao-transicao-media);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* modo escuro - conteúdo */
+body.escuro .conteudo {
+  background: var(--cor-primaria-escura);
+  color: var(--cor-texto-escuro);
+}
+
+.periodica {
+  color: var(--cor-secundaria);
+}
+
+body.escuro .periodica {
+  color: var(--cor-secundaria-escura);
+}

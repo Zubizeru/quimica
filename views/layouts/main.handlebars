@@ -3,25 +3,42 @@
 
 <head>
     <title>Meu site</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/main.css">
+    {{#if additionalStyles}}
+    {{{additionalStyles}}}
+    {{/if}}
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
-
-    <nav class="menuinicial">
-        <a href="/">Química Geral</a>
-        <a href="/opcao2">Opção 2</a>
-        <a href="/opcao3">Opção 3</a>
-        <a href="/opcao4">Opção 4</a>
-        <!-- botão de tema escuro com ícone do icons8 -->
-        <button id="botaoTema" aria-label="Alternar modo escuro" style="background:none;border:none;cursor:pointer;padding:0;">
-          <img id="iconeTema" src="https://img.icons8.com/ios-filled/24/000000/moon-symbol.png" alt="tema" />
-        </button>
-    </nav>
-    <div class="conteudo">
-        {{{body}}}
+    <div class="geral">
+        <nav class="menuinicial">
+            <div class="logoeopcoes">
+                <div class="logoescrita">
+                    <div id="logo">
+                        <i class="fa-solid fa-flask"></i>
+                    </div>
+                    <div id="escrita">
+                        <p>ChemStudy</p>
+                        <p id="hubdequimica">Hub de Química</p>
+                    </div>
+                </div>
+                <a href="/">Química Geral</a>
+                <a href="/opcao2">Opção 2</a>
+                <a href="/opcao3">Opção 3</a>
+                <a href="/opcao4">Opção 4</a>
+            </div>
+            <div class="claroeescuro">
+                <button id="botaoTema" aria-label="Alternar modo escuro">
+                    <i id="iconeTema" class="fa-regular fa-sun"></i>
+                </button>
+            </div>
+        </nav>
+        <div class="conteudo">
+            {{{body}}}
+        </div>
     </div>
-
     <script src="/js/main.js"></script>
 </body>
 

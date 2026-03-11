@@ -1,0 +1,450 @@
+/* ------------------------------------------------------------------ */
+/*TELA COMPLETA*/
+.tabelaefiltro {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.logotabelaperiodica {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--cor-texto);
+  margin: 1rem 0;
+}
+
+body.escuro .logotabelaperiodica {
+  color: var(--cor-texto-escuro);
+}
+
+.logotabelaperiodica i {
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+  background: var(--cor-terciaria);
+  padding: 0.8rem;
+  border-radius: 15%;
+  color: var(--cor-secundaria);
+}
+
+body.escuro .logotabelaperiodica i {
+  background: var(--cor-terciaria-escura);
+  color: var(--cor-secundaria-escura);
+}
+
+/* SEÇÃO: CARTÃO + DESCRIÇÃO (página opção1) */
+.nomeedescricao {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 5px;
+  background: var(--cor-primaria);
+  color: var(--cor-texto);
+  border: 1px solid #33333325;
+  box-sizing: border-box;
+  transition: background var(--duracao-transicao-curta), color var(--duracao-transicao-curta);
+  min-height: 200px;
+}
+
+/* modo escuro - cartão/descrição */
+body.escuro .nomeedescricao {
+  background: var(--cor-primaria-escura);
+  color: var(--cor-texto-escuro);
+  border-color: var(--cor-texto-escuro);
+}
+
+/* cartão exibindo informações do elemento (estilizado como célula ampliada) */
+.cardnomeelemento {
+  border: 10px solid #33333325;
+  flex: 0 0 130px;
+  width: 130px;
+  height: 130px;
+  padding: 4px;
+  opacity: 0.30;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  color: var(--cor-texto);
+  transition: background var(--duracao-transicao-curta), color var(--duracao-transicao-curta), border 0.2s;
+}
+
+/* modo escuro - cartão */
+body.escuro .cardnomeelemento {
+  background: var(--cor-primaria-escura);
+  color: var(--cor-texto-escuro);
+}
+
+.cardnomeelemento:hover,
+.cardnomeelemento.ativo {
+  opacity: 1;
+}
+
+/* números, símbolo e outros campos dentro do cartão */
+.cardnomeelemento .numeroCard {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.cardnomeelemento .simboloCard {
+  margin-top: 25px;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.cardnomeelemento .nomeCard {
+  margin-top: 4px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.cardnomeelemento .massaCard {
+  margin-top: auto;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.cardnomeelemento .camadasCard {
+  position: absolute;
+  top: 2px;
+  right: 4px;
+  font-size: 0.6rem;
+  text-align: right;
+  white-space: pre-line;
+}
+
+/* ================================
+   FILTRAGEM LATERAL
+================================ */
+.filtragem {
+  display: flex;
+  flex: 0 0 150px;
+  width: 200px;
+  height: 158px;
+  font-size: 0.6rem;
+}
+
+/* ================================
+   DESCRIÇÃO DO ELEMENTO
+================================ */
+.descricaodoelemento {
+  flex: 1 1 auto;
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  padding: 8px;
+  font-size: 0.7rem;
+
+  background: var(--cor-primaria);
+  color: var(--cor-texto);
+
+  box-sizing: border-box;
+  cursor: default;
+
+  transition:
+    background var(--duracao-transicao-curta),
+    color var(--duracao-transicao-curta);
+}
+
+body.escuro .descricaodoelemento {
+  background: var(--cor-primaria-escura);
+  color: var(--cor-texto-escuro);
+}
+
+/* ================================
+   ESTRUTURA DOS GRUPOS
+================================ */
+.metal,
+.nao-metal {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.metal {
+  margin-bottom: 1rem;
+}
+
+.nao-metal {
+  align-items: center;
+}
+
+/* bloco dos metais f */
+.metais-f-bloco {
+  display: flex;
+  flex-direction: column;
+}
+
+/* metaloide vertical */
+.metaloide {
+  writing-mode: vertical-rl;
+  margin-top: 11px;
+}
+
+/* ================================
+   ITENS DO FILTRO
+================================ */
+.filtro-item {
+  padding: 4px;
+  cursor: pointer;
+}
+
+.filtro-item:hover {
+  filter: brightness(0.8);
+  transition: var(--duracao-transicao-curta);
+}
+
+/* ================================
+   CORES DAS CATEGORIAS
+================================ */
+
+#metal-alcalino {
+  background: var(--categoria-alcalino);
+}
+
+#metal-alcalino-terroso {
+  background: var(--categoria-alcalino-terroso);
+}
+
+#metal-transicao {
+  background: var(--categoria-metal-transicao);
+}
+
+#metal-pos-transicao {
+  background: var(--categoria-pos-transicao);
+}
+
+#lantanideo {
+  background: var(--categoria-lantanideo);
+}
+
+#actinideo {
+  background: var(--categoria-actinideo);
+}
+
+#metaloide {
+  background: var(--categoria-metaloide);
+}
+
+#nao-metal {
+  background: var(--categoria-nao-metal);
+}
+
+#halogenio {
+  background: var(--categoria-halogenio);
+}
+
+#gas-nobre {
+  background: var(--categoria-gas-nobre);
+}
+
+/* ------------------------------------------------------------------ */
+/* SEÇÃO: TABELA PERIÓDICA (página opção1) */
+
+.grupos {
+  display: contents;
+}
+
+.grupos span {
+  grid-row: 1;
+  /* força todos os números na primeira linha */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  /* centraliza verticalmente dentro da célula */
+  justify-content: center;
+  /* já tem horizontal, reforça em flex */
+}
+
+/* placeholder vazio para deslocar os cabeçalhos dos grupos */
+.grupos span.placeholder {
+  visibility: hidden;
+}
+
+/* coluna de períodos (tag espaçadora vertical) */
+.periodos {
+  display: contents;
+  /* deixa apenas os spans entrarem na grade */
+}
+
+.periodos span {
+  grid-column: 1;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabela-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tabela-periodica {
+  display: grid;
+  grid-template-columns: repeat(19, minmax(45px, 1fr));
+  gap: 1px;
+  justify-content: center;
+  cursor: default;
+  width: 100%;
+  border: 1px solid #33333325;
+  min-width: 1000px;
+}
+
+
+/* modo escuro - tabela */
+body.escuro .tabela-periodica {
+  border-color: var(--cor-primaria);
+}
+
+/* modo escuro para células */
+body.escuro .celula-elemento {
+  background-color: var(--cor-secundaria-escura);
+  color: var(--cor-texto-escuro);
+}
+
+body.escuro .celula-elemento:hover {
+  filter: brightness(1.2);
+}
+
+.celula-elemento {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  background-color: var(--cor-secundaria);
+  padding: 2px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: filter var(--duracao-transicao-curta);
+  border: 3px solid #33333325;
+  /* força largura e altura idênticas independente da grade */
+  aspect-ratio: 1 / 1;
+}
+
+/* destaque ao passar o mouse */
+.celula-elemento:hover {
+  transition: var(--duracao-transicao-curta);
+  transform: scale(1.05);
+  filter: brightness(1.05);
+  z-index: 2;
+}
+
+/* elemento selecionado (após clique) */
+.celula-elemento.selecionado {
+  filter: brightness(1.3);
+  border: 2px solid var(--borda-selecionada);
+}
+
+/* números invisíveis até hover/selecção */
+.celula-elemento .numero {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 0.6rem;
+  display: none;
+}
+
+.celula-elemento:hover .numero,
+.celula-elemento.selecionado .numero {
+  display: block;
+}
+
+.celula-elemento .simbolo {
+  font-size: 0.9rem;
+  font-weight: bold;
+  white-space: pre-line;
+  /* permite \n para quebra de linha dentro do símbolo */
+}
+
+/* ---------- estilos de células customizadas (início/listagem) ---------- */
+.tabela-periodica .celula-elemento.celulas-comeco-lact .simbolo {
+  font-size: 0.5rem;
+  /* pre-line já herdado acima */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* ------------------------------------------------------------------------ */
+
+.celula-elemento .nome {
+  font-size: 0.4rem;
+  text-align: center;
+  line-height: 1em;
+}
+
+/* estilo para bloco‑f (lantanídeos/actinídeos) */
+.celula-elemento.fbloco {
+  margin-top: 0.3rem;
+  font-size: 0.6rem;
+}
+
+.tabela-periodica .celula-elemento.celulas-listagem-lact {
+  border: none;
+  cursor: default;
+  opacity: 0.6;
+  margin-top: 0.3rem;
+  pointer-events: none;
+  background: transparent;
+}
+
+/* impedir animação ao passar por cima das de listagem */
+.tabela-periodica .celula-elemento.celulas-listagem-lact:hover {
+  transform: none;
+  filter: none;
+}
+
+.tabela-periodica .celula-elemento.celulas-listagem-lact .simbolo {
+  font-size: 0.5rem;
+}
+
+
+/* manter as 18 colunas, mas fazê‑las encolherem para caber
+   evita estouro quando itens do bloco‑f estão em colunas altas */
+@media (max-width: 1120px) {
+
+
+  /* ambos cabeçalho e tabela utilizam as mesmas regras responsivas */
+  .grupos,
+  .tabela-periodica {
+    width: 100%;
+    min-width: 700px;
+    /* mantém 19 colunas iguais (1 para períodos + 18 para grupos) */
+    grid-template-columns: repeat(19, minmax(20px, 1fr));
+    /* altura flexível para manter quadrados (aspect-ratio do filho) */
+    grid-auto-rows: 1fr;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+
+  }
+
+  .celula-elemento {
+    font-size: 0.6rem;
+  }
+
+  .celula-elemento .simbolo {
+    font-size: 0.9rem;
+  }
+
+  .celula-elemento .nome {
+    display: none;
+    /* esconde o nome em telas menores para evitar poluição visual */
+  }
+}

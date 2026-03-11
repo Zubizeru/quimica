@@ -111,6 +111,8 @@ let tabelaElements = elementos.map(e => {
   } else {
     col = parseInt(e.grupo, 10);
   }
+  // desloca todas as colunas em uma unidade para abrir a coluna de períodos
+  col += 1;
 
   const category = classifyElement(e);
   const cssVar = 'categoria-' + (CSS_LOOKUP[category] || category);
@@ -122,28 +124,28 @@ let tabelaElements = elementos.map(e => {
 addPlaceholder(tabelaElements, {
   simbolo: '57-71\n*',
   row: 6,
-  col: 3,
+  col: 4,  // deslocado para a direita um espaço
   cssVar: 'categoria-lantanideo',
   category: 'lantanideo'
 });
 addPlaceholder(tabelaElements, {
   simbolo: '89-103\n**',
   row: 7,
-  col: 3,
+  col: 4,
   cssVar: 'categoria-actinideo',
   category: 'actinideo'
 });
 addPlaceholder(tabelaElements, {
   simbolo: '*',
   row: 8,
-  col: 3,
+  col: 4,
   cssVar: '',
   category: ''
 });
 addPlaceholder(tabelaElements, {
   simbolo: '**',
   row: 9,
-  col: 3,
+  col: 4,
   cssVar: '',
   category: ''
 });
@@ -161,9 +163,27 @@ tabelaElements = tabelaElements.map((el, idx) => {
   return { ...el, extraClass: classes.join(' ') };
 });
 
+// exemplo no seu router/handler
+const grupos = Array.from({ length: 18 }, (_, i) => i + 1);
+// periodos 1‑7, com número e linha para posicionamento na grade
+const periodos = Array.from({ length: 7 }, (_, i) => ({
+  value: i + 1,
+  row: i + 2
+}));
 
+app.get('/tabela', (req, res) => {
+  res.render('tabela', {
+    elementos: tabelaElements,
+    grupos,
+    periodos,
+    /* …outros dados… */
+    additionalStyles: '<link rel="stylesheet" href="/css/tabela.css">'
+  });
+});
+
+// simplifica: redireciona / para /tabela (ou repete a mesma renderização)
 app.get('/', (req, res) => {
-  res.render('tabela', { elementos: tabelaElements });
+  res.redirect('/tabela');
 });
 
 // rotas para as demais páginas precriadas
