@@ -1,13 +1,6 @@
-/* ------------------------------------------------------------------ */
-/*TELA COMPLETA*/
-.tabelaefiltro {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 100%;
-  margin: 0 auto;
-}
-
+/* ==========================================================================
+logotabelaperiodica
+============================================================================ */
 .logotabelaperiodica {
   display: flex;
   align-items: center;
@@ -36,7 +29,31 @@ body.escuro .logotabelaperiodica i {
   color: var(--cor-secundaria-escura);
 }
 
-/* SEÇÃO: CARTÃO + DESCRIÇÃO (página opção1) */
+#descricao {
+  max-width: 620px;
+  font-size: 1rem;
+  color: color-mix(in srgb, var(--cor-texto) 70%, transparent);
+  line-height: 1.6;
+}
+
+body.escuro #descricao {
+  color: color-mix(in srgb, var(--cor-texto-escuro) 70%, transparent);
+}
+
+/* ==========================================================================
+tabelaefiltro
+============================================================================ */
+.tabelaefiltro {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+nomeedescricao
+============================================================================ */
 .nomeedescricao {
   display: flex;
   flex-direction: row;
@@ -46,22 +63,24 @@ body.escuro .logotabelaperiodica i {
   padding: 5px;
   background: var(--cor-primaria);
   color: var(--cor-texto);
-  border: 1px solid #33333325;
+  border: 2px solid var(--cor-secundaria);
+  border-radius: 10px;
   box-sizing: border-box;
   transition: background var(--duracao-transicao-curta), color var(--duracao-transicao-curta);
   min-height: 200px;
 }
 
-/* modo escuro - cartão/descrição */
 body.escuro .nomeedescricao {
   background: var(--cor-primaria-escura);
   color: var(--cor-texto-escuro);
-  border-color: var(--cor-texto-escuro);
+  border-color: var(--cor-secundaria-escura);
 }
 
-/* cartão exibindo informações do elemento (estilizado como célula ampliada) */
+/* ==========================================================================
+cardnomeelemento
+============================================================================ */
 .cardnomeelemento {
-  border: 10px solid #33333325;
+  border: 10px solid var(--cor-secundaria);
   flex: 0 0 130px;
   width: 130px;
   height: 130px;
@@ -71,22 +90,20 @@ body.escuro .nomeedescricao {
   position: relative;
   display: flex;
   flex-direction: column;
-  color: var(--cor-texto);
+  color: var(--cor-secundaria);
   transition: background var(--duracao-transicao-curta), color var(--duracao-transicao-curta), border 0.2s;
 }
 
-/* modo escuro - cartão */
 body.escuro .cardnomeelemento {
   background: var(--cor-primaria-escura);
-  color: var(--cor-texto-escuro);
+  color: var(--cor-secundaria-escura);
 }
 
-.cardnomeelemento:hover,
 .cardnomeelemento.ativo {
   opacity: 1;
+  border: 10px solid #33333325;
 }
 
-/* números, símbolo e outros campos dentro do cartão */
 .cardnomeelemento .numeroCard {
   position: absolute;
   top: 2px;
@@ -123,40 +140,22 @@ body.escuro .cardnomeelemento {
   white-space: pre-line;
 }
 
-/* ================================
-   FILTRAGEM LATERAL
-================================ */
-.filtragem {
-  display: flex;
-  flex: 0 0 150px;
-  width: 200px;
-  height: 158px;
-  font-size: 0.6rem;
-}
-
-/* ================================
-   DESCRIÇÃO DO ELEMENTO
-================================ */
+/* ==========================================================================
+descricaodoelemento
+============================================================================ */
 .descricaodoelemento {
   flex: 1 1 auto;
   min-width: 0;
-
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-
   padding: 8px;
-  font-size: 0.7rem;
-
+  font-size: 16px;
   background: var(--cor-primaria);
   color: var(--cor-texto);
-
   box-sizing: border-box;
   cursor: default;
-
-  transition:
-    background var(--duracao-transicao-curta),
-    color var(--duracao-transicao-curta);
+  transition: background var(--duracao-transicao-curta), color var(--duracao-transicao-curta);
 }
 
 body.escuro .descricaodoelemento {
@@ -164,11 +163,17 @@ body.escuro .descricaodoelemento {
   color: var(--cor-texto-escuro);
 }
 
-/* ================================
-   ESTRUTURA DOS GRUPOS
-================================ */
-.metal,
-.nao-metal {
+/* ==========================================================================
+filtragem
+============================================================================ */
+.filtragem {
+  display: flex;
+  flex: 0 0 180px;
+  height: 158px;
+  font-size: 10px;
+}
+
+.grupo {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -182,21 +187,11 @@ body.escuro .descricaodoelemento {
   align-items: center;
 }
 
-/* bloco dos metais f */
 .metais-f-bloco {
   display: flex;
   flex-direction: column;
 }
 
-/* metaloide vertical */
-.metaloide {
-  writing-mode: vertical-rl;
-  margin-top: 11px;
-}
-
-/* ================================
-   ITENS DO FILTRO
-================================ */
 .filtro-item {
   padding: 4px;
   cursor: pointer;
@@ -207,77 +202,119 @@ body.escuro .descricaodoelemento {
   transition: var(--duracao-transicao-curta);
 }
 
-/* ================================
-   CORES DAS CATEGORIAS
-================================ */
+.filtro-item.ativo {
+  outline: 2px solid var(--cor-texto);
+  outline-offset: 1px;
+  filter: brightness(0.9);
+}
 
 #metal-alcalino {
-  background: var(--categoria-alcalino);
+  border: 1px solid var(--categoria-alcalino);
 }
 
 #metal-alcalino-terroso {
-  background: var(--categoria-alcalino-terroso);
+  border: 1px solid var(--categoria-alcalino-terroso);
 }
 
 #metal-transicao {
-  background: var(--categoria-metal-transicao);
+  border: 1px solid var(--categoria-metal-transicao);
 }
 
 #metal-pos-transicao {
-  background: var(--categoria-pos-transicao);
+  border: 1px solid var(--categoria-pos-transicao);
 }
 
 #lantanideo {
-  background: var(--categoria-lantanideo);
+  border: 1px solid var(--categoria-lantanideo);
 }
 
 #actinideo {
-  background: var(--categoria-actinideo);
+  border: 1px solid var(--categoria-actinideo);
 }
 
 #metaloide {
-  background: var(--categoria-metaloide);
+  border: 1px solid var(--categoria-metaloide);
 }
 
 #nao-metal {
-  background: var(--categoria-nao-metal);
+  border: 1px solid var(--categoria-nao-metal);
 }
 
 #halogenio {
-  background: var(--categoria-halogenio);
+  border: 1px solid var(--categoria-halogenio);
 }
 
 #gas-nobre {
-  background: var(--categoria-gas-nobre);
+  border: 1px solid var(--categoria-gas-nobre);
 }
 
-/* ------------------------------------------------------------------ */
-/* SEÇÃO: TABELA PERIÓDICA (página opção1) */
-
-.grupos {
-  display: contents;
+/* ==========================================================================
+tabela-scroll
+============================================================================ */
+.tabela-scroll {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  border: 2px solid var(--cor-secundaria);
+  border-radius: 10px 10px 0px 0px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--cor-secundaria) var(--cor-terciaria);
 }
 
-.grupos span {
-  grid-row: 1;
-  /* força todos os números na primeira linha */
-  text-align: center;
-  display: flex;
-  align-items: center;
-  /* centraliza verticalmente dentro da célula */
+body.escuro .tabela-scroll {
+  border-color: var(--cor-secundaria-escura);
+  scrollbar-color: var(--cor-secundaria-escura) var(--cor-terciaria-escura);
+}
+
+.tabela-scroll::-webkit-scrollbar {
+  height: 10px;
+}
+
+.tabela-scroll::-webkit-scrollbar-track {
+  background: linear-gradient(90deg, var(--cor-terciaria), #ffffff);
+  border-radius: 999px;
+}
+
+.tabela-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, var(--cor-secundaria), #00b89a);
+  border-radius: 999px;
+  border: 2px solid var(--cor-terciaria);
+}
+
+body.escuro .tabela-scroll::-webkit-scrollbar-track {
+  background: linear-gradient(90deg, var(--cor-terciaria-escura), #021217);
+}
+
+body.escuro .tabela-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, var(--cor-secundaria-escura), #00d1b6);
+  border-color: var(--cor-terciaria-escura);
+}
+
+/* ==========================================================================
+tabela-periodica
+============================================================================ */
+.tabela-periodica {
+  --cell-min: 45px;
+  --celula-fundo: var(--cor-secundaria);
+  display: grid;
+  grid-template-columns: repeat(19, minmax(var(--cell-min), 1fr));
+  gap: 1px;
   justify-content: center;
-  /* já tem horizontal, reforça em flex */
+  cursor: default;
+  width: 100%;
+  padding: 1rem;
 }
 
-/* placeholder vazio para deslocar os cabeçalhos dos grupos */
-.grupos span.placeholder {
-  visibility: hidden;
+body.escuro .tabela-periodica {
+  --celula-fundo: var(--cor-secundaria-escura);
 }
 
-/* coluna de períodos (tag espaçadora vertical) */
+/* ==========================================================================
+periodos
+============================================================================ */
 .periodos {
   display: contents;
-  /* deixa apenas os spans entrarem na grade */
 }
 
 .periodos span {
@@ -286,40 +323,67 @@ body.escuro .descricaodoelemento {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: var(--cell-min);
+  min-height: var(--cell-min);
+  aspect-ratio: 1 / 1;
 }
 
-.tabela-scroll {
-  width: 100%;
-  overflow-x: auto;
+/* ==========================================================================
+grupos
+============================================================================ */
+.grupos {
+  display: contents;
 }
 
-.tabela-periodica {
-  display: grid;
-  grid-template-columns: repeat(19, minmax(45px, 1fr));
-  gap: 1px;
+.grupos span {
+  grid-row: 1;
+  text-align: center;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  cursor: default;
-  width: 100%;
-  border: 1px solid #33333325;
-  min-width: 1000px;
+  min-width: var(--cell-min);
+  min-height: var(--cell-min);
+  aspect-ratio: 1 / 1;
 }
 
-
-/* modo escuro - tabela */
-body.escuro .tabela-periodica {
-  border-color: var(--cor-primaria);
+.grupos span.placeholder {
+  visibility: hidden;
 }
 
-/* modo escuro para células */
-body.escuro .celula-elemento {
-  background-color: var(--cor-secundaria-escura);
-  color: var(--cor-texto-escuro);
-}
+.tabela-periodica .row-1 { grid-row: 1; }
+.tabela-periodica .row-2 { grid-row: 2; }
+.tabela-periodica .row-3 { grid-row: 3; }
+.tabela-periodica .row-4 { grid-row: 4; }
+.tabela-periodica .row-5 { grid-row: 5; }
+.tabela-periodica .row-6 { grid-row: 6; }
+.tabela-periodica .row-7 { grid-row: 7; }
+.tabela-periodica .row-8 { grid-row: 8; }
+.tabela-periodica .row-9 { grid-row: 9; }
+.tabela-periodica .row-10 { grid-row: 10; }
 
-body.escuro .celula-elemento:hover {
-  filter: brightness(1.2);
-}
+.tabela-periodica .col-1 { grid-column: 1; }
+.tabela-periodica .col-2 { grid-column: 2; }
+.tabela-periodica .col-3 { grid-column: 3; }
+.tabela-periodica .col-4 { grid-column: 4; }
+.tabela-periodica .col-5 { grid-column: 5; }
+.tabela-periodica .col-6 { grid-column: 6; }
+.tabela-periodica .col-7 { grid-column: 7; }
+.tabela-periodica .col-8 { grid-column: 8; }
+.tabela-periodica .col-9 { grid-column: 9; }
+.tabela-periodica .col-10 { grid-column: 10; }
+.tabela-periodica .col-11 { grid-column: 11; }
+.tabela-periodica .col-12 { grid-column: 12; }
+.tabela-periodica .col-13 { grid-column: 13; }
+.tabela-periodica .col-14 { grid-column: 14; }
+.tabela-periodica .col-15 { grid-column: 15; }
+.tabela-periodica .col-16 { grid-column: 16; }
+.tabela-periodica .col-17 { grid-column: 17; }
+.tabela-periodica .col-18 { grid-column: 18; }
+.tabela-periodica .col-19 { grid-column: 19; }
 
+/* ==========================================================================
+celula-elemento
+============================================================================ */
 .celula-elemento {
   position: relative;
   display: flex;
@@ -327,17 +391,38 @@ body.escuro .celula-elemento:hover {
   align-items: center;
   justify-content: center;
   font-size: 0.6rem;
-  background-color: var(--cor-secundaria);
+  background-color: var(--celula-fundo);
   padding: 2px;
   box-sizing: border-box;
   cursor: pointer;
-  transition: filter var(--duracao-transicao-curta);
+  transition:
+    filter var(--duracao-transicao-curta),
+    opacity var(--duracao-transicao-media),
+    transform var(--duracao-transicao-media);
   border: 3px solid #33333325;
-  /* força largura e altura idênticas independente da grade */
   aspect-ratio: 1 / 1;
 }
 
-/* destaque ao passar o mouse */
+.celula-elemento.categoria-alcalino { background-color: var(--categoria-alcalino); }
+.celula-elemento.categoria-alcalino-terroso { background-color: var(--categoria-alcalino-terroso); }
+.celula-elemento.categoria-metal-transicao { background-color: var(--categoria-metal-transicao); }
+.celula-elemento.categoria-metal-pos-transicao { background-color: var(--categoria-pos-transicao); }
+.celula-elemento.categoria-lantanideo { background-color: var(--categoria-lantanideo); }
+.celula-elemento.categoria-actinideo { background-color: var(--categoria-actinideo); }
+.celula-elemento.categoria-metaloide { background-color: var(--categoria-metaloide); }
+.celula-elemento.categoria-nao-metal { background-color: var(--categoria-nao-metal); }
+.celula-elemento.categoria-halogenio { background-color: var(--categoria-halogenio); }
+.celula-elemento.categoria-gas-nobre { background-color: var(--categoria-gas-nobre); }
+.celula-elemento.categoria-outro { background-color: var(--categoria-outro); }
+
+body.escuro .celula-elemento {
+  color: var(--cor-texto-escuro);
+}
+
+body.escuro .celula-elemento:hover {
+  filter: brightness(1.2);
+}
+
 .celula-elemento:hover {
   transition: var(--duracao-transicao-curta);
   transform: scale(1.05);
@@ -345,13 +430,11 @@ body.escuro .celula-elemento:hover {
   z-index: 2;
 }
 
-/* elemento selecionado (após clique) */
 .celula-elemento.selecionado {
   filter: brightness(1.3);
   border: 2px solid var(--borda-selecionada);
 }
 
-/* números invisíveis até hover/selecção */
 .celula-elemento .numero {
   position: absolute;
   top: 2px;
@@ -369,20 +452,15 @@ body.escuro .celula-elemento:hover {
   font-size: 0.9rem;
   font-weight: bold;
   white-space: pre-line;
-  /* permite \n para quebra de linha dentro do símbolo */
 }
 
-/* ---------- estilos de células customizadas (início/listagem) ---------- */
 .tabela-periodica .celula-elemento.celulas-comeco-lact .simbolo {
   font-size: 0.5rem;
-  /* pre-line já herdado acima */
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
-
-/* ------------------------------------------------------------------------ */
 
 .celula-elemento .nome {
   font-size: 0.4rem;
@@ -390,7 +468,6 @@ body.escuro .celula-elemento:hover {
   line-height: 1em;
 }
 
-/* estilo para bloco‑f (lantanídeos/actinídeos) */
 .celula-elemento.fbloco {
   margin-top: 0.3rem;
   font-size: 0.6rem;
@@ -405,7 +482,6 @@ body.escuro .celula-elemento:hover {
   background: transparent;
 }
 
-/* impedir animação ao passar por cima das de listagem */
 .tabela-periodica .celula-elemento.celulas-listagem-lact:hover {
   transform: none;
   filter: none;
@@ -415,36 +491,106 @@ body.escuro .celula-elemento:hover {
   font-size: 0.5rem;
 }
 
-
-/* manter as 18 colunas, mas fazê‑las encolherem para caber
-   evita estouro quando itens do bloco‑f estão em colunas altas */
 @media (max-width: 1120px) {
-
-
-  /* ambos cabeçalho e tabela utilizam as mesmas regras responsivas */
   .grupos,
   .tabela-periodica {
     width: 100%;
-    min-width: 700px;
-    /* mantém 19 colunas iguais (1 para períodos + 18 para grupos) */
-    grid-template-columns: repeat(19, minmax(20px, 1fr));
-    /* altura flexível para manter quadrados (aspect-ratio do filho) */
+    min-width: 760px;
+    --cell-min: 20px;
+    grid-template-columns: repeat(19, minmax(var(--cell-min), 1fr));
     grid-auto-rows: 1fr;
-    overflow-x: scroll;
-    scroll-behavior: smooth;
-
-  }
-
-  .celula-elemento {
-    font-size: 0.6rem;
-  }
-
-  .celula-elemento .simbolo {
-    font-size: 0.9rem;
   }
 
   .celula-elemento .nome {
     display: none;
-    /* esconde o nome em telas menores para evitar poluição visual */
+  }
+
+  .celula-elemento .numero {
+    font-size: 0.5rem;
+  }
+
+  .descricaodoelemento {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 900px) {
+  .nomeedescricao {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .descricaodoelemento {
+    flex: 1;
+    min-width: 0;
+    font-size: 12px;
+  }
+
+  .filtragem {
+    width: 100%;
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: auto;
+    font-size: 0.6rem;
+    border-top: 1px solid var(--cor-secundaria);
+    gap: 0.3rem;
+    padding: 0.2rem;
+  }
+
+  body.escuro .filtragem {
+    border-color: var(--cor-secundaria-escura);
+    scrollbar-color: var(--cor-secundaria-escura) var(--cor-terciaria-escura);
+  }
+
+  .grupo,
+  .metais-f-bloco,
+  .itens-filtro {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.3rem;
+    flex-wrap: wrap;
+  }
+
+  .grupo {
+    margin: 0;
+    writing-mode: horizontal-tb;
+  }
+
+  .titulo-filtro {
+    display: none;
+  }
+
+  .filtro-item {
+    white-space: nowrap;
+  }
+
+  .filtragem::-webkit-scrollbar {
+    height: 8px;
+    border-radius: 999px;
+  }
+
+  .filtragem::-webkit-scrollbar-track {
+    background: linear-gradient(90deg, var(--cor-terciaria), #ffffff);
+    border-radius: 999px;
+  }
+
+  .filtragem::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, var(--cor-secundaria), #00b89a);
+    border-radius: 999px;
+    border: 2px solid var(--cor-terciaria);
+  }
+
+  body.escuro .filtragem::-webkit-scrollbar-track {
+    background: linear-gradient(90deg, var(--cor-terciaria-escura), #021217);
+  }
+
+  body.escuro .filtragem::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, var(--cor-secundaria-escura), #00d1b6);
+    border-color: var(--cor-terciaria-escura);
   }
 }

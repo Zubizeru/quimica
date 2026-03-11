@@ -12,33 +12,42 @@
 </head>
 
 <body>
-    <div class="geral">
-        <nav class="menuinicial">
-            <div class="logoeopcoes">
-                <div class="logoescrita">
-                    <div id="logo">
-                        <i class="fa-solid fa-flask"></i>
-                    </div>
-                    <div id="escrita">
-                        <p>ChemStudy</p>
-                        <p id="hubdequimica">Hub de Química</p>
-                    </div>
+    <nav class="menuinicial">
+        <div class="logo">
+            <div class="logoescrita">
+                <div id="logo">
+                    <i class="fa-solid fa-flask"></i>
                 </div>
-                <a href="/">Química Geral</a>
-                <a href="/opcao2">Opção 2</a>
-                <a href="/opcao3">Opção 3</a>
-                <a href="/opcao4">Opção 4</a>
+                <div id="escrita">
+                    <p>ChemStudy</p>
+                    <p id="hubdequimica">Hub de Química</p>
+                </div>
             </div>
+        </div>
+        <div class="linkeclaroescuro">
             <div class="claroeescuro">
                 <button id="botaoTema" aria-label="Alternar modo escuro">
                     <i id="iconeTema" class="fa-regular fa-sun"></i>
                 </button>
             </div>
-        </nav>
+            <button id="botaoMenu" class="botao-menu" aria-label="Abrir menu" aria-expanded="false">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <div class="links">
+            <a href="/">Química Geral</a>
+            <a href="/topicos">Tópicos</a>
+            <a href="/ferramentas">Ferramentas</a>
+        </div>
+    </nav>
+    <div class="geral">
         <div class="conteudo">
             {{{body}}}
         </div>
     </div>
+    <footer>
+        <p>&copy; 2026 ChemStudy. Todos os direitos reservados.</p>
+    </footer>
     <script src="/js/main.js"></script>
 </body>
 

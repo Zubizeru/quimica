@@ -15,6 +15,82 @@ document.addEventListener('DOMContentLoaded', () => {
   const filtros = $$('.filtro-item');
   const body = document.body;
   const botaoTema = $('#botaoTema');
+  const menu = $('.menuinicial');
+  const botaoMenu = $('#botaoMenu');
+  const linksMenu = $$('.links a');
+
+  const atualizarAlturaMenu = () => {
+    if (!menu) return;
+    document.documentElement.style.setProperty('--menu-altura', `${menu.offsetHeight}px`);
+  };
+
+  atualizarAlturaMenu();
+  window.addEventListener('resize', atualizarAlturaMenu);
+
+  if (botaoMenu && menu) {
+    botaoMenu.addEventListener('click', () => {
+      const aberto = menu.classList.toggle('menu-aberto');
+      menu.classList.remove('menu-oculto');
+      botaoMenu.setAttribute('aria-expanded', aberto ? 'true' : 'false');
+
+      const icone = botaoMenu.querySelector('i');
+      if (icone) {
+        icone.classList.toggle('fa-bars', !aberto);
+        icone.classList.toggle('fa-xmark', aberto);
+      }
+    });
+
+    linksMenu.forEach(link => {
+      link.addEventListener('click', () => {
+        if (!menu.classList.contains('menu-aberto')) return;
+        menu.classList.remove('menu-aberto');
+        botaoMenu.setAttribute('aria-expanded', 'false');
+        const icone = botaoMenu.querySelector('i');
+        if (icone) {
+          icone.classList.remove('fa-xmark');
+          icone.classList.add('fa-bars');
+        }
+      });
+    });
+  }
+
+  if (menu) {
+    let lastScrollY = window.scrollY || document.documentElement.scrollTop;
+    let ticking = false;
+    const threshold = 2;
+
+    const onScroll = () => {
+      const current = window.scrollY || document.documentElement.scrollTop;
+
+      if (menu.classList.contains('menu-aberto')) {
+        lastScrollY = current;
+        return;
+      }
+
+      if (current <= 0) {
+        menu.classList.remove('menu-oculto');
+        lastScrollY = current;
+        return;
+      }
+
+      if (current > lastScrollY + threshold) {
+        menu.classList.add('menu-oculto');
+      } else if (current < lastScrollY - threshold) {
+        menu.classList.remove('menu-oculto');
+      }
+
+      lastScrollY = current;
+    };
+
+    window.addEventListener('scroll', () => {
+      if (ticking) return;
+      window.requestAnimationFrame(() => {
+        onScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }, { passive: true });
+  }
 
   // =========================
   // CARTÃO DO ELEMENTO
@@ -82,11 +158,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // AJUSTE GRID
   // =========================
 
-  elementos.forEach(el => {
-    const start = parseInt(el.style.gridRowStart || el.style.gridRow || 0);
-    if (start) el.style.gridRowStart = start + 1;
-  });
-
   // =========================
   // INTERAÇÃO DOS ELEMENTOS
   // =========================
@@ -146,32 +217,51 @@ document.addEventListener('DOMContentLoaded', () => {
   // FILTROS
   // =========================
 
+  let filtroAtivo = null;
+
+  function aplicarFiltro(categoria) {
+    elementos.forEach(el => {
+      const ativo = el.dataset.categoria === categoria;
+      el.style.opacity = ativo ? "1" : "0.15";
+      el.style.transform = ativo ? "scale(1.05)" : "scale(1)";
+      el.style.zIndex = ativo ? "2" : "1";
+    });
+  }
+
+  function limparFiltro() {
+    elementos.forEach(el => {
+      el.style.opacity = "1";
+      el.style.transform = "scale(1)";
+      el.style.zIndex = "1";
+    });
+  }
+
   filtros.forEach(filtro => {
 
     filtro.addEventListener('mouseenter', () => {
-
-      const categoria = filtro.id;
-
-      elementos.forEach(el => {
-
-        const ativo = el.dataset.categoria === categoria;
-
-        el.style.opacity = ativo ? "1" : "0.15";
-        el.style.transform = ativo ? "scale(1.05)" : "scale(1)";
-        el.style.zIndex = ativo ? "2" : "1";
-
-      });
-
+      if (filtroAtivo) return;
+      aplicarFiltro(filtro.id);
     });
 
     filtro.addEventListener('mouseleave', () => {
+      if (filtroAtivo) return;
+      limparFiltro();
+    });
 
-      elementos.forEach(el => {
-        el.style.opacity = "1";
-        el.style.transform = "scale(1)";
-        el.style.zIndex = "1";
-      });
+    filtro.addEventListener('click', () => {
+      const categoria = filtro.id;
 
+      if (filtroAtivo === categoria) {
+        filtroAtivo = null;
+        filtro.classList.remove('ativo');
+        limparFiltro();
+        return;
+      }
+
+      filtroAtivo = categoria;
+      filtros.forEach(f => f.classList.remove('ativo'));
+      filtro.classList.add('ativo');
+      aplicarFiltro(categoria);
     });
 
   });

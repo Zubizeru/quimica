@@ -3,9 +3,13 @@ const { engine } = require('express-handlebars');
 const path = require('path');
 
 const app = express();
-app.engine('handlebars', engine({ extname: '.handlebars' }));
+app.engine('handlebars', engine({
+  extname: '.handlebars',
+  layoutsDir: path.join(__dirname, 'views', 'layouts'),
+  partialsDir: path.join(__dirname, 'views', 'partials')
+}));
 app.set('view engine', 'handlebars');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views', 'partials'));
 
 // carregar dados dos elementos
 const elementos = require('./data/elementos.json');
@@ -77,7 +81,7 @@ function classifyElement({ numero }) {
 /**
  * Adiciona um placeholder estilizado à lista (usado para a linha f).
  */
-const addPlaceholder = (arr, { simbolo, row, col, cssVar, category }) => {
+const addPlaceholder = (arr, { simbolo, row, col, cssVar, category, extraClass }) => {
   arr.push({
     numero: null,
     simbolo,
@@ -88,7 +92,8 @@ const addPlaceholder = (arr, { simbolo, row, col, cssVar, category }) => {
     row,
     col,
     cssVar,
-    category
+    category,
+    extraClass: extraClass || ''
   });
 };
 
@@ -120,48 +125,46 @@ let tabelaElements = elementos.map(e => {
   return { ...e, row, col, cssVar, isFblock, series, category };
 });
 
-// marcadores fixos para indicar onde ficaria o bloco‑f
+// marcadores fixos para indicar onde ficaria o bloco-f
 addPlaceholder(tabelaElements, {
   simbolo: '57-71\n*',
   row: 6,
-  col: 4,  // deslocado para a direita um espaço
+  col: 4,  // deslocado para a direita um espaco
   cssVar: 'categoria-lantanideo',
-  category: 'lantanideo'
+  category: 'lantanideo',
+  extraClass: 'celulas-comeco-lact'
 });
 addPlaceholder(tabelaElements, {
   simbolo: '89-103\n**',
   row: 7,
   col: 4,
   cssVar: 'categoria-actinideo',
-  category: 'actinideo'
+  category: 'actinideo',
+  extraClass: 'celulas-comeco-lact'
 });
 addPlaceholder(tabelaElements, {
   simbolo: '*',
   row: 8,
   col: 4,
   cssVar: '',
-  category: ''
+  category: '',
+  extraClass: 'celulas-listagem-lact'
 });
 addPlaceholder(tabelaElements, {
   simbolo: '**',
   row: 9,
   col: 4,
   cssVar: '',
-  category: ''
+  category: '',
+  extraClass: 'celulas-listagem-lact'
 });
 
-// indices especiais para customização de estilo em cima da renderização
-const specialIndices = {
-  comeco: [118, 119],   // células iniciais (anteriormente "primeiros")
-  listagem: [120, 121]  // células finais (anteriormente "ultimos")
-};
-
-tabelaElements = tabelaElements.map((el, idx) => {
-  const classes = [];
-  if (specialIndices.comeco.includes(idx)) classes.push('celulas-comeco-lact');
-  if (specialIndices.listagem.includes(idx)) classes.push('celulas-listagem-lact');
-  return { ...el, extraClass: classes.join(' ') };
-});
+tabelaElements = tabelaElements.map(el => ({
+  ...el,
+  extraClass: el.extraClass || '',
+  gridRow: el.row + 1,
+  gridCol: el.col
+}));
 
 // exemplo no seu router/handler
 const grupos = Array.from({ length: 18 }, (_, i) => i + 1);
@@ -183,13 +186,15 @@ app.get('/tabela', (req, res) => {
 
 // simplifica: redireciona / para /tabela (ou repete a mesma renderização)
 app.get('/', (req, res) => {
-  res.redirect('/tabela');
+  res.render('hubinicial', {
+    additionalStyles: '<link rel="stylesheet" href="/css/hubinicial.css">'
+  });
 });
 
 // rotas para as demais páginas precriadas
-app.get('/opcao2', (req, res) => res.render('opcao2'));
-app.get('/opcao3', (req, res) => res.render('opcao3'));
-app.get('/opcao4', (req, res) => res.render('opcao4'));
+app.get('/ferramentas', (req, res) => res.render('ferramentas'));
+app.get('/topicos', (req, res) => res.render('topicos'));
+
 
 app.use(express.static('public')); // para css, js, etc.
 
