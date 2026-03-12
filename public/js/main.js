@@ -173,8 +173,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (camadas) camadas.textContent = '';
 
     if (card) {
-      card.style.background = 'var(--cor-secundaria)';
-      card.style.color = 'var(--cor-texto)';
+      card.style.color = 'var(--cor-secundaria)';
+      card.style.border = '10px solid #33333325;';
       card.classList.remove('ativo');
     }
 
