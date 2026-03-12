@@ -32,11 +32,18 @@ const CSS_LOOKUP = {
   'metal-pos-transicao': 'pos-transicao'
 };
 
-// utilitário para gerar ranges numéricos
-const range = (start, end) => {
-  const arr = [];
-  for (let i = start; i <= end; i++) arr.push(i);
-  return arr;
+const normalizarValor = (valor) => {
+  if (valor === null || valor === undefined) return '';
+  return String(valor).trim();
+};
+
+const inferirBloco = (grupo, isFblock) => {
+  if (isFblock) return 'f';
+  const g = parseInt(grupo, 10);
+  if (!Number.isFinite(g)) return '';
+  if (g <= 2) return 's';
+  if (g >= 13) return 'p';
+  return 'd';
 };
 
 // === funções auxiliares ==================================================
@@ -102,6 +109,7 @@ let tabelaElements = elementos.map(e => {
   let row = computeRow(e.numero);
   let isFblock = false;
   let series = null;
+  const grupoValor = normalizarValor(e.grupo);
 
   if (e.numero >= 57 && e.numero <= 71) {
     row = 8; isFblock = true; series = 'lanth';
@@ -114,15 +122,32 @@ let tabelaElements = elementos.map(e => {
     const base = series === 'lanth' ? 56 : 88;
     col = e.numero - base + 3; // espalha f‑block horizontamente
   } else {
-    col = parseInt(e.grupo, 10);
+    col = parseInt(grupoValor, 10);
   }
   // desloca todas as colunas em uma unidade para abrir a coluna de períodos
   col += 1;
 
   const category = classifyElement(e);
   const cssVar = 'categoria-' + (CSS_LOOKUP[category] || category);
+  const periodoValor = normalizarValor(e.periodo)
+    || (isFblock ? (series === 'lanth' ? '6' : '7') : String(computeRow(e.numero)));
+  const blocoValor = normalizarValor(e.bloco) || inferirBloco(grupoValor, isFblock);
+  const configuracaoValor = normalizarValor(e.configuracao_eletronica)
+    || (normalizarValor(e.camadas_eletrons) ? `Camadas: ${e.camadas_eletrons}` : '');
 
-  return { ...e, row, col, cssVar, isFblock, series, category };
+  return {
+    ...e,
+    row,
+    col,
+    cssVar,
+    isFblock,
+    series,
+    category,
+    grupo: grupoValor,
+    periodo: periodoValor,
+    bloco: blocoValor,
+    configuracao_eletronica: configuracaoValor
+  };
 });
 
 // marcadores fixos para indicar onde ficaria o bloco-f
@@ -167,7 +192,10 @@ tabelaElements = tabelaElements.map(el => ({
 }));
 
 // exemplo no seu router/handler
-const grupos = Array.from({ length: 18 }, (_, i) => i + 1);
+const grupos = Array.from({ length: 18 }, (_, i) => ({
+  value: i + 1,
+  col: i + 2
+}));
 // periodos 1‑7, com número e linha para posicionamento na grade
 const periodos = Array.from({ length: 7 }, (_, i) => ({
   value: i + 1,

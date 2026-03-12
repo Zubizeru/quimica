@@ -1,98 +1,160 @@
-<div class="logotabelaperiodica">
+﻿<header class="logotabelaperiodica" aria-labelledby="tituloopcao1">
   <i class="fa-solid fa-table-cells"></i>
   <h1 id="tituloopcao1">Tabela <span class="periodica">Periódica</span></h1>
   <p id="descricao">Aqui você pode encontrar informações sobre os elementos da tabela periódica.</p>
-</div>
-<div class="tabelaefiltro">
-  <div class="nomeedescricao">
-    <div class="cardnomeelemento">
-      <div class="numeroCard"></div>
-      <div class="simboloCard"></div>
-      <div class="nomeCard">Nome do elemento</div>
-      <div class="massaCard"></div>
-      <div class="camadasCard"></div>
+</header>
+
+<section class="tabelaefiltro">
+  <div class="pesquisarelemento">
+    <div class="pesquisa-input">
+      <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+      <input id="pesquisaElemento" type="text" placeholder="Pesquisar elemento..." aria-label="Pesquisar elemento" autocomplete="off">
+      <button class="pesquisa-limpar" type="button" aria-label="Limpar pesquisa">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
     </div>
-    <div class="descricaodoelemento">
-      <p></p>
-    </div>
-    <div class="filtragem">
-
-      <!-- METAIS -->
-      <div class="grupo metal">
-        <p class="titulo-filtro">Metal</p>
-        <div class="itens-filtro">
-          <div id="metal-alcalino" class="filtro-item">
-            <p>Metal alcalino</p>
-          </div>
-          <div id="metal-alcalino-terroso" class="filtro-item">
-            <p>Metal alcalino-terroso</p>
-          </div>
-          <div class="metais-f-bloco">
-            <div id="lantanideo" class="filtro-item">
-              <p>Lantanídeo</p>
-            </div>
-            <div id="actinideo" class="filtro-item">
-              <p>Actinídeo</p>
-            </div>
-          </div>
-          <div id="metal-transicao" class="filtro-item">
-            <p>Metal de transição</p>
-          </div>
-          <div id="metal-pos-transicao" class="filtro-item">
-            <p>Metal pós-transição</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- NÃO METAIS -->
-      <div class="grupo nao-metal">
-
-        <p class="titulo-filtro">Não metal</p>
-
-        <div class="itens-filtro">
-          <div id="metaloide" class="filtro-item">
-            <p>Metaloides</p>
-          </div>
-
-          <div id="nao-metal" class="filtro-item">
-            <p>Não metais</p>
-          </div>
-
-          <div id="halogenio" class="filtro-item">
-            <p>Halogênios</p>
-          </div>
-
-          <div id="gas-nobre" class="filtro-item">
-            <p>Gás nobre</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="pesquisa-resultados" role="listbox" aria-label="Resultados da pesquisa"></div>
   </div>
-  <div class="tabela-scroll">
+  <article class="cardelemento" aria-live="polite">
+    <div class="nomeedescricao">
+      <div class="cardnomeelemento">
+        <div class="numeroCard"></div>
+        <div class="simboloCard"></div>
+        <div class="nomeCard">Nome do elemento</div>
+        <div class="massaCard"></div>
+        <div class="camadasCard"></div>
+      </div>
+      <div class="descricaodoelemento">
+        <p></p>
+      </div>
+    </div>
+    <section class="maisinformacoes" aria-label="Mais informações">
+      <div class="maisinformacoes-grid" id="maisinformacoes-grid">
+        <div class="info-item massaatomica">
+          <span class="info-label">Massa Atômica</span>
+          <span class="info-value"></span>
+        </div>
+        <div class="info-item bloco">
+          <span class="info-label">Bloco</span>
+          <span class="info-value"></span>
+        </div>
+        <div class="info-item configuracaoeletronica">
+          <span class="info-label">Config. Eletrônica</span>
+          <span class="info-value"></span>
+        </div>
+        <div class="info-item eletronegatividade">
+          <span class="info-label">Eletronegatividade</span>
+          <span class="info-value"></span>
+        </div>
+        <div class="info-item densidade">
+          <span class="info-label">Densidade</span>
+          <span class="info-value"></span>
+        </div>
+        <div class="info-item pontodefusao">
+          <span class="info-label">Ponto de Fusão</span>
+          <span class="info-value"></span>
+        </div>
+        <div class="info-item pontodeebulicao">
+          <span class="info-label">Ponto de Ebulição</span>
+          <span class="info-value"></span>
+        </div>
+        <div class="info-item periodo">
+          <span class="info-label">Período</span>
+          <span class="info-value"></span>
+        </div>
+        <div class="info-item grupo">
+          <span class="info-label">Grupo</span>
+          <span class="info-value"></span>
+        </div>
+        <div class="info-item anodedescoberta">
+          <span class="info-label">Ano de Descoberta</span>
+          <span class="info-value"></span>
+        </div>
+      </div>
+      <div class="minimizaraumentar">
+        <button class="icone-aumentar" type="button" aria-expanded="false" aria-controls="maisinformacoes-grid">
+          <span class="texto-mais">Mais informações</span>
+          <span class="texto-menos">Menos informações</span>
+          <i class="fa-solid fa-plus icon-mais"></i>
+          <i class="fa-solid fa-minus icon-menos"></i>
+        </button>
+      </div>
+    </section>
+  </article>
+
+  <aside class="filtragem" aria-label="Filtrar categorias">
+    <div class="itens-filtro" role="list">
+      <div id="metal-alcalino" class="filtro-item" role="listitem">
+        <p>Metal alcalino</p>
+      </div>
+      <div id="metal-alcalino-terroso" class="filtro-item" role="listitem">
+        <p>Metal alcalino-terroso</p>
+      </div>
+      <div id="lantanideo" class="filtro-item" role="listitem">
+        <p>Lantanídeo</p>
+      </div>
+      <div id="actinideo" class="filtro-item" role="listitem">
+        <p>Actinídeo</p>
+      </div>
+      <div id="metal-transicao" class="filtro-item" role="listitem">
+        <p>Metal de transição</p>
+      </div>
+      <div id="metal-pos-transicao" class="filtro-item" role="listitem">
+        <p>Metal pós-transição</p>
+      </div>
+      <div id="metaloide" class="filtro-item" role="listitem">
+        <p>Metaloides</p>
+      </div>
+      <div id="nao-metal" class="filtro-item" role="listitem">
+        <p>Não metais</p>
+      </div>
+      <div id="halogenio" class="filtro-item" role="listitem">
+        <p>Halogênios</p>
+      </div>
+      <div id="gas-nobre" class="filtro-item" role="listitem">
+        <p>Gás nobre</p>
+      </div>
+    </div>
+  </aside>
+
+  <section class="tabela-scroll" aria-label="Tabela periódica">
     <div class="tabela-periodica">
       <div class="periodos">
         {{#each periodos}}
-        <span class="row-{{row}}">{{value}}</span>
+          <span class="row-{{row}}" style="grid-row: {{row}};">{{value}}</span>
         {{/each}}
       </div>
       <div class="grupos">
         <span class="placeholder"></span>
         {{#each grupos}}
-        <span>{{this}}</span>
+          <span style="grid-column: {{col}};">{{value}}</span>
         {{/each}}
       </div>
       {{#each elementos}}
-      <!-- célula de um elemento -->
-      <div
-        class="celula-elemento {{extraClass}}{{#if isFblock}} fbloco {{series}}{{/if}} {{cssVar}} row-{{gridRow}} col-{{gridCol}}"
-        data-numero="{{numero}}" data-simbolo="{{simbolo}}" data-nome="{{nome}}" data-massa="{{massa_molar}}"
-        data-camadas="{{camadas_eletrons}}" data-descricao="{{descricao}}" data-categoria="{{category}}">
-        <div class="numero">{{numero}}</div>
-        <div class="simbolo">{{simbolo}}</div>
-        <div class="nome">{{nome}}</div>
-      </div>
+        <div
+          class="celula-elemento {{extraClass}}{{#if isFblock}} fbloco {{series}}{{/if}} {{cssVar}} row-{{gridRow}} col-{{gridCol}}"
+          style="grid-row: {{gridRow}}; grid-column: {{gridCol}};"
+          data-numero="{{numero}}"
+          data-simbolo="{{simbolo}}"
+          data-nome="{{nome}}"
+          data-massa="{{massa_molar}}"
+          data-camadas="{{camadas_eletrons}}"
+          data-descricao="{{descricao}}"
+          data-categoria="{{category}}"
+          data-bloco="{{bloco}}"
+          data-configuracao-eletronica="{{configuracao_eletronica}}"
+          data-eletronegatividade="{{eletronegatividade}}"
+          data-densidade="{{densidade}}"
+          data-ponto-fusao="{{ponto_fusao}}"
+          data-ponto-ebulicao="{{ponto_ebulicao}}"
+          data-periodo="{{periodo}}"
+          data-grupo="{{grupo}}"
+          data-ano-descoberta="{{ano_descoberta}}">
+          <div class="numero">{{numero}}</div>
+          <div class="simbolo">{{simbolo}}</div>
+          <div class="nome">{{nome}}</div>
+        </div>
       {{/each}}
     </div>
-  </div>
-</div>
+  </section>
+</section>

@@ -1,6 +1,67 @@
-/* ================
-hub-inicial
-================== */
+/* =====================
+variáveis / tema
+===================== */
+body.escuro .hub-secaoprincipal {
+  background: radial-gradient(1200px 500px at 50% -50%, rgba(0, 188, 162, 0.35), transparent),
+    linear-gradient(180deg, rgba(3, 10, 16, 0.6), transparent 60%);
+}
+
+body.escuro .icone-hub {
+  background: color-mix(in srgb, var(--cor-secundaria-escura) 25%, transparent);
+  color: var(--cor-secundaria-escura);
+}
+
+body.escuro .titulo-hub {
+  color: var(--cor-texto-escuro);
+}
+
+body.escuro .titulo-hub span {
+  color: var(--cor-secundaria-escura);
+}
+
+body.escuro .subtitulo-hub {
+  color: color-mix(in srgb, var(--cor-texto-escuro) 70%, transparent);
+}
+
+body.escuro .tags-hub span {
+  background: color-mix(in srgb, var(--cor-terciaria-escura) 70%, transparent);
+  color: var(--cor-texto-escuro);
+}
+
+body.escuro .etiqueta-ferramentas {
+  color: var(--cor-secundaria-escura);
+}
+
+body.escuro .cabecalho-ferramentas h2 {
+  color: var(--cor-texto-escuro);
+}
+
+body.escuro .cartao-ferramenta {
+  background: color-mix(in srgb, var(--cor-primaria-escura) 92%, #050c12);
+  border-color: color-mix(in srgb, var(--cor-terciaria-escura) 70%, transparent);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+body.escuro .cartao-ferramenta:hover {
+  border-color: color-mix(in srgb, var(--cor-secundaria-escura) 60%, transparent);
+}
+
+body.escuro .icone-cartao {
+  background: color-mix(in srgb, var(--cor-secundaria-escura) 20%, transparent);
+  color: var(--cor-secundaria-escura);
+}
+
+body.escuro .conteudo-cartao h3 {
+  color: var(--cor-texto-escuro);
+}
+
+body.escuro .conteudo-cartao p {
+  color: color-mix(in srgb, var(--cor-texto-escuro) 70%, transparent);
+}
+
+/* =====================
+estrutura (layout)
+===================== */
 .hub-inicial {
   width: 100%;
   display: flex;
@@ -8,103 +69,24 @@ hub-inicial
   gap: 2.5rem;
 }
 
-/* ================
-heroi
-================== */
-.heroi {
+.hubsecao-principal {
   position: relative;
   padding: 5rem 1.5rem 3.5rem;
   text-align: center;
   overflow: hidden;
-  background: radial-gradient(1200px 500px at 50% -50%, rgba(0, 188, 162, 0.25), transparent),
-    linear-gradient(180deg, rgba(3, 10, 16, 0.06), transparent 60%);
+  background: var(--fundo-site-claro);
 }
 
-body.escuro .heroi {
-  background: radial-gradient(1200px 500px at 50% -50%, rgba(0, 188, 162, 0.35), transparent),
-    linear-gradient(180deg, rgba(3, 10, 16, 0.6), transparent 60%);
-}
-
-.heroi-conteudo {
+.hubsecao-conteudo {
   max-width: 820px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  padding: 2rem 0rem;
 }
 
-.icone-heroi {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  background: color-mix(in srgb, var(--cor-secundaria) 20%, transparent);
-  color: var(--cor-secundaria);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-}
-
-body.escuro .icone-heroi {
-  background: color-mix(in srgb, var(--cor-secundaria-escura) 25%, transparent);
-  color: var(--cor-secundaria-escura);
-}
-
-.titulo-heroi {
-  font-size: clamp(2.4rem, 3.8vw, 3.6rem);
-  font-weight: 700;
-  color: var(--cor-texto);
-  letter-spacing: -0.02em;
-}
-
-body.escuro .titulo-heroi {
-  color: var(--cor-texto-escuro);
-}
-
-.titulo-heroi span {
-  color: var(--cor-secundaria);
-}
-
-body.escuro .titulo-heroi span {
-  color: var(--cor-secundaria-escura);
-}
-
-.subtitulo-heroi {
-  max-width: 620px;
-  font-size: 1rem;
-  color: color-mix(in srgb, var(--cor-texto) 70%, transparent);
-  line-height: 1.6;
-}
-
-body.escuro .subtitulo-heroi {
-  color: color-mix(in srgb, var(--cor-texto-escuro) 70%, transparent);
-}
-
-.tags-heroi {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  justify-content: center;
-  margin-top: 0.5rem;
-}
-
-.tags-heroi span {
-  padding: 0.4rem 0.8rem;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--cor-terciaria) 70%, transparent);
-  color: var(--cor-texto);
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-
-body.escuro .tags-heroi span {
-  background: color-mix(in srgb, var(--cor-terciaria-escura) 70%, transparent);
-  color: var(--cor-texto-escuro);
-}
-
-/* ================
-ferramentas
-================== */
 .ferramentas {
   width: 100%;
   max-width: 1100px;
@@ -116,6 +98,61 @@ ferramentas
   margin-bottom: 1.5rem;
 }
 
+.grade-ferramentas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.2rem;
+}
+
+/* =====================
+componentes
+===================== */
+.icone-hub {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--cor-secundaria) 20%, transparent);
+  color: var(--cor-secundaria);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.titulo-hub {
+  font-size: clamp(2.4rem, 3.8vw, 3.6rem);
+  font-weight: 700;
+  color: var(--cor-texto);
+  letter-spacing: -0.02em;
+}
+
+.titulo-hub span {
+  color: var(--cor-secundaria);
+}
+
+.subtitulo-hub {
+  max-width: 620px;
+  font-size: 1rem;
+  color: color-mix(in srgb, var(--cor-texto) 70%, transparent);
+  line-height: 1.6;
+}
+
+.tags-hub {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.tags-hub span {
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--cor-terciaria) 70%, transparent);
+  color: var(--cor-texto);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
 .etiqueta-ferramentas {
   font-size: 0.8rem;
   text-transform: uppercase;
@@ -124,29 +161,12 @@ ferramentas
   font-weight: 700;
 }
 
-body.escuro .etiqueta-ferramentas {
-  color: var(--cor-secundaria-escura);
-}
-
 .cabecalho-ferramentas h2 {
   font-size: clamp(1.6rem, 2.6vw, 2.2rem);
   color: var(--cor-texto);
   margin-top: 0.4rem;
 }
 
-body.escuro .cabecalho-ferramentas h2 {
-  color: var(--cor-texto-escuro);
-}
-
-.grade-ferramentas {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 1.2rem;
-}
-
-/* ================
-cartao-ferramenta
-================== */
 .cartao-ferramenta {
   display: flex;
   gap: 0.9rem;
@@ -160,20 +180,10 @@ cartao-ferramenta
   transition: transform var(--duracao-transicao-media), box-shadow var(--duracao-transicao-media), border-color var(--duracao-transicao-media);
 }
 
-body.escuro .cartao-ferramenta {
-  background: color-mix(in srgb, var(--cor-primaria-escura) 92%, #050c12);
-  border-color: color-mix(in srgb, var(--cor-terciaria-escura) 70%, transparent);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-}
-
 .cartao-ferramenta:hover {
   transform: translateY(-4px);
   border-color: color-mix(in srgb, var(--cor-secundaria) 60%, transparent);
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
-}
-
-body.escuro .cartao-ferramenta:hover {
-  border-color: color-mix(in srgb, var(--cor-secundaria-escura) 60%, transparent);
 }
 
 .icone-cartao {
@@ -187,19 +197,10 @@ body.escuro .cartao-ferramenta:hover {
   flex: 0 0 auto;
 }
 
-body.escuro .icone-cartao {
-  background: color-mix(in srgb, var(--cor-secundaria-escura) 20%, transparent);
-  color: var(--cor-secundaria-escura);
-}
-
 .conteudo-cartao h3 {
   font-size: 1rem;
   margin-bottom: 0.3rem;
   color: var(--cor-texto);
-}
-
-body.escuro .conteudo-cartao h3 {
-  color: var(--cor-texto-escuro);
 }
 
 .conteudo-cartao p {
@@ -208,12 +209,11 @@ body.escuro .conteudo-cartao h3 {
   color: color-mix(in srgb, var(--cor-texto) 70%, transparent);
 }
 
-body.escuro .conteudo-cartao p {
-  color: color-mix(in srgb, var(--cor-texto-escuro) 70%, transparent);
-}
-
+/* =====================
+responsividade
+===================== */
 @media (max-width: 700px) {
-  .heroi {
+  .hub-inicial {
     padding: 4rem 1rem 3rem;
   }
 

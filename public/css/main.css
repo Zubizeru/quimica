@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Manrope:wght@400;500;600&display=swap');
 
-/**
- * estilos globais e variaveis CSS
- * qualquer pagina pode usar estas cores e transicoes
- */
+/* =====================
+variáveis / tema
+===================== */
 :root {
   --fonte-base: 'Manrope', 'Segoe UI', sans-serif;
   --fonte-titulo: 'Space Grotesk', 'Segoe UI', sans-serif;
@@ -55,6 +54,69 @@
   --categoria-outro-escuro: #bbbbbb;
 }
 
+body.escuro {
+  background: var(--fundo-site-escuro);
+  background-color: var(--cor-primaria-escura);
+  color: var(--cor-texto-escuro);
+
+  --borda-selecionada: var(--cor-primaria-escura);
+  --categoria-alcalino: var(--categoria-alcalino-escuro);
+  --categoria-alcalino-terroso: var(--categoria-alcalino-terroso-escuro);
+  --categoria-metal-transicao: var(--categoria-metal-transicao-escuro);
+  --categoria-pos-transicao: var(--categoria-pos-transicao-escuro);
+  --categoria-metaloide: var(--categoria-metaloide-escuro);
+  --categoria-nao-metal: var(--categoria-nao-metal-escuro);
+  --categoria-halogenio: var(--categoria-halogenio-escuro);
+  --categoria-gas-nobre: var(--categoria-gas-nobre-escuro);
+  --categoria-lantanideo: var(--categoria-lantanideo-escuro);
+  --categoria-actinideo: var(--categoria-actinideo-escuro);
+  --categoria-outro: var(--categoria-outro-escuro);
+}
+
+body.escuro .menuinicial {
+  background: var(--cor-primaria-escura);
+}
+
+body.escuro #logo {
+  background: var(--cor-secundaria-escura);
+  color: #000000;
+}
+
+body.escuro #iconeTema {
+  transform: rotate(360deg);
+  color: var(--cor-secundaria-escura);
+}
+
+body.escuro .botao-menu {
+  border-color: var(--cor-secundaria-escura);
+  color: var(--cor-secundaria-escura);
+}
+
+body.escuro .menuinicial a {
+  color: var(--cor-texto-escuro);
+}
+
+body.escuro .menuinicial a:hover {
+  color: var(--cor-texto-escuro-hover);
+}
+
+body.escuro .conteudo {
+  background: var(--cor-primaria-escura);
+  color: var(--cor-texto-escuro);
+}
+
+body.escuro .periodica {
+  color: var(--cor-secundaria-escura);
+}
+
+body.escuro footer {
+  background: var(--cor-terciaria-escura);
+  color: var(--cor-texto-escuro);
+}
+
+/* =====================
+estrutura (layout)
+===================== */
 * {
   margin: 0;
   padding: 0;
@@ -62,11 +124,9 @@
 }
 
 body {
-  font-family: var(--fonte-base);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: var(--fundo-site-claro);
   background-color: var(--cor-primaria);
   color: var(--cor-texto);
   transition: background var(--duracao-transicao-media), color var(--duracao-transicao-media);
@@ -87,28 +147,6 @@ h3 {
   font-family: var(--fonte-titulo);
 }
 
-body.escuro {
-  background: var(--fundo-site-escuro);
-  background-color: var(--cor-primaria-escura);
-  color: var(--cor-texto-escuro);
-
-  --borda-selecionada: var(--cor-primaria-escura);
-  --categoria-alcalino: var(--categoria-alcalino-escuro);
-  --categoria-alcalino-terroso: var(--categoria-alcalino-terroso-escuro);
-  --categoria-metal-transicao: var(--categoria-metal-transicao-escuro);
-  --categoria-pos-transicao: var(--categoria-pos-transicao-escuro);
-  --categoria-metaloide: var(--categoria-metaloide-escuro);
-  --categoria-nao-metal: var(--categoria-nao-metal-escuro);
-  --categoria-halogenio: var(--categoria-halogenio-escuro);
-  --categoria-gas-nobre: var(--categoria-gas-nobre-escuro);
-  --categoria-lantanideo: var(--categoria-lantanideo-escuro);
-  --categoria-actinideo: var(--categoria-actinideo-escuro);
-  --categoria-outro: var(--categoria-outro-escuro);
-}
-
-/* ================
-menuinicial
-================== */
 .menuinicial {
   display: flex;
   align-items: center;
@@ -125,17 +163,51 @@ menuinicial
   transform: translateY(0);
 }
 
-body.escuro .menuinicial {
-  background: var(--cor-primaria-escura);
-}
-
 .menuinicial.menu-oculto {
   transform: translateY(-100%);
 }
 
-/* ================
-logo
-================== */
+.links {
+  display: flex;
+  gap: 1rem;
+  order: 2;
+}
+
+.geral {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  max-width: 1008px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  padding-top: var(--menu-altura, 72px);
+}
+
+.conteudo {
+  flex: 1;
+  background: var(--cor-primaria);
+  color: var(--cor-texto);
+  transition: background var(--duracao-transicao-media), color var(--duracao-transicao-media);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+footer {
+  color: var(--cor-texto);
+  text-align: center;
+  padding: 1rem;
+  transition: background var(--duracao-transicao-media), color var(--duracao-transicao-media);
+  pointer-events: none;
+  background: var(--cor-terciaria);
+  margin-top: 30px;
+}
+
+/* =====================
+componentes
+===================== */
 .logo {
   display: flex;
   order: 1;
@@ -160,11 +232,6 @@ logo
   border-radius: 20%;
 }
 
-body.escuro #logo {
-  background: var(--cor-secundaria-escura);
-  color: #000000;
-}
-
 #escrita {
   cursor: default;
   display: flex;
@@ -177,9 +244,6 @@ body.escuro #logo {
   font-weight: normal;
 }
 
-/* ================
-linkeclaroescuro
-================== */
 .linkeclaroescuro {
   display: flex;
   align-items: center;
@@ -207,11 +271,6 @@ linkeclaroescuro
   font-size: 1.6rem;
 }
 
-body.escuro #iconeTema {
-  transform: rotate(360deg);
-  color: var(--cor-secundaria-escura);
-}
-
 .botao-menu {
   display: none;
   background: none;
@@ -224,20 +283,6 @@ body.escuro #iconeTema {
   justify-content: center;
 }
 
-body.escuro .botao-menu {
-  border-color: var(--cor-secundaria-escura);
-  color: var(--cor-secundaria-escura);
-}
-
-/* ================
-links
-================== */
-.links {
-  display: flex;
-  gap: 1rem;
-  order: 2;
-}
-
 .menuinicial a {
   text-decoration: none;
   color: var(--cor-texto);
@@ -248,73 +293,13 @@ links
   color: var(--cor-texto-hover);
 }
 
-body.escuro .menuinicial a {
-  color: var(--cor-texto-escuro);
-}
-
-body.escuro .menuinicial a:hover {
-  color: var(--cor-texto-escuro-hover);
-}
-
-/* ================
-geral
-================== */
-.geral {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  width: 100%;
-  max-width: 1008px;
-  margin: 0 auto;
-  padding: 0 1rem;
-  padding-top: var(--menu-altura, 72px);
-}
-
-/* ================
-conteudo
-================== */
-.conteudo {
-  flex: 1;
-  background: var(--cor-primaria);
-  color: var(--cor-texto);
-  transition: background var(--duracao-transicao-media), color var(--duracao-transicao-media);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-body.escuro .conteudo {
-  background: var(--cor-primaria-escura);
-  color: var(--cor-texto-escuro);
-}
-
 .periodica {
   color: var(--cor-secundaria);
 }
 
-body.escuro .periodica {
-  color: var(--cor-secundaria-escura);
-}
-
-/* ================
-footer
-================== */
-footer {
-  color: var(--cor-texto);
-  text-align: center;
-  padding: 1rem;
-  transition: background var(--duracao-transicao-media), color var(--duracao-transicao-media);
-  pointer-events: none;
-  background: var(--cor-terciaria);
-  margin-top: 30px;
-}
-
-body.escuro footer {
-  background: var(--cor-terciaria-escura);
-  color: var(--cor-texto-escuro);
-}
-
+/* =====================
+responsividade
+===================== */
 @media (max-width: 600px) {
   .menuinicial {
     flex-wrap: nowrap;

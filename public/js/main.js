@@ -11,6 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const card = $('.cardnomeelemento');
   const descricaoBox = $('.descricaodoelemento');
+  const maisInfo = $('.maisinformacoes');
+  const botaoMaisInfo = $('.icone-aumentar');
+  const pesquisaWrapper = $('.pesquisarelemento');
+  const pesquisaInput = $('#pesquisaElemento');
+  const pesquisaResultados = $('.pesquisa-resultados');
+  const botaoLimparPesquisa = $('.pesquisa-limpar');
   const elementos = $$('.celula-elemento');
   const filtros = $$('.filtro-item');
   const body = document.body;
@@ -96,6 +102,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // CARTÃO DO ELEMENTO
   // =========================
 
+  const formatarValor = (valor) => {
+    if (valor === null || valor === undefined) return 'N/A';
+    const texto = String(valor).trim();
+    return texto === '' || texto === '-' ? 'N/A' : texto;
+  };
+
+  const setInfoValue = (classe, valor) => {
+    const alvo = document.querySelector(`.${classe} .info-value`);
+    if (alvo) alvo.textContent = formatarValor(valor);
+  };
+
   function atualizarCartao(cell) {
 
     if (!cell || !card) return;
@@ -116,6 +133,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (descricaoBox)
       descricaoBox.textContent = d.descricao || 'Sem descrição disponível';
+
+    setInfoValue('massaatomica', d.massa);
+    setInfoValue('bloco', d.bloco);
+    setInfoValue('configuracaoeletronica', d.configuracaoEletronica);
+    setInfoValue('eletronegatividade', d.eletronegatividade);
+    setInfoValue('densidade', d.densidade);
+    setInfoValue('pontodefusao', d.pontoFusao);
+    setInfoValue('pontodeebulicao', d.pontoEbulicao);
+    setInfoValue('periodo', d.periodo);
+    setInfoValue('grupo', d.grupo);
+    setInfoValue('anodedescoberta', d.anoDescoberta);
 
     card.classList.add('ativo');
 
@@ -152,11 +180,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (descricaoBox)
       descricaoBox.textContent = 'Selecione um elemento para ver detalhes';
+
+    setInfoValue('massaatomica', '');
+    setInfoValue('bloco', '');
+    setInfoValue('configuracaoeletronica', '');
+    setInfoValue('eletronegatividade', '');
+    setInfoValue('densidade', '');
+    setInfoValue('pontodefusao', '');
+    setInfoValue('pontodeebulicao', '');
+    setInfoValue('periodo', '');
+    setInfoValue('grupo', '');
+    setInfoValue('anodedescoberta', '');
   }
 
-  // =========================
-  // AJUSTE GRID
-  // =========================
+  function limparSelecao() {
+    if (!selecionada) return;
+    selecionada.classList.remove('selecionado');
+    selecionada = null;
+    resetarCartao();
+  }
+
+  function selecionarCelula(cell, { toggle = false } = {}) {
+    if (!cell) return;
+
+    if (selecionada && selecionada !== cell) {
+      selecionada.classList.remove('selecionado');
+    }
+
+    if (toggle && selecionada === cell) {
+      selecionada = null;
+      resetarCartao();
+      return;
+    }
+
+    cell.classList.add('selecionado');
+    selecionada = cell;
+    atualizarCartao(cell);
+  }
 
   // =========================
   // INTERAÇÃO DOS ELEMENTOS
@@ -169,23 +229,129 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     cell.addEventListener('click', () => {
-
-      if (selecionada) selecionada.classList.remove('selecionado');
-
-      if (selecionada === cell) {
-        selecionada = null;
-        resetarCartao();
-        return;
-      }
-
-      cell.classList.add('selecionado');
-      selecionada = cell;
-
-      atualizarCartao(cell);
-
+      selecionarCelula(cell, { toggle: true });
     });
 
   });
+
+  if (botaoMaisInfo && maisInfo) {
+    botaoMaisInfo.addEventListener('click', () => {
+      const aberto = maisInfo.classList.toggle('aberta');
+      botaoMaisInfo.setAttribute('aria-expanded', aberto ? 'true' : 'false');
+    });
+  }
+
+  // =========================
+  // PESQUISA DE ELEMENTOS
+  // =========================
+  if (pesquisaWrapper && pesquisaInput && pesquisaResultados) {
+    const normalizarTexto = texto => texto
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
+
+    const listaElementos = Array.from(elementos)
+      .filter(el => el.dataset.numero && el.dataset.simbolo)
+      .map(el => ({
+        numero: el.dataset.numero,
+        nome: el.dataset.nome || '',
+        simbolo: el.dataset.simbolo || '',
+        cell: el
+      }));
+
+    const fecharResultados = () => {
+      pesquisaWrapper.classList.remove('aberta');
+      pesquisaResultados.innerHTML = '';
+    };
+
+    const abrirResultados = () => {
+      pesquisaWrapper.classList.add('aberta');
+    };
+
+    const atualizarBotaoLimpar = () => {
+      const temValor = pesquisaInput.value.trim().length > 0;
+      pesquisaWrapper.classList.toggle('com-valor', temValor);
+    };
+
+    const renderizarResultados = (resultados) => {
+      pesquisaResultados.innerHTML = '';
+
+      if (!resultados.length) {
+        const vazio = document.createElement('div');
+        vazio.className = 'pesquisa-vazia';
+        vazio.textContent = 'Nenhum elemento encontrado';
+        pesquisaResultados.appendChild(vazio);
+        abrirResultados();
+        return;
+      }
+
+      resultados.forEach(item => {
+        const botao = document.createElement('button');
+        botao.type = 'button';
+        botao.className = 'pesquisa-item';
+        botao.setAttribute('role', 'option');
+        botao.innerHTML = `
+          <span class="pesquisa-simbolo">${item.simbolo}</span>
+          <span class="pesquisa-info">
+            <span class="pesquisa-nome">${item.nome}</span>
+            <span class="pesquisa-meta">${item.nome} - Nº ${item.numero}</span>
+          </span>
+        `;
+        botao.addEventListener('click', (event) => {
+          event.stopPropagation();
+          selecionarCelula(item.cell);
+          pesquisaInput.value = item.nome;
+          atualizarBotaoLimpar();
+          fecharResultados();
+        });
+        pesquisaResultados.appendChild(botao);
+      });
+
+      abrirResultados();
+    };
+
+    const filtrarResultados = () => {
+      const termo = pesquisaInput.value.trim();
+      atualizarBotaoLimpar();
+
+      if (!termo) {
+        fecharResultados();
+        return;
+      }
+
+      const termoNormalizado = normalizarTexto(termo);
+      const resultados = listaElementos.filter(item => {
+        const nome = normalizarTexto(item.nome);
+        const simbolo = normalizarTexto(item.simbolo);
+        const numero = item.numero.toString();
+        return nome.includes(termoNormalizado)
+          || simbolo.includes(termoNormalizado)
+          || numero.startsWith(termoNormalizado);
+      }).slice(0, 12);
+
+      renderizarResultados(resultados);
+    };
+
+    pesquisaInput.addEventListener('input', filtrarResultados);
+    pesquisaInput.addEventListener('focus', filtrarResultados);
+
+    if (botaoLimparPesquisa) {
+      botaoLimparPesquisa.addEventListener('click', () => {
+        pesquisaInput.value = '';
+        atualizarBotaoLimpar();
+        fecharResultados();
+        pesquisaInput.focus();
+      });
+    }
+
+    document.addEventListener('click', (event) => {
+      const caminho = event.composedPath ? event.composedPath() : [];
+      const dentroPesquisa = caminho.some(node => node instanceof Element && node.classList?.contains('pesquisarelemento'));
+      if (!dentroPesquisa) {
+        fecharResultados();
+      }
+    });
+  }
 
   // =========================
   // MODO ESCURO
@@ -264,6 +430,19 @@ document.addEventListener('DOMContentLoaded', () => {
       aplicarFiltro(categoria);
     });
 
+  });
+
+  // clicar fora para limpar seleção
+  document.addEventListener('click', (event) => {
+    const caminho = event.composedPath ? event.composedPath() : [];
+    const dentroPesquisa = caminho.some(node => node instanceof Element && node.classList?.contains('pesquisarelemento')); // evitar fechar ao clicar dentro da pesquisa
+    const dentroCelula = caminho.some(node => node instanceof Element && node.classList?.contains('celula-elemento')); // evitar fechar ao clicar dentro de uma célula
+    const dentroCard = caminho.some(node => node instanceof Element && node.classList?.contains('cardelemento')); // evitar fechar ao clicar dentro do cartão
+    const dentroFiltro = caminho.some(node => node instanceof Element && node.classList?.contains('filtragem')); // evitar fechar ao clicar dentro da área de filtros
+
+    if (!dentroPesquisa && !dentroCelula && !dentroCard && !dentroFiltro) {
+      limparSelecao();
+    }
   });
 
 });
