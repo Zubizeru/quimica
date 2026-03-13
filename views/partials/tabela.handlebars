@@ -1,20 +1,31 @@
 ﻿<header class="logotabelaperiodica" aria-labelledby="tituloopcao1">
   <i class="fa-solid fa-table-cells"></i>
-  <h1 id="tituloopcao1">Tabela <span class="periodica">Periódica</span></h1>
-  <p id="descricao">Aqui você pode encontrar informações sobre os elementos da tabela periódica.</p>
+  <h1 id="tituloopcao1">
+    Tabela <span class="periodica">Periódica</span>
+  </h1>
+  <p id="descricao">
+    Aqui você pode encontrar informações sobre os elementos da tabela periódica.
+  </p>
 </header>
 
 <section class="tabelaefiltro">
   <div class="pesquisarelemento">
     <div class="pesquisa-input">
       <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-      <input id="pesquisaElemento" type="text" placeholder="Pesquisar elemento..." aria-label="Pesquisar elemento" autocomplete="off">
+      <input
+        id="pesquisaElemento"
+        type="text"
+        placeholder="Pesquisar elemento..."
+        aria-label="Pesquisar elemento"
+        autocomplete="off"
+      >
       <button class="pesquisa-limpar" type="button" aria-label="Limpar pesquisa">
         <i class="fa-solid fa-xmark"></i>
       </button>
     </div>
     <div class="pesquisa-resultados" role="listbox" aria-label="Resultados da pesquisa"></div>
   </div>
+
   <article class="cardelemento" aria-live="polite">
     <div class="nomeedescricao">
       <div class="cardnomeelemento">
@@ -149,12 +160,87 @@
           data-ponto-ebulicao="{{ponto_ebulicao}}"
           data-periodo="{{periodo}}"
           data-grupo="{{grupo}}"
-          data-ano-descoberta="{{ano_descoberta}}">
+          data-ano-descoberta="{{ano_descoberta}}"
+        >
           <div class="numero">{{numero}}</div>
           <div class="simbolo">{{simbolo}}</div>
           <div class="nome">{{nome}}</div>
         </div>
       {{/each}}
     </div>
+  </section>
+
+  <section class="sessaotabeladepauling">
+    <section class="eletronegatividadetabela" aria-label="Tabela de eletronegatividade">
+      <header>
+        <h2>Eletronegatividade</h2>
+      </header>
+      <p>
+        A eletronegatividade é a capacidade que um átomo possui de atrair elétrons
+        em uma ligação química. Os valores mais utilizados são os da
+        <span class="conceito">Escala de Pauling</span>, proposta pelo químico
+        <span class="cientista">Linus Pauling</span>.
+      </p>
+      <figure class="tabela-pauling">
+        <figcaption>
+          Elementos mais eletronegativos da tabela periódica (Escala de Pauling)
+        </figcaption>
+        <ol class="lista-pauling">
+          <li class="elemento fluor">
+            <span class="simbolo">F</span>
+            <span class="nome">Flúor</span>
+            <span class="valor">3.98</span>
+          </li>
+          <li class="elemento oxigenio">
+            <span class="simbolo">O</span>
+            <span class="nome">Oxigênio</span>
+            <span class="valor">3.44</span>
+          </li>
+          <li class="elemento cloro">
+            <span class="simbolo">Cl</span>
+            <span class="nome">Cloro</span>
+            <span class="valor">3.16</span>
+          </li>
+          <li class="elemento nitrogenio">
+            <span class="simbolo">N</span>
+            <span class="nome">Nitrogênio</span>
+            <span class="valor">3.04</span>
+          </li>
+          <li class="elemento bromo">
+            <span class="simbolo">Br</span>
+            <span class="nome">Bromo</span>
+            <span class="valor">2.96</span>
+          </li>
+          <li class="elemento iodo">
+            <span class="simbolo">I</span>
+            <span class="nome">Iodo</span>
+            <span class="valor">2.66</span>
+          </li>
+          <li class="elemento enxofre">
+            <span class="simbolo">S</span>
+            <span class="nome">Enxofre</span>
+            <span class="valor">2.58</span>
+          </li>
+          <li class="elemento carbono">
+            <span class="simbolo">C</span>
+            <span class="nome">Carbono</span>
+            <span class="valor">2.55</span>
+          </li>
+          <li class="elemento fosforo">
+            <span class="simbolo">P</span>
+            <span class="nome">Fósforo</span>
+            <span class="valor">2.19</span>
+          </li>
+        </ol>
+      </figure>
+      <section class="tendencia">
+        <h5>Tendência na Tabela Periódica</h5>
+        <p>
+          A eletronegatividade aumenta da esquerda para a direita ao longo de um período e
+          diminui de cima para baixo em um grupo. O Flúor (F) é o elemento mais eletronegativo,
+          enquanto o Frâncio (Fr) é o menos eletronegativo.
+        </p>
+      </section>
+    </section>
   </section>
 </section>

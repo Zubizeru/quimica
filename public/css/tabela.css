@@ -1,5 +1,5 @@
 /* =====================
-variáveis / tema
+Tema escuro
 ===================== */
 body.escuro .logotabelaperiodica {
   color: var(--cor-texto-escuro);
@@ -67,14 +67,6 @@ body.escuro .nomeedescricao {
   border-color: var(--cor-secundaria-escura);
 }
 
-body.escuro .icone-aumentar {
-  color: color-mix(in srgb, var(--cor-texto-escuro) 70%, transparent);
-}
-
-body.escuro .icone-aumentar:hover {
-  color: var(--cor-secundaria-escura);
-}
-
 body.escuro .cardnomeelemento {
   background: var(--cor-primaria-escura);
   color: var(--cor-secundaria-escura);
@@ -132,8 +124,37 @@ body.escuro .celula-elemento:hover {
   filter: brightness(1.2);
 }
 
+/* Pauling modo escuro */
+body.escuro .sessaotabeladepauling {
+  border: 2px solid var(--cor-secundaria-escura);
+}
+
+body.escuro .eletronegatividadetabela p {
+  color: color-mix(in srgb, var(--cor-texto-escuro) 70%, transparent);
+}
+
+body.escuro .conceito,
+body.escuro .cientista {
+  color: var(--cor-secundaria-escura);
+}
+
+body.escuro .tabela-pauling figcaption {
+  color: var(--cor-secundaria-escura);
+}
+
+body.escuro .lista-pauling li .simbolo {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--cor-texto-escuro);
+}
+
+body.escuro .lista-pauling li .nome {
+  font-size: 0.6rem;
+  color: var(--cor-texto-escuro);
+}
+
 /* =====================
-estrutura (layout)
+Estrutura (layout)
 ===================== */
 .tabelaefiltro {
   display: flex;
@@ -141,15 +162,16 @@ estrutura (layout)
   gap: 1rem;
   width: 100%;
   margin: 0 auto;
+  align-items: center;
 }
 
 /* =====================
-componentes
+Componentes
 ===================== */
 .logotabelaperiodica {
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   font-size: 1rem;
   font-weight: bold;
   color: var(--cor-texto);
@@ -166,7 +188,6 @@ componentes
 }
 
 #descricao {
-  max-width: 620px;
   font-size: 1rem;
   color: color-mix(in srgb, var(--cor-texto) 70%, transparent);
   line-height: 1.6;
@@ -316,6 +337,7 @@ componentes
   overflow: hidden;
   min-height: 170px;
   padding: 0.5rem;
+  width: 100%;
 }
 
 .nomeedescricao {
@@ -384,10 +406,7 @@ componentes
   opacity: 0;
   overflow: hidden;
   transform: translateY(-4px);
-  transition:
-    max-height var(--duracao-transicao-media),
-    opacity var(--duracao-transicao-media),
-    transform var(--duracao-transicao-media);
+  transition: max-height var(--duracao-transicao-media), opacity var(--duracao-transicao-media), transform var(--duracao-transicao-media);
   pointer-events: none;
 }
 
@@ -421,7 +440,7 @@ componentes
   flex: 0 0 130px;
   width: 130px;
   height: 130px;
-  opacity: 0.30;
+  opacity: 0.3;
   box-sizing: border-box;
   position: relative;
   display: flex;
@@ -578,7 +597,7 @@ componentes
 }
 
 /* =====================
-tabela
+Tabela
 ===================== */
 .tabela-scroll {
   width: 100%;
@@ -658,25 +677,54 @@ tabela
   padding: 2px;
   box-sizing: border-box;
   cursor: pointer;
-  transition:
-    filter var(--duracao-transicao-curta),
-    opacity var(--duracao-transicao-media),
-    transform var(--duracao-transicao-media);
+  transition: filter var(--duracao-transicao-curta), opacity var(--duracao-transicao-media), transform var(--duracao-transicao-media);
   border: 3px solid #33333325;
   aspect-ratio: 1 / 1;
 }
 
-.celula-elemento.categoria-alcalino { background-color: var(--categoria-alcalino); }
-.celula-elemento.categoria-alcalino-terroso { background-color: var(--categoria-alcalino-terroso); }
-.celula-elemento.categoria-metal-transicao { background-color: var(--categoria-metal-transicao); }
-.celula-elemento.categoria-metal-pos-transicao { background-color: var(--categoria-pos-transicao); }
-.celula-elemento.categoria-lantanideo { background-color: var(--categoria-lantanideo); }
-.celula-elemento.categoria-actinideo { background-color: var(--categoria-actinideo); }
-.celula-elemento.categoria-metaloide { background-color: var(--categoria-metaloide); }
-.celula-elemento.categoria-nao-metal { background-color: var(--categoria-nao-metal); }
-.celula-elemento.categoria-halogenio { background-color: var(--categoria-halogenio); }
-.celula-elemento.categoria-gas-nobre { background-color: var(--categoria-gas-nobre); }
-.celula-elemento.categoria-outro { background-color: var(--categoria-outro); }
+.celula-elemento.categoria-alcalino {
+  background-color: var(--categoria-alcalino);
+}
+
+.celula-elemento.categoria-alcalino-terroso {
+  background-color: var(--categoria-alcalino-terroso);
+}
+
+.celula-elemento.categoria-metal-transicao {
+  background-color: var(--categoria-metal-transicao);
+}
+
+.celula-elemento.categoria-metal-pos-transicao {
+  background-color: var(--categoria-pos-transicao);
+}
+
+.celula-elemento.categoria-lantanideo {
+  background-color: var(--categoria-lantanideo);
+}
+
+.celula-elemento.categoria-actinideo {
+  background-color: var(--categoria-actinideo);
+}
+
+.celula-elemento.categoria-metaloide {
+  background-color: var(--categoria-metaloide);
+}
+
+.celula-elemento.categoria-nao-metal {
+  background-color: var(--categoria-nao-metal);
+}
+
+.celula-elemento.categoria-halogenio {
+  background-color: var(--categoria-halogenio);
+}
+
+.celula-elemento.categoria-gas-nobre {
+  background-color: var(--categoria-gas-nobre);
+}
+
+.celula-elemento.categoria-outro {
+  background-color: var(--categoria-outro);
+}
 
 .celula-elemento:hover {
   transition: var(--duracao-transicao-curta);
@@ -691,16 +739,13 @@ tabela
 }
 
 .celula-elemento .numero {
-  position: absolute;
-  top: 2px;
-  left: 2px;
   font-size: 0.6rem;
-  display: none;
+  visibility: hidden;
 }
 
 .celula-elemento:hover .numero,
 .celula-elemento.selecionado .numero {
-  display: block;
+  visibility: visible;
 }
 
 .celula-elemento .simbolo {
@@ -747,13 +792,150 @@ tabela
 }
 
 /* =====================
-responsividade
+Tabela de Pauling
+===================== */
+.sessaotabeladepauling {
+  width: 100%;
+  border: 2px solid var(--cor-secundaria);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.eletronegatividadetabela {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 700px;
+  padding: 0.2rem;
+}
+
+.eletronegatividadetabela p {
+  font-size: 1rem;
+  color: color-mix(in srgb, var(--cor-texto) 70%, transparent);
+  line-height: 1.6;
+  text-align: center;
+}
+
+.conceito,
+.cientista {
+  color: var(--cor-secundaria);
+}
+
+.tabela-pauling {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.tabela-pauling figcaption {
+  font-size: 0.8rem;
+  color: var(--cor-secundaria);
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.lista-pauling {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+}
+
+.lista-pauling li {
+  flex: 1 1 60px;
+  max-width: 60px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid #33333325;
+  cursor: pointer;
+  transition: transform var(--duracao-transicao-curta), filter var(--duracao-transicao-curta);
+}
+
+.lista-pauling li:hover {
+  transform: scale(1.1);
+  filter: brightness(1.08);
+}
+
+.lista-pauling li .simbolo {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--cor-texto);
+}
+
+.lista-pauling li .nome {
+  font-size: 0.6rem;
+  color: var(--cor-texto);
+}
+
+.fluor {
+  background: var(--categoria-halogenio);
+}
+
+.oxigenio {
+  background: var(--categoria-nao-metal);
+}
+
+.cloro {
+  background: var(--categoria-halogenio);
+}
+
+.nitrogenio {
+  background: var(--categoria-nao-metal);
+}
+
+.bromo {
+  background: var(--categoria-halogenio);
+}
+
+.iodo {
+  background: var(--categoria-halogenio);
+}
+
+.enxofre {
+  background: var(--categoria-nao-metal);
+}
+
+.carbono {
+  background: var(--categoria-nao-metal);
+}
+
+.fosforo {
+  background: var(--categoria-nao-metal);
+}
+
+.tendencia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tendencia p {
+  font-size: 0.8rem;
+  color: color-mix(in srgb, var(--cor-texto) 70%, transparent);
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* =====================
+Responsividade
 ===================== */
 @media (max-width: 1120px) {
   .grupos,
   .tabela-periodica {
     width: 100%;
-    min-width: 760px;
+    min-width: 820px;
     --cell-min: 20px;
     grid-template-columns: repeat(19, minmax(var(--cell-min), 1fr));
     grid-auto-rows: 1fr;

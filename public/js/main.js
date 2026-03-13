@@ -175,11 +175,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (card) {
       card.style.color = 'var(--cor-secundaria)';
       card.style.border = '10px solid #33333325;';
+      card.style.background = 'transparent';
       card.classList.remove('ativo');
     }
 
     if (descricaoBox)
-      descricaoBox.textContent = 'Selecione um elemento para ver detalhes';
+      descricaoBox.textContent = '';
 
     setInfoValue('massaatomica', '');
     setInfoValue('bloco', '');
