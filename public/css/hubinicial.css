@@ -175,7 +175,9 @@ componentes
   text-decoration: none;
   color: inherit;
   background: color-mix(in srgb, var(--cor-primaria) 92%, #ffffff);
-  border: 1px solid color-mix(in srgb, var(--cor-terciaria) 70%, transparent);
+  border-style: solid;
+  border-width: 1px 1px 10px 1px;
+  border-color: color-mix(in srgb, var(--cor-terciaria) 70%, transparent);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
   transition: transform var(--duracao-transicao-media), box-shadow var(--duracao-transicao-media), border-color var(--duracao-transicao-media);
 }

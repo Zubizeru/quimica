@@ -1,4 +1,4 @@
-// ========================================
+﻿// ========================================
 // SCRIPT PRINCIPAL
 // ========================================
 
@@ -108,9 +108,16 @@ document.addEventListener('DOMContentLoaded', () => {
     return texto === '' || texto === '-' ? 'N/A' : texto;
   };
 
-  const setInfoValue = (classe, valor) => {
+  const formatarValorComUnidade = (valor, unidade) => {
+    const base = formatarValor(valor);
+    if (base === 'N/A') return 'N/A';
+    const unidadeTexto = unidade ? String(unidade).trim() : '';
+    return unidadeTexto ? `${base} ${unidadeTexto}` : base;
+  };
+
+  const setInfoValue = (classe, valor, unidade) => {
     const alvo = document.querySelector(`.${classe} .info-value`);
-    if (alvo) alvo.textContent = formatarValor(valor);
+    if (alvo) alvo.textContent = formatarValorComUnidade(valor, unidade);
   };
 
   function atualizarCartao(cell) {
@@ -128,19 +135,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (numero) numero.textContent = d.numero || '';
     if (simbolo) simbolo.textContent = d.simbolo || '';
     if (nome) nome.textContent = d.nome || '';
-    if (massa) massa.textContent = d.massa || '';
+    if (massa) {
+      const massaTexto = d.massa
+        ? `${d.massa}${d.massaUnidade ? ` ${d.massaUnidade}` : ''}`
+        : '';
+      massa.textContent = massaTexto;
+    }
     if (camadas) camadas.textContent = (d.camadas || '').split(',').join('\n');
 
     if (descricaoBox)
       descricaoBox.textContent = d.descricao || 'Sem descrição disponível';
 
-    setInfoValue('massaatomica', d.massa);
+    setInfoValue('massaatomica', d.massa, d.massaUnidade);
     setInfoValue('bloco', d.bloco);
     setInfoValue('configuracaoeletronica', d.configuracaoEletronica);
     setInfoValue('eletronegatividade', d.eletronegatividade);
-    setInfoValue('densidade', d.densidade);
-    setInfoValue('pontodefusao', d.pontoFusao);
-    setInfoValue('pontodeebulicao', d.pontoEbulicao);
+    setInfoValue('densidade', d.densidade, d.densidadeUnidade);
+    setInfoValue('pontodefusao', d.pontoFusao, d.pontoFusaoUnidade);
+    setInfoValue('pontodeebulicao', d.pontoEbulicao, d.pontoEbulicaoUnidade);
     setInfoValue('periodo', d.periodo);
     setInfoValue('grupo', d.grupo);
     setInfoValue('anodedescoberta', d.anoDescoberta);

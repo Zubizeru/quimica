@@ -17,6 +17,8 @@
     "express-handlebars": "^8.0.6"
   },
   "devDependencies": {
-    "nodemon": "^3.1.14"
+    "nodemon": "^3.1.14",
+    "postcss": "^8.4.38",
+    "postcss-prefix-selector": "^1.16.0"
   }
 }

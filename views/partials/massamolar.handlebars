@@ -1,0 +1,204 @@
+﻿<!-- Seção Massa Molar -->
+<section class="massa-molar pagina-massa-molar" aria-labelledby="massa-molar-titulo">
+  <!-- Cabeçalho da Página -->
+  <header class="massa-molar-topo">
+    <div class="massa-molar-titulo">
+      <span class="massa-icone" aria-hidden="true">
+        <i class="fa-solid fa-scale-balanced"></i>
+      </span>
+      <div class="massa-titulo-texto">
+        <h1 id="massa-molar-titulo">Massa Molar</h1>
+        <p>Calcule massas molares de compostos químicos.</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Calculadora de Massa Molar -->
+  <article class="massa-card massa-calculadora" aria-labelledby="massa-calculadora-titulo">
+    <div class="massa-card-topo">
+      <h2 id="massa-calculadora-titulo">Calculadora de Massa Molar</h2>
+      <p>Digite uma fórmula química ou monte com os botões abaixo.</p>
+    </div>
+
+    <form id="form-massa-molar" class="massa-form" autocomplete="off">
+      <label for="formula-composto">Fórmula Química</label>
+      <div class="massa-input-wrap">
+        <input type="text" id="formula-composto" name="formula-composto" placeholder="Ex: H2O, CO2, NaCl, Ca(OH)2" required aria-required="true" />
+        <div class="massa-input-visual" aria-hidden="true"></div>
+      </div>
+
+      <!-- Elementos Comuns -->
+      <div class="massa-bloco">
+        <h3>Elementos Comuns</h3>
+        <div class="elementos-grade" role="list">
+          <button type="button" class="elemento-chip" data-simbolo="H" role="listitem">
+            <span class="elemento-simbolo">H</span>
+            <span class="elemento-massa">--</span>
+          </button>
+          <button type="button" class="elemento-chip" data-simbolo="C" role="listitem">
+            <span class="elemento-simbolo">C</span>
+            <span class="elemento-massa">--</span>
+          </button>
+          <button type="button" class="elemento-chip" data-simbolo="N" role="listitem">
+            <span class="elemento-simbolo">N</span>
+            <span class="elemento-massa">--</span>
+          </button>
+          <button type="button" class="elemento-chip" data-simbolo="O" role="listitem">
+            <span class="elemento-simbolo">O</span>
+            <span class="elemento-massa">--</span>
+          </button>
+          <button type="button" class="elemento-chip" data-simbolo="F" role="listitem">
+            <span class="elemento-simbolo">F</span>
+            <span class="elemento-massa">--</span>
+          </button>
+          <button type="button" class="elemento-chip" data-simbolo="Na" role="listitem">
+            <span class="elemento-simbolo">Na</span>
+            <span class="elemento-massa">--</span>
+          </button>
+          <button type="button" class="elemento-chip" data-simbolo="Mg" role="listitem">
+            <span class="elemento-simbolo">Mg</span>
+            <span class="elemento-massa">--</span>
+          </button>
+          <button type="button" class="elemento-chip" data-simbolo="Al" role="listitem">
+            <span class="elemento-simbolo">Al</span>
+            <span class="elemento-massa">--</span>
+          </button>
+          <button type="button" class="elemento-chip" data-simbolo="Si" role="listitem">
+            <span class="elemento-simbolo">Si</span>
+            <span class="elemento-massa">--</span>
+          </button>
+          <button type="button" class="elemento-chip" data-simbolo="P" role="listitem">
+            <span class="elemento-simbolo">P</span>
+            <span class="elemento-massa">--</span>
+          </button>
+          <button type="button" class="elemento-chip" data-simbolo="S" role="listitem">
+            <span class="elemento-simbolo">S</span>
+            <span class="elemento-massa">--</span>
+          </button>
+          <button type="button" class="elemento-chip" data-simbolo="Cl" role="listitem">
+            <span class="elemento-simbolo">Cl</span>
+            <span class="elemento-massa">--</span>
+          </button>
+          <button type="button" class="elemento-chip" data-simbolo="K" role="listitem">
+            <span class="elemento-simbolo">K</span>
+            <span class="elemento-massa">--</span>
+          </button>
+          <button type="button" class="elemento-chip" data-simbolo="Ca" role="listitem">
+            <span class="elemento-simbolo">Ca</span>
+            <span class="elemento-massa">--</span>
+          </button>
+          <button type="button" class="elemento-chip" data-simbolo="Fe" role="listitem">
+            <span class="elemento-simbolo">Fe</span>
+            <span class="elemento-massa">--</span>
+          </button>
+          <button type="button" class="elemento-chip" data-simbolo="Cu" role="listitem">
+            <span class="elemento-simbolo">Cu</span>
+            <span class="elemento-massa">--</span>
+          </button>
+          <button type="button" class="elemento-chip" data-simbolo="Zn" role="listitem">
+            <span class="elemento-simbolo">Zn</span>
+            <span class="elemento-massa">--</span>
+          </button>
+          <button type="button" class="elemento-chip" data-simbolo="Ag" role="listitem">
+            <span class="elemento-simbolo">Ag</span>
+            <span class="elemento-massa">--</span>
+          </button>
+          <button type="button" class="elemento-chip" data-simbolo="I" role="listitem">
+            <span class="elemento-simbolo">I</span>
+            <span class="elemento-massa">--</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Teclado Químico -->
+      <div class="massa-bloco">
+        <h3>Teclado Químico</h3>
+        <div class="teclado-grade" role="group" aria-label="Teclado químico">
+          <button type="button" class="tecla" data-key="1">1</button>
+          <button type="button" class="tecla" data-key="2">2</button>
+          <button type="button" class="tecla" data-key="3">3</button>
+          <button type="button" class="tecla" data-key="4">4</button>
+          <button type="button" class="tecla" data-key="5">5</button>
+          <button type="button" class="tecla" data-key="6">6</button>
+          <button type="button" class="tecla" data-key="7">7</button>
+          <button type="button" class="tecla" data-key="8">8</button>
+          <button type="button" class="tecla" data-key="9">9</button>
+          <button type="button" class="tecla" data-key="0">0</button>
+          <button type="button" class="tecla" data-key="(">(</button>
+          <button type="button" class="tecla" data-key=")">)</button>
+          <button type="button" class="tecla tecla-acao" data-action="backspace" aria-label="Apagar último caractere">
+            <i class="fa-solid fa-delete-left"></i>
+          </button>
+          <button type="button" class="tecla tecla-acao" data-action="clear" aria-label="Limpar fórmula">
+            <i class="fa-regular fa-trash-can"></i>
+          </button>
+        </div>
+      </div>
+
+      <button type="submit" class="massa-botao">Calcular Massa Molar</button>
+      <div id="resultado-massa-molar" class="massa-resultado" aria-live="polite"></div>
+    </form>
+  </article>
+
+  <!-- Compostos Comuns -->
+  <article class="massa-card massa-compostos" aria-labelledby="massa-compostos-titulo">
+    <div class="massa-card-topo">
+      <h2 id="massa-compostos-titulo">Compostos Comuns</h2>
+      <p>Clique em um composto para calcular sua massa molar automaticamente.</p>
+    </div>
+
+    <div class="compostos-grade" role="list">
+      <button type="button" class="composto-chip" data-formula="H2O" role="listitem">
+        <span class="composto-formula">H2O</span>
+        <span class="composto-nome">Água</span>
+      </button>
+      <button type="button" class="composto-chip" data-formula="CO2" role="listitem">
+        <span class="composto-formula">CO2</span>
+        <span class="composto-nome">Dióxido de Carbono</span>
+      </button>
+      <button type="button" class="composto-chip" data-formula="NaCl" role="listitem">
+        <span class="composto-formula">NaCl</span>
+        <span class="composto-nome">Cloreto de Sódio</span>
+      </button>
+      <button type="button" class="composto-chip" data-formula="NH3" role="listitem">
+        <span class="composto-formula">NH3</span>
+        <span class="composto-nome">Amônia</span>
+      </button>
+      <button type="button" class="composto-chip" data-formula="CH4" role="listitem">
+        <span class="composto-formula">CH4</span>
+        <span class="composto-nome">Metano</span>
+      </button>
+      <button type="button" class="composto-chip" data-formula="H2SO4" role="listitem">
+        <span class="composto-formula">H2SO4</span>
+        <span class="composto-nome">Ácido Sulfúrico</span>
+      </button>
+      <button type="button" class="composto-chip" data-formula="CaCO3" role="listitem">
+        <span class="composto-formula">CaCO3</span>
+        <span class="composto-nome">Carbonato de Cálcio</span>
+      </button>
+      <button type="button" class="composto-chip" data-formula="Ca(OH)2" role="listitem">
+        <span class="composto-formula">Ca(OH)2</span>
+        <span class="composto-nome">Hidróxido de Cálcio</span>
+      </button>
+      <button type="button" class="composto-chip" data-formula="C6H12O6" role="listitem">
+        <span class="composto-formula">C6H12O6</span>
+        <span class="composto-nome">Glicose</span>
+      </button>
+    </div>
+  </article>
+
+  <!-- Informações sobre Massa Molar -->
+  <article class="massa-card massa-info" aria-labelledby="massa-info-titulo">
+    <div class="massa-card-topo massa-info-titulo">
+      <span class="massa-info-icone" aria-hidden="true">
+        <i class="fa-solid fa-circle-info"></i>
+      </span>
+      <h2 id="massa-info-titulo">O que é Massa Molar?</h2>
+    </div>
+    <div class="massa-info-texto">
+      <p>A massa molar é a massa de um mol de uma substância, expressa em gramas por mol (g/mol). Para elementos, a massa molar é numericamente igual à massa atômica. Já para compostos, somamos as massas molares de todos os átomos presentes na fórmula, considerando suas quantidades.</p>
+      <p>Por exemplo, a água (H2O) tem massa molar aproximada de 18,015 g/mol, calculada como: 2 × 1,008 (H) + 1 × 15,999 (O) = 18,015.</p>
+    </div>
+  </article>
+</section>
+

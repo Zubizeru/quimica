@@ -52,6 +52,8 @@ variáveis / tema
   --categoria-lantanideo-escuro: #899a89;
   --categoria-actinideo-escuro: #416841;
   --categoria-outro-escuro: #bbbbbb;
+
+  --texto-suave: color-mix(in srgb, var(--cor-texto) 70%, transparent);
 }
 
 body.escuro {
@@ -71,10 +73,8 @@ body.escuro {
   --categoria-lantanideo: var(--categoria-lantanideo-escuro);
   --categoria-actinideo: var(--categoria-actinideo-escuro);
   --categoria-outro: var(--categoria-outro-escuro);
-}
 
-body.escuro .menuinicial {
-  background: var(--cor-primaria-escura);
+  --texto-suave: color-mix(in srgb, var(--cor-texto-escuro) 70%, transparent);
 }
 
 body.escuro #logo {
@@ -92,17 +92,16 @@ body.escuro .botao-menu {
   color: var(--cor-secundaria-escura);
 }
 
+body.escuro .menuinicial {
+  background: var(--cor-primaria-escura);
+}
+
 body.escuro .menuinicial a {
   color: var(--cor-texto-escuro);
 }
 
 body.escuro .menuinicial a:hover {
   color: var(--cor-texto-escuro-hover);
-}
-
-body.escuro .conteudo {
-  background: var(--cor-primaria-escura);
-  color: var(--cor-texto-escuro);
 }
 
 body.escuro .periodica {
@@ -113,6 +112,8 @@ body.escuro footer {
   background: var(--cor-terciaria-escura);
   color: var(--cor-texto-escuro);
 }
+
+
 
 /* =====================
 estrutura (layout)
@@ -152,7 +153,6 @@ h3 {
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-  background: var(--cor-primaria);
   transition: transform var(--duracao-transicao-media), background 0.3s;
   gap: 1rem;
   position: fixed;
@@ -161,6 +161,7 @@ h3 {
   right: 0;
   z-index: 1000;
   transform: translateY(0);
+  background: var(--cor-primaria);
 }
 
 .menuinicial.menu-oculto {
@@ -186,12 +187,9 @@ h3 {
 
 .conteudo {
   flex: 1;
-  background: var(--cor-primaria);
-  color: var(--cor-texto);
   transition: background var(--duracao-transicao-media), color var(--duracao-transicao-media);
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
 }
 
@@ -217,6 +215,13 @@ componentes
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+.voltar {
+  align-items: center;
+  margin-right: 0.5rem;
+  font-size: 2rem;
+  cursor: pointer;
 }
 
 #logo {

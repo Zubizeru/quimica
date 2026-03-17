@@ -14,6 +14,9 @@ app.set('views', path.join(__dirname, 'views', 'partials'));
 // carregar dados dos elementos
 const elementos = require('./data/elementos.json');
 
+// disponibilizar o JSON para o front-end
+app.use('/data', express.static(path.join(__dirname, 'data')));
+
 // === constantes químicas =================================================
 const ALKALI_METALS = [3, 11, 19, 37, 55, 87];
 const ALKALINE_EARTHS = [4, 12, 20, 38, 56, 88];
@@ -94,7 +97,7 @@ const addPlaceholder = (arr, { simbolo, row, col, cssVar, category, extraClass }
     simbolo,
     nome: '',
     massa_molar: '',
-    camadas_eletrons: '',
+    camadas: [],
     descricao: '',
     row,
     col,
@@ -132,8 +135,11 @@ let tabelaElements = elementos.map(e => {
   const periodoValor = normalizarValor(e.periodo)
     || (isFblock ? (series === 'lanth' ? '6' : '7') : String(computeRow(e.numero)));
   const blocoValor = normalizarValor(e.bloco) || inferirBloco(grupoValor, isFblock);
+  const camadasTexto = Array.isArray(e.camadas)
+    ? e.camadas.join(',')
+    : normalizarValor(e.camadas);
   const configuracaoValor = normalizarValor(e.configuracao_eletronica)
-    || (normalizarValor(e.camadas_eletrons) ? `Camadas: ${e.camadas_eletrons}` : '');
+    || (camadasTexto ? `Camadas: ${camadasTexto}` : '');
 
   return {
     ...e,
@@ -208,20 +214,39 @@ app.get('/tabela', (req, res) => {
     grupos,
     periodos,
     /* …outros dados… */
-    additionalStyles: '<link rel="stylesheet" href="/css/tabela.css">'
+    additionalStyles: '<link rel="stylesheet" href="/css/tabela.css">',
+    showBackButton: true
+  });
+});
+
+app.get('/massamolar', (req, res) => {
+  res.render('massamolar', {
+    additionalStyles: '<link rel="stylesheet" href="/css/massamolar.css">',
+    additionalScripts: '<script src="/js/massamolar.js"></script>',
+    showBackButton: true
   });
 });
 
 // simplifica: redireciona / para /tabela (ou repete a mesma renderização)
 app.get('/', (req, res) => {
   res.render('hubinicial', {
-    additionalStyles: '<link rel="stylesheet" href="/css/hubinicial.css">'
+    additionalStyles: '<link rel="stylesheet" href="/css/hubinicial.css">',
+    showBackButton: false
   });
 });
 
+app.get('/conversormolmassa', (req, res) => {
+  res.render('conversormolmassa', {
+    additionalStyles: '<link rel="stylesheet" href="/css/conversormolmassa.css">',
+    additionalScripts: '<script src="/js/conversormolmassa.js"></script>',
+    showBackButton: true
+  });
+});
+
+
 // rotas para as demais páginas precriadas
-app.get('/ferramentas', (req, res) => res.render('ferramentas'));
-app.get('/topicos', (req, res) => res.render('topicos'));
+app.get('/ferramentas', (req, res) => res.render('ferramentas', { showBackButton: true }));
+app.get('/topicos', (req, res) => res.render('topicos', { showBackButton: true }));
 
 
 app.use(express.static('public')); // para css, js, etc.
