@@ -20,6 +20,7 @@ variáveis / tema
   --cor-texto-escuro-hover: #00bca2;
 
   --borda-selecionada: var(--cor-primaria);
+  --borda-elemento-desativado: #33333325;
 
   --duracao-transicao-curta: 0.2s;
   --duracao-transicao-media: 0.3s;
@@ -54,6 +55,32 @@ variáveis / tema
   --categoria-outro-escuro: #bbbbbb;
 
   --texto-suave: color-mix(in srgb, var(--cor-texto) 70%, transparent);
+
+  /* Tipografia */
+  --fonte-xs: 0.7rem;
+  --fonte-sm: 0.85rem;
+  --fonte-md: 1rem;
+  --fonte-lg: 1.3rem;
+  --fonte-xl: 1.8rem;
+
+  /* Espaçamento */
+  --espaco-xs: 0.3rem;
+  --espaco-sm: 0.6rem;
+  --espaco-md: 1rem;
+  --espaco-lg: 1.5rem;
+
+  /* Bordas */
+  --borda-raio-sm: 8px;
+  --borda-raio-md: 12px;
+  --borda-raio-lg: 16px;
+
+  /* Transições */
+  --transicao-rapida: 0.2s;
+  --transicao-media: 0.3s;
+
+  /* Layout */
+  --largura-container: 1200px;
+
 }
 
 body.escuro {
@@ -301,6 +328,225 @@ componentes
 .periodica {
   color: var(--cor-secundaria);
 }
+
+/* ================================================
+paginas-ferramentas padronizadas
+================================================ */
+/* Cabeçalho */
+.cabecalho {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espaco-xs);
+  text-align: center;
+}
+
+.cabecalho__icone {
+  font-size: var(--fonte-xl);
+  padding: var(--espaco-sm);
+  border-radius: var(--borda-raio-sm);
+  background: var(--cor-terciaria);
+  color: var(--cor-secundaria);
+}
+
+.cabecalho__titulo {
+  font-size: var(--fonte-lg);
+  font-weight: bold;
+}
+
+.cabecalho__descricao {
+  font-size: var(--fonte-md);
+  color: color-mix(in srgb, var(--cor-texto) 70%, transparent);
+}
+
+/* Cardbase */
+.card {
+  border: 2px solid var(--cor-secundaria);
+  border-radius: var(--borda-raio-md);
+  display: flex;
+  flex-direction: column;
+
+  padding: var(--espaco-sm);
+  gap: var(--espaco-sm);
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+body.escuro .card {
+  border-color: var(--cor-secundaria-escura);
+  color: var(--cor-texto-escuro);
+}
+
+/* estrutura interna do card */
+.card__conteudo {
+  display: flex;
+  gap: var(--espaco-md);
+}
+
+.card__visual {
+  width: 130px;
+  height: 130px;
+  border: 8px solid var(--cor-secundaria);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fonte-sm);
+}
+
+.card__descricao {
+  flex: 1;
+  font-size: var(--fonte-md);
+}
+
+/* Campo de busca */
+.busca {
+  max-width: 620px;
+  width: 100%;
+  position: relative;
+}
+
+.busca--com-valor .campo-busca__limpar {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.campo-busca {
+  align-items: center;
+  background: transparent;
+  border: 2px solid var(--cor-secundaria);
+  border-radius: var(--borda-raio-lg);
+  display: flex;
+  gap: 0.65rem;
+  padding: 0.6rem 0.9rem;
+  transition:
+    border-color var(--duracao-transicao-curta),
+    box-shadow var(--duracao-transicao-curta),
+    background var(--duracao-transicao-curta);
+}
+
+.campo-busca:focus-within,
+.busca--aberta .campo-busca {
+  border-color: var(--cor-secundaria);
+}
+
+.campo-busca__icone {
+  color: color-mix(in srgb, var(--cor-texto) 55%, transparent);
+  font-size: 1rem;
+}
+
+.campo-busca__input {
+  background: transparent;
+  border: none;
+  color: var(--cor-texto);
+  flex: 1;
+  font-size: 1rem;
+  outline: none;
+  caret-color: var(--cor-secundaria);
+}
+
+.campo-busca__input::placeholder {
+  color: color-mix(in srgb, var(--cor-texto) 45%, transparent);
+}
+
+.campo-busca__limpar {
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  color: color-mix(in srgb, var(--cor-texto) 55%, transparent);
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  opacity: 0;
+  padding: 0.25rem;
+  pointer-events: none;
+  transition: color var(--duracao-transicao-curta), opacity var(--duracao-transicao-curta), background var(--duracao-transicao-curta);
+}
+
+.campo-busca__limpar:hover,
+.campo-busca__limpar:focus-visible {
+  color: var(--cor-secundaria);
+  background: color-mix(in srgb, var(--cor-secundaria) 12%, transparent);
+  outline: none;
+}
+
+/* dropdown */
+.busca__resultados {
+  position: absolute;
+  top: calc(100% + 0.45rem);
+  left: 0;
+  right: 0;
+
+  max-height: 320px;
+  overflow: auto;
+
+  background: #ffffff;
+  border-radius: var(--borda-raio-lg);
+  border: 1px solid color-mix(in srgb, var(--cor-secundaria) 25%, var(--cor-terciaria));
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px);
+
+  transition:
+    opacity var(--transicao-media),
+    transform var(--transicao-media);
+
+  z-index: 900;
+  padding: 0.35rem;
+}
+
+/* estado aberto */
+.busca--aberta .busca__resultados {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+body.escuro .campo-busca {
+  background: color-mix(in srgb, var(--cor-primaria-escura) 92%, #0b141c);
+  border-color: color-mix(in srgb, var(--cor-secundaria-escura) 70%, #0b141c);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.35);
+}
+
+body.escuro .campo-busca:focus-within,
+body.escuro .busca--aberta .campo-busca {
+  border-color: var(--cor-secundaria-escura);
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--cor-secundaria-escura) 25%, transparent),
+    0 16px 28px rgba(0, 0, 0, 0.45);
+}
+
+body.escuro .campo-busca__icone,
+body.escuro .campo-busca__limpar {
+  color: color-mix(in srgb, var(--cor-texto-escuro) 65%, transparent);
+}
+
+body.escuro .campo-busca__input {
+  color: var(--cor-texto-escuro);
+  caret-color: var(--cor-secundaria-escura);
+}
+
+body.escuro .campo-busca__input::placeholder {
+  color: color-mix(in srgb, var(--cor-texto-escuro) 50%, transparent);
+}
+
+body.escuro .campo-busca__limpar:hover,
+body.escuro .campo-busca__limpar:focus-visible {
+  color: var(--cor-secundaria-escura);
+  background: color-mix(in srgb, var(--cor-secundaria-escura) 20%, transparent);
+}
+
+body.escuro .busca__resultados {
+  background: color-mix(in srgb, var(--cor-primaria-escura) 92%, #0b141c);
+  border-color: color-mix(in srgb, var(--cor-terciaria-escura) 70%, transparent);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
 
 /* =====================
 responsividade

@@ -13,10 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const descricaoBox = $('.descricaodoelemento');
   const maisInfo = $('.maisinformacoes');
   const botaoMaisInfo = $('.icone-aumentar');
-  const pesquisaWrapper = $('.pesquisarelemento');
-  const pesquisaInput = $('#pesquisaElemento');
-  const pesquisaResultados = $('.pesquisa-resultados');
-  const botaoLimparPesquisa = $('.pesquisa-limpar');
+  const pesquisaWrapper = $('.busca'); // container geral
+  const pesquisaInput = $('.campo-busca__input');
+  const pesquisaResultados = $('.busca__resultados');
+  const botaoLimparPesquisa = $('.campo-busca__limpar');
   const elementos = $$('.celula-elemento');
   const filtros = $$('.filtro-item');
   const body = document.body;
@@ -273,17 +273,17 @@ document.addEventListener('DOMContentLoaded', () => {
       }));
 
     const fecharResultados = () => {
-      pesquisaWrapper.classList.remove('aberta');
+      pesquisaWrapper.classList.remove('busca--aberta');
       pesquisaResultados.innerHTML = '';
     };
 
     const abrirResultados = () => {
-      pesquisaWrapper.classList.add('aberta');
+      pesquisaWrapper.classList.add('busca--aberta');
     };
 
     const atualizarBotaoLimpar = () => {
       const temValor = pesquisaInput.value.trim().length > 0;
-      pesquisaWrapper.classList.toggle('com-valor', temValor);
+      pesquisaWrapper.classList.toggle('busca--com-valor', temValor);
     };
 
     const renderizarResultados = (resultados) => {
@@ -291,7 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!resultados.length) {
         const vazio = document.createElement('div');
-        vazio.className = 'pesquisa-vazia';
+        vazio.className = 'busca__vazio';
         vazio.textContent = 'Nenhum elemento encontrado';
         pesquisaResultados.appendChild(vazio);
         abrirResultados();
@@ -301,13 +301,13 @@ document.addEventListener('DOMContentLoaded', () => {
       resultados.forEach(item => {
         const botao = document.createElement('button');
         botao.type = 'button';
-        botao.className = 'pesquisa-item';
+        botao.className = 'busca__item';
         botao.setAttribute('role', 'option');
         botao.innerHTML = `
-          <span class="pesquisa-simbolo">${item.simbolo}</span>
-          <span class="pesquisa-info">
-            <span class="pesquisa-nome">${item.nome}</span>
-            <span class="pesquisa-meta">${item.nome} - Nº ${item.numero}</span>
+          <span class="busca__simbolo">${item.simbolo}</span>
+          <span class="busca__info">
+            <span class="busca__nome">${item.nome}</span>
+            <span class="busca__meta">${item.nome} - Nº ${item.numero}</span>
           </span>
         `;
         botao.addEventListener('click', (event) => {
@@ -359,7 +359,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('click', (event) => {
       const caminho = event.composedPath ? event.composedPath() : [];
-      const dentroPesquisa = caminho.some(node => node instanceof Element && node.classList?.contains('pesquisarelemento'));
+      const dentroPesquisa = caminho.some(node => node instanceof Element && node.classList?.contains('busca'));
       if (!dentroPesquisa) {
         fecharResultados();
       }
@@ -448,7 +448,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // clicar fora para limpar seleção
   document.addEventListener('click', (event) => {
     const caminho = event.composedPath ? event.composedPath() : [];
-    const dentroPesquisa = caminho.some(node => node instanceof Element && node.classList?.contains('pesquisarelemento')); // evitar fechar ao clicar dentro da pesquisa
+    const dentroPesquisa = caminho.some(node => node instanceof Element && node.classList?.contains('busca')); // evitar fechar ao clicar dentro da pesquisa
     const dentroCelula = caminho.some(node => node instanceof Element && node.classList?.contains('celula-elemento')); // evitar fechar ao clicar dentro de uma célula
     const dentroCard = caminho.some(node => node instanceof Element && node.classList?.contains('cardelemento')); // evitar fechar ao clicar dentro do cartão
     const dentroFiltro = caminho.some(node => node instanceof Element && node.classList?.contains('filtragem')); // evitar fechar ao clicar dentro da área de filtros

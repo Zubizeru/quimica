@@ -1,21 +1,16 @@
-﻿<!-- Seção Massa Molar -->
-<section class="massa-molar pagina-massa-molar" aria-labelledby="massa-molar-titulo">
-  <!-- Cabeçalho da Página -->
-  <header class="massa-molar-topo">
-    <div class="massa-molar-titulo">
-      <span class="massa-icone" aria-hidden="true">
-        <i class="fa-solid fa-scale-balanced"></i>
-      </span>
-      <div class="massa-titulo-texto">
-        <h1 id="massa-molar-titulo">Massa Molar</h1>
-        <p>Calcule massas molares de compostos químicos.</p>
-      </div>
-    </div>
+﻿<!-- Seção Cabeçalho -->
+<section class="pagina-ferramenta massa-molar">
+  <header class="ferramenta-header logomassamolar" aria-labelledby="tituloopcao1">
+    <i class="fa-solid fa-scale-balanced"></i>
+    <h1 id="tituloopcao1">Massa <span class="periodica">Molar</span></h1>
+    <p id="descricao" class="ferramenta-descricao">
+      Calcule a massa molar de compostos químicos de forma rápida e fácil.
+    </p>
   </header>
 
   <!-- Calculadora de Massa Molar -->
-  <article class="massa-card massa-calculadora" aria-labelledby="massa-calculadora-titulo">
-    <div class="massa-card-topo">
+  <article class="ferramenta-card massa-card massa-calculadora" aria-labelledby="massa-calculadora-titulo">
+    <div class="massa-card-topo ferramenta-card-topo">
       <h2 id="massa-calculadora-titulo">Calculadora de Massa Molar</h2>
       <p>Digite uma fórmula química ou monte com os botões abaixo.</p>
     </div>
@@ -23,7 +18,8 @@
     <form id="form-massa-molar" class="massa-form" autocomplete="off">
       <label for="formula-composto">Fórmula Química</label>
       <div class="massa-input-wrap">
-        <input type="text" id="formula-composto" name="formula-composto" placeholder="Ex: H2O, CO2, NaCl, Ca(OH)2" required aria-required="true" />
+        <input type="text" id="formula-composto" name="formula-composto" placeholder="Ex: H2O, CO2, NaCl, Ca(OH)2"
+          required aria-required="true" />
         <div class="massa-input-visual" aria-hidden="true"></div>
       </div>
 
@@ -135,14 +131,14 @@
         </div>
       </div>
 
-      <button type="submit" class="massa-botao">Calcular Massa Molar</button>
+      <button type="submit" class="massa-botao ferramenta-botao">Calcular Massa Molar</button>
       <div id="resultado-massa-molar" class="massa-resultado" aria-live="polite"></div>
     </form>
   </article>
 
   <!-- Compostos Comuns -->
-  <article class="massa-card massa-compostos" aria-labelledby="massa-compostos-titulo">
-    <div class="massa-card-topo">
+  <article class="ferramenta-card massa-card massa-compostos" aria-labelledby="massa-compostos-titulo">
+    <div class="massa-card-topo ferramenta-card-topo">
       <h2 id="massa-compostos-titulo">Compostos Comuns</h2>
       <p>Clique em um composto para calcular sua massa molar automaticamente.</p>
     </div>
@@ -188,16 +184,19 @@
   </article>
 
   <!-- Informações sobre Massa Molar -->
-  <article class="massa-card massa-info" aria-labelledby="massa-info-titulo">
-    <div class="massa-card-topo massa-info-titulo">
-      <span class="massa-info-icone" aria-hidden="true">
+  <article class="ferramenta-card massa-card massa-info" aria-labelledby="massa-info-titulo">
+    <div class="massa-card-topo massa-info-titulo ferramenta-card-topo ferramenta-info-titulo">
+      <span class="massa-info-icone ferramenta-info-icone" aria-hidden="true">
         <i class="fa-solid fa-circle-info"></i>
       </span>
       <h2 id="massa-info-titulo">O que é Massa Molar?</h2>
     </div>
-    <div class="massa-info-texto">
-      <p>A massa molar é a massa de um mol de uma substância, expressa em gramas por mol (g/mol). Para elementos, a massa molar é numericamente igual à massa atômica. Já para compostos, somamos as massas molares de todos os átomos presentes na fórmula, considerando suas quantidades.</p>
-      <p>Por exemplo, a água (H2O) tem massa molar aproximada de 18,015 g/mol, calculada como: 2 × 1,008 (H) + 1 × 15,999 (O) = 18,015.</p>
+    <div class="massa-info-texto ferramenta-info-texto">
+      <p>A massa molar é a massa de um mol de uma substância, expressa em gramas por mol (g/mol). Para elementos, a
+        massa molar é numericamente igual à massa atômica. Já para compostos, somamos as massas molares de todos os
+        átomos presentes na fórmula, considerando suas quantidades.</p>
+      <p>Por exemplo, a água (H2O) tem massa molar aproximada de 18,015 g/mol, calculada como: 2 × 1,008 (H) + 1 ×
+        15,999 (O) = 18,015.</p>
     </div>
   </article>
 </section>

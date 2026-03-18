@@ -2,26 +2,18 @@
 Variáveis e Tema Claro
 ===================== */
 .massa-molar {
-  --massa-card-bg: transparent;
   --massa-card-borda: color-mix(in srgb, var(--cor-terciaria) 70%, transparent);
-  --massa-card-sombra: 0 20px 40px rgba(0, 0, 0, 0.08);
-  --massa-chip-bg: color-mix(in srgb, var(--cor-terciaria) 60%, #ffffff);
-  --massa-chip-borda: color-mix(in srgb, var(--cor-terciaria) 70%, transparent);
-  --massa-input-bg: color-mix(in srgb, var(--cor-terciaria) 55%, #ffffff);
-  --massa-foco: color-mix(in srgb, var(--cor-secundaria) 25%, transparent);
+  --massa-chip-bg: var(--ferramenta-chip-bg);
+  --massa-chip-borda: var(--ferramenta-chip-borda);
+  --massa-input-bg: var(--ferramenta-input-bg);
+  --massa-foco: var(--ferramenta-foco);
 }
 
 /* =====================
 Tema Escuro
 ===================== */
 body.escuro .massa-molar {
-  --massa-card-bg: transparent;
   --massa-card-borda: color-mix(in srgb, var(--cor-terciaria-escura) 70%, transparent);
-  --massa-card-sombra: 0 20px 40px rgba(0, 0, 0, 0.35);
-  --massa-chip-bg: color-mix(in srgb, var(--cor-terciaria-escura) 55%, transparent);
-  --massa-chip-borda: color-mix(in srgb, var(--cor-terciaria-escura) 70%, transparent);
-  --massa-input-bg: color-mix(in srgb, var(--cor-primaria-escura) 88%, #0b141c);
-  --massa-foco: color-mix(in srgb, var(--cor-secundaria-escura) 35%, transparent);
 }
 
 body.escuro .massa-voltar {
@@ -68,11 +60,6 @@ body.escuro .tecla-acao {
   background: color-mix(in srgb, var(--cor-secundaria-escura) 15%, var(--massa-chip-bg));
 }
 
-body.escuro .massa-botao {
-  background: var(--cor-secundaria-escura);
-  color: #001c17;
-}
-
 body.escuro .resultado-valor-destaque {
   color: var(--cor-secundaria-escura);
 }
@@ -108,22 +95,16 @@ body.escuro .composto-formula {
   color: var(--cor-secundaria-escura);
 }
 
-body.escuro .massa-info-icone {
-  background: color-mix(in srgb, var(--cor-secundaria-escura) 20%, transparent);
-  color: var(--cor-secundaria-escura);
-}
-
 /* =====================
 Estrutura e Layout
 ===================== */
 .massa-molar {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding: 1.5rem 0 3rem;
-}
-
-.massa-molar-topo {
+  --massa-card-borda: color-mix(in srgb, var(--cor-terciaria) 70%, transparent);
+  --massa-chip-bg: var(--ferramenta-chip-bg);
+  --massa-chip-borda: var(--ferramenta-chip-borda);
+  --massa-input-bg: var(--ferramenta-input-bg);
+  --massa-foco: var(--ferramenta-foco);
+}.massa-molar-topo {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -174,27 +155,6 @@ Estrutura e Layout
 }
 
 .massa-titulo-texto p {
-  color: var(--texto-suave);
-  font-size: 0.95rem;
-}
-
-.massa-card {
-  background: var(--massa-card-bg);
-  border-radius: 18px;
-  border: 1px solid var(--massa-card-borda);
-  box-shadow: var(--massa-card-sombra);
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.massa-card-topo h2 {
-  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
-  margin-bottom: 0.25rem;
-}
-
-.massa-card-topo p {
   color: var(--texto-suave);
   font-size: 0.95rem;
 }
@@ -296,24 +256,6 @@ Estrutura e Layout
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-}
-
-.massa-botao {
-  width: 100%;
-  border: none;
-  background: var(--cor-secundaria);
-  color: #ffffff;
-  border-radius: 12px;
-  padding: 0.95rem 1.2rem;
-  font-weight: 700;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: transform var(--duracao-transicao-curta), box-shadow var(--duracao-transicao-curta);
-}
-
-.massa-botao:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 24px rgba(0, 140, 117, 0.2);
 }
 
 .massa-resultado {
@@ -506,31 +448,6 @@ Estrutura e Layout
   gap: 0.7rem;
 }
 
-.massa-info-titulo {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.massa-info-icone {
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
-  display: grid;
-  place-items: center;
-  background: color-mix(in srgb, var(--cor-secundaria) 20%, transparent);
-  color: var(--cor-secundaria);
-}
-
-.massa-info-texto {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  color: var(--texto-suave);
-  line-height: 1.6;
-  font-size: 0.95rem;
-}
-
 /* =====================
 Componentes
 ===================== */
@@ -620,14 +537,12 @@ Responsividade
 ===================== */
 @media (max-width: 720px) {
   .massa-molar {
-    padding: 1rem 0 2.5rem;
-  }
-
-  .massa-card {
-    padding: 1.2rem;
-  }
-
-  .elementos-grade {
+  --massa-card-borda: color-mix(in srgb, var(--cor-terciaria) 70%, transparent);
+  --massa-chip-bg: var(--ferramenta-chip-bg);
+  --massa-chip-borda: var(--ferramenta-chip-borda);
+  --massa-input-bg: var(--ferramenta-input-bg);
+  --massa-foco: var(--ferramenta-foco);
+}.elementos-grade {
     grid-template-columns: repeat(auto-fit, minmax(56px, 1fr));
   }
 
@@ -635,4 +550,6 @@ Responsividade
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }
 }
+
+
 
