@@ -621,24 +621,55 @@ Tooltip
   cursor: help;
   border-bottom: 1px dashed var(--cor-secundaria, #00bca2);
   transition: 0.2s;
+  font-weight: bold;
 }
 
-.tooltip-trigger:hover {
+.tooltip-trigger:hover,
+.tooltip-trigger:focus-visible {
   color: var(--cor-secundaria, #00bca2);
+  outline: none;
+
+}
+
+.tooltip-trigger:focus-visible {
+  box-shadow: 0 0 0 2px rgba(0, 188, 162, 0.4);
+  border-bottom-color: var(--cor-secundaria, #00bca2);
 }
 
 #tooltip-global {
   position: fixed;
-  background: #111;
+  background: rgba(17, 17, 17, 0.95);
   color: #fff;
   padding: 10px 12px;
   border-radius: 10px;
   font-size: 0.85rem;
-  max-width: 260px;
+  max-width: 280px;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.15s ease;
+  visibility: hidden;
+  transform: translateY(4px);
+  transition: opacity 0.15s ease, visibility 0.15s ease, transform 0.15s ease;
   z-index: 9999;
+}
+
+
+#tooltip-global[data-visible="true"] {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.tooltip-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.tooltip-text span {
+  color: var(--texto-destaque);
+  font-weight: 600;
+  margin-top: 0.3rem;
 }
 
 /* =====================

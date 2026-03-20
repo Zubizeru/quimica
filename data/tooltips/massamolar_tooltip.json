@@ -1,0 +1,5 @@
+{
+  "reacao-amonia": "<div class='tooltip-text'><p>Reação de síntese de amônia: </p> <p><span>N₂ + 3H₂ ⇌ 2NH₃</span></p><p>Exemplo clássico de equilíbrio químico usado no processo Haber-Bosch para produção industrial.</p></div>",
+  "reacao-agua": "<div class='tooltip-text'><p>Reação de síntese da água: </p> <p><span>2H₂ + O₂ → 2H₂O</span></p><p>Mostra conservação de massa e balanceamento atômico em reações químicas.</p></div>",
+  "equilibrio": "<div class='tooltip-text'><p><span>Equilíbrio químico</span> ocorre quando as taxas de reação direta e inversa são iguais, estabilizando concentrações de reagentes e produtos.</p></div>"
+}

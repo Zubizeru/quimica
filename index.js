@@ -1,6 +1,7 @@
 const express = require('express');
 const { engine } = require('express-handlebars');
 const path = require('path');
+const compression = require('compression');
 
 const app = express();
 app.engine('handlebars', engine({
@@ -10,6 +11,8 @@ app.engine('handlebars', engine({
 }));
 app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, 'views', 'partials'));
+
+app.use(compression());
 
 // carregar dados dos elementos
 const elementos = require('./data/elementos.json');
@@ -214,7 +217,8 @@ app.get('/tabela', (req, res) => {
     grupos,
     periodos,
     /* …outros dados… */
-    additionalStyles: '<link rel="stylesheet" href="/css/tabela.css">',
+    additionalStyles: '<link rel="stylesheet" href="/css/tabela.min.css">',
+    additionalScripts: '<script src="/js/tabela.min.js" defer></script>',
     showBackButton: true,
     tooltipPage: 'tabela'
   });
@@ -222,8 +226,8 @@ app.get('/tabela', (req, res) => {
 
 app.get('/massamolar', (req, res) => {
   res.render('massamolar', {
-    additionalStyles: '<link rel="stylesheet" href="/css/massamolar.css">',
-    additionalScripts: '<script src="/js/massamolar.js"></script>',
+    additionalStyles: '<link rel="stylesheet" href="/css/massamolar.min.css">',
+    additionalScripts: '<script src="/js/massamolar.min.js" defer></script>',
     showBackButton: true,
     tooltipPage: 'massamolar'
   });
@@ -232,15 +236,15 @@ app.get('/massamolar', (req, res) => {
 // simplifica: redireciona / para /tabela (ou repete a mesma renderização)
 app.get('/', (req, res) => {
   res.render('hubinicial', {
-    additionalStyles: '<link rel="stylesheet" href="/css/hubinicial.css">',
+    additionalStyles: '<link rel="stylesheet" href="/css/hubinicial.min.css">',
     showBackButton: false
   });
 });
 
 app.get('/conversormolmassa', (req, res) => {
   res.render('conversormolmassa', {
-    additionalStyles: '<link rel="stylesheet" href="/css/conversormolmassa.css">',
-    additionalScripts: '<script src="/js/conversormolmassa.js"></script>',
+    additionalStyles: '<link rel="stylesheet" href="/css/conversormolmassa.min.css">',
+    additionalScripts: '<script src="/js/conversormolmassa.min.js" defer></script>',
     showBackButton: true,
     tooltipPage: 'conversormolmassa'
   });
@@ -252,6 +256,13 @@ app.get('/ferramentas', (req, res) => res.render('ferramentas', { showBackButton
 app.get('/topicos', (req, res) => res.render('topicos', { showBackButton: true }));
 
 
-app.use(express.static('public')); // para css, js, etc.
+app.use(express.static('public', {
+  maxAge: '1d', // cache por 1 dia
+  setHeaders: (res, path) => {
+    if (path.endsWith('.css') || path.endsWith('.js')) {
+      res.setHeader('Cache-Control', 'public, max-age=86400'); // 1 dia
+    }
+  }
+}));
 
 app.listen(3000, () => console.log('Servidor rodando em http://localhost:3000'));

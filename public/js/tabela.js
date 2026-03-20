@@ -1,0 +1,273 @@
+// ========================================
+// SCRIPT TABELA PERIÓDICA
+// ========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+  const $ = s => document.querySelector(s);
+  const $$ = s => document.querySelectorAll(s);
+
+  const card = $('.cardnomeelemento');
+  const descricaoBox = $('.descricaodoelemento');
+  const maisInfo = $('.maisinformacoes');
+  const botaoMaisInfo = $('.icone-aumentar');
+  const pesquisaWrapper = $('.busca');
+  const pesquisaInput = $('.campo-busca_input');
+  const pesquisaResultados = $('.busca_resultados');
+  const botaoLimparPesquisa = $('.campo-busca_limpar');
+  const elementos = $$('.celula-elemento');
+  const filtros = $$('.filtro-item');
+
+  const formatarValor = (valor) => {
+    if (valor === null || valor === undefined) return 'N/A';
+    const texto = String(valor).trim();
+    return texto === '' || texto === '-' ? 'N/A' : texto;
+  };
+
+  const formatarValorComUnidade = (valor, unidade) => {
+    const base = formatarValor(valor);
+    if (base === 'N/A') return 'N/A';
+    const unidadeTexto = unidade ? String(unidade).trim() : '';
+    return unidadeTexto ? `${base} ${unidadeTexto}` : base;
+  };
+
+  const setInfoValue = (classe, valor, unidade) => {
+    const alvo = document.querySelector(`.${classe} .info-value`);
+    if (alvo) alvo.textContent = formatarValorComUnidade(valor, unidade);
+  };
+
+  function atualizarCartao(cell) {
+    if (!cell || !card) return;
+
+    const d = cell.dataset;
+    const numero = $('.numeroCard');
+    const simbolo = $('.simboloCard');
+    const nome = $('.nomeCard');
+    const massa = $('.massaCard');
+    const camadas = $('.camadasCard');
+
+    if (numero) numero.textContent = d.numero || '';
+    if (simbolo) simbolo.textContent = d.simbolo || '';
+    if (nome) nome.textContent = d.nome || '';
+    if (massa) {
+      const massaTexto = d.massa ? `${d.massa}${d.massaUnidade ? ` ${d.massaUnidade}` : ''}` : '';
+      massa.textContent = massaTexto;
+    }
+    if (camadas) camadas.textContent = (d.camadas || '').split(',').join('\n');
+
+    if (descricaoBox) descricaoBox.textContent = d.descricao || 'Sem descrição disponível';
+
+    setInfoValue('massaatomica', d.massa, d.massaUnidade);
+    setInfoValue('bloco', d.bloco);
+    setInfoValue('configuracaoeletronica', d.configuracaoEletronica);
+    setInfoValue('eletronegatividade', d.eletronegatividade);
+    setInfoValue('densidade', d.densidade, d.densidadeUnidade);
+    setInfoValue('pontodefusao', d.pontoFusao, d.pontoFusaoUnidade);
+    setInfoValue('pontodeebulicao', d.pontoEbulicao, d.pontoEbulicaoUnidade);
+    setInfoValue('periodo', d.periodo);
+    setInfoValue('grupo', d.grupo);
+    setInfoValue('anodedescoberta', d.anoDescoberta);
+
+    card.classList.add('ativo');
+
+    const bg = getComputedStyle(cell).backgroundColor;
+    card.style.background = bg;
+
+    const rgb = bg.match(/\d+/g);
+    if (rgb) {
+      const brilho = (rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000;
+      card.style.color = brilho < 125 ? '#fff' : '#000';
+    }
+  }
+
+  function resetarCartao() {
+    const numero = $('.numeroCard');
+    const simbolo = $('.simboloCard');
+    const nome = $('.nomeCard');
+    const massa = $('.massaCard');
+    const camadas = $('.camadasCard');
+
+    if (numero) numero.textContent = '';
+    if (simbolo) simbolo.textContent = '';
+    if (nome) nome.textContent = 'Nome do elemento';
+    if (massa) massa.textContent = '';
+    if (camadas) camadas.textContent = '';
+
+    if (card) {
+      card.style.color = 'var(--cor-secundaria)';
+      card.style.border = '10px solid #33333325';
+      card.style.background = 'transparent';
+      card.classList.remove('ativo');
+    }
+
+    if (descricaoBox) descricaoBox.textContent = '';
+
+    setInfoValue('massaatomica', '');
+    setInfoValue('bloco', '');
+    setInfoValue('configuracaoeletronica', '');
+    setInfoValue('eletronegatividade', '');
+    setInfoValue('densidade', '');
+    setInfoValue('pontodefusao', '');
+    setInfoValue('pontodeebulicao', '');
+    setInfoValue('periodo', '');
+    setInfoValue('grupo', '');
+    setInfoValue('anodedescoberta', '');
+  }
+
+  function limparSelecao() {
+    const selecionada = document.querySelector('.celula-elemento.selecionado');
+    if (!selecionada) return;
+    selecionada.classList.remove('selecionado');
+    resetarCartao();
+  }
+
+  function selecionarCelula(cell, { toggle = false } = {}) {
+    if (!cell) return;
+    const selecionada = document.querySelector('.celula-elemento.selecionado');
+    if (selecionada && selecionada !== cell) selecionada.classList.remove('selecionado');
+
+    if (toggle && selecionada === cell) {
+      resetarCartao();
+      return;
+    }
+
+    cell.classList.add('selecionado');
+    atualizarCartao(cell);
+  }
+
+  elementos.forEach(cell => {
+    cell.addEventListener('mouseenter', () => {
+      if (!document.querySelector('.celula-elemento.selecionado')) atualizarCartao(cell);
+    });
+    cell.addEventListener('click', () => selecionarCelula(cell, { toggle: true }));
+  });
+
+  if (botaoMaisInfo && maisInfo) {
+    botaoMaisInfo.addEventListener('click', () => {
+      const aberto = maisInfo.classList.toggle('aberta');
+      botaoMaisInfo.setAttribute('aria-expanded', aberto ? 'true' : 'false');
+    });
+  }
+
+  if (pesquisaWrapper && pesquisaInput && pesquisaResultados) {
+    const normalizarTexto = texto => texto.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const listaElementos = Array.from(elementos)
+      .filter(el => el.dataset.numero && el.dataset.simbolo)
+      .map(el => ({ numero: el.dataset.numero, nome: el.dataset.nome || '', simbolo: el.dataset.simbolo || '', cell: el }));
+
+    const fecharResultados = () => {
+      pesquisaWrapper.classList.remove('busca--aberta');
+      pesquisaResultados.innerHTML = '';
+    };
+
+    const abrirResultados = () => pesquisaWrapper.classList.add('busca--aberta');
+
+    const atualizarBotaoLimpar = () => {
+      const temValor = pesquisaInput.value.trim().length > 0;
+      pesquisaWrapper.classList.toggle('busca--com-valor', temValor);
+    };
+
+    const renderizarResultados = (resultados) => {
+      pesquisaResultados.innerHTML = '';
+      if (!resultados.length) {
+        const vazio = document.createElement('div');
+        vazio.className = 'busca_vazio';
+        vazio.textContent = 'Nenhum elemento encontrado';
+        pesquisaResultados.appendChild(vazio);
+        abrirResultados();
+        return;
+      }
+
+      resultados.forEach(item => {
+        const botao = document.createElement('button');
+        botao.type = 'button';
+        botao.className = 'busca_item';
+        botao.setAttribute('role', 'option');
+        botao.innerHTML = `
+          <span class="busca_simbolo">${item.simbolo}</span>
+          <span class="busca_info">
+            <span class="busca_nome">${item.nome}</span>
+            <span class="busca_meta">${item.nome} - Nº ${item.numero}</span>
+          </span>
+        `;
+        botao.addEventListener('click', () => {
+          selecionarCelula(item.cell);
+          pesquisaInput.value = item.nome;
+          atualizarBotaoLimpar();
+          fecharResultados();
+        });
+        pesquisaResultados.appendChild(botao);
+      });
+
+      abrirResultados();
+    };
+
+    const filtrarResultados = () => {
+      const termo = pesquisaInput.value.trim();
+      atualizarBotaoLimpar();
+      if (!termo) {
+        fecharResultados();
+        return;
+      }
+
+      const termoNormalizado = normalizarTexto(termo);
+      const resultados = listaElementos.filter(item => {
+        const nome = normalizarTexto(item.nome);
+        const simbolo = normalizarTexto(item.simbolo);
+        const numero = item.numero.toString();
+        return nome.includes(termoNormalizado) || simbolo.includes(termoNormalizado) || numero.startsWith(termoNormalizado);
+      }).slice(0, 12);
+
+      renderizarResultados(resultados);
+    };
+
+    pesquisaInput.addEventListener('input', filtrarResultados);
+    pesquisaInput.addEventListener('focus', filtrarResultados);
+
+    if (botaoLimparPesquisa) {
+      botaoLimparPesquisa.addEventListener('click', () => {
+        pesquisaInput.value = '';
+        atualizarBotaoLimpar();
+        fecharResultados();
+        pesquisaInput.focus();
+      });
+    }
+
+    document.addEventListener('click', (event) => {
+      const caminho = event.composedPath ? event.composedPath() : [];
+      const dentroPesquisa = caminho.some(node => node instanceof Element && node.classList?.contains('busca'));
+      if (!dentroPesquisa) fecharResultados();
+    });
+  }
+
+  let filtroAtivo = null;
+
+  const aplicarFiltro = (categoria) => {
+    elementos.forEach(el => {
+      const ativo = el.dataset.categoria === categoria;
+      el.style.opacity = ativo ? '1' : '0.15';
+      el.style.transform = ativo ? 'scale(1.05)' : 'scale(1)';
+      el.style.zIndex = ativo ? '2' : '1';
+    });
+  };
+
+  const limparFiltro = () => {
+    elementos.forEach(el => {
+      el.style.opacity = '1';
+      el.style.transform = 'scale(1)';
+      el.style.zIndex = '1';
+    });
+  };
+
+  filtros.forEach(filtro => {
+    filtro.addEventListener('mouseenter', () => { if (!filtroAtivo) aplicarFiltro(filtro.id); });
+    filtro.addEventListener('mouseleave', () => { if (!filtroAtivo) limparFiltro(); });
+    filtro.addEventListener('click', () => {
+      const categoria = filtro.id;
+      if (filtroAtivo === categoria) { filtroAtivo = null; filtro.classList.remove('ativo'); limparFiltro(); return; }
+      filtroAtivo = categoria;
+      filtros.forEach(f => f.classList.remove('ativo'));
+      filtro.classList.add('ativo');
+      aplicarFiltro(categoria);
+    });
+  });
+});

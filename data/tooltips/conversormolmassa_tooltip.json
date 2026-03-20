@@ -1,0 +1,4 @@
+{
+    "sistema-internacional": "<div class='tooltip-text'><p>O <span>Sistema Internacional de Unidades (SI)</span> é o sistema de unidades mais amplamente utilizado no mundo, baseado em sete unidades fundamentais: metro (m), quilograma (kg), segundo (s), ampere (A), kelvin (K), mol (mol) e candela (cd).</p><p>O mol é a unidade do SI para <span>quantidade de matéria</span>, definida como a quantidade de substância que contém o mesmo número de entidades elementares que átomos em <span>12 gramas de carbono-12</span>.</p></div>",
+    "constante-de-avogadro": "<div class='tooltip-text'><p>A <span>constante de Avogadro</span> é o número de partículas em um mol de uma substância, igual a <span>6,022 × 10²³</span>.</p><p>Essa constante é fundamental para converter entre quantidade de matéria (mol) e número de partículas.</p></div>"
+}
