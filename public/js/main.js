@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const maisInfo = $('.maisinformacoes');
   const botaoMaisInfo = $('.icone-aumentar');
   const pesquisaWrapper = $('.busca'); // container geral
-  const pesquisaInput = $('.campo-busca__input');
-  const pesquisaResultados = $('.busca__resultados');
-  const botaoLimparPesquisa = $('.campo-busca__limpar');
+  const pesquisaInput = $('.campo-busca_input');
+  const pesquisaResultados = $('.busca_resultados');
+  const botaoLimparPesquisa = $('.campo-busca_limpar');
   const elementos = $$('.celula-elemento');
   const filtros = $$('.filtro-item');
   const body = document.body;
@@ -291,7 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!resultados.length) {
         const vazio = document.createElement('div');
-        vazio.className = 'busca__vazio';
+        vazio.className = 'busca_vazio';
         vazio.textContent = 'Nenhum elemento encontrado';
         pesquisaResultados.appendChild(vazio);
         abrirResultados();
@@ -301,13 +301,13 @@ document.addEventListener('DOMContentLoaded', () => {
       resultados.forEach(item => {
         const botao = document.createElement('button');
         botao.type = 'button';
-        botao.className = 'busca__item';
+        botao.className = 'busca_item';
         botao.setAttribute('role', 'option');
         botao.innerHTML = `
-          <span class="busca__simbolo">${item.simbolo}</span>
-          <span class="busca__info">
-            <span class="busca__nome">${item.nome}</span>
-            <span class="busca__meta">${item.nome} - Nº ${item.numero}</span>
+          <span class="busca_simbolo">${item.simbolo}</span>
+          <span class="busca_info">
+            <span class="busca_nome">${item.nome}</span>
+            <span class="busca_meta">${item.nome} - Nº ${item.numero}</span>
           </span>
         `;
         botao.addEventListener('click', (event) => {
@@ -444,6 +444,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
   });
+
+  /* Script tooltip global */
+
 
   // clicar fora para limpar seleção
   document.addEventListener('click', (event) => {

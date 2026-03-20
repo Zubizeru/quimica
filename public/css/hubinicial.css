@@ -1,63 +1,6 @@
 /* =====================
-variáveis / tema
+HUB
 ===================== */
-body.escuro .hub-secaoprincipal {
-  background: radial-gradient(1200px 500px at 50% -50%, rgba(0, 188, 162, 0.35), transparent),
-    linear-gradient(180deg, rgba(3, 10, 16, 0.6), transparent 60%);
-}
-
-body.escuro .icone-hub {
-  background: color-mix(in srgb, var(--cor-secundaria-escura) 25%, transparent);
-  color: var(--cor-secundaria-escura);
-}
-
-body.escuro .titulo-hub {
-  color: var(--cor-texto-escuro);
-}
-
-body.escuro .titulo-hub span {
-  color: var(--cor-secundaria-escura);
-}
-
-body.escuro .subtitulo-hub {
-  color: color-mix(in srgb, var(--cor-texto-escuro) 70%, transparent);
-}
-
-body.escuro .tags-hub span {
-  background: color-mix(in srgb, var(--cor-terciaria-escura) 70%, transparent);
-  color: var(--cor-texto-escuro);
-}
-
-body.escuro .etiqueta-ferramentas {
-  color: var(--cor-secundaria-escura);
-}
-
-body.escuro .cabecalho-ferramentas h2 {
-  color: var(--cor-texto-escuro);
-}
-
-body.escuro .cartao-ferramenta {
-  background: color-mix(in srgb, var(--cor-primaria-escura) 92%, #050c12);
-  border-color: color-mix(in srgb, var(--cor-terciaria-escura) 70%, transparent);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-}
-
-body.escuro .cartao-ferramenta:hover {
-  border-color: color-mix(in srgb, var(--cor-secundaria-escura) 60%, transparent);
-}
-
-body.escuro .icone-cartao {
-  background: color-mix(in srgb, var(--cor-secundaria-escura) 20%, transparent);
-  color: var(--cor-secundaria-escura);
-}
-
-body.escuro .conteudo-cartao h3 {
-  color: var(--cor-texto-escuro);
-}
-
-body.escuro .conteudo-cartao p {
-  color: color-mix(in srgb, var(--cor-texto-escuro) 70%, transparent);
-}
 
 /* =====================
 estrutura (layout)
@@ -74,7 +17,7 @@ estrutura (layout)
   padding: 5rem 1.5rem 3.5rem;
   text-align: center;
   overflow: hidden;
-  background: var(--fundo-site-claro);
+  background: var(--fundo-site);
 }
 
 .hubsecao-conteudo {
@@ -84,7 +27,7 @@ estrutura (layout)
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  padding: 2rem 0rem;
+  padding: 2rem 0;
 }
 
 .ferramentas {
@@ -113,27 +56,29 @@ componentes
   border-radius: 14px;
   display: grid;
   place-items: center;
-  background: color-mix(in srgb, var(--cor-secundaria) 20%, transparent);
-  color: var(--cor-secundaria);
+
+  background: var(--bg-destaque-suave);
+  color: var(--texto-destaque);
+
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 .titulo-hub {
   font-size: clamp(2.4rem, 3.8vw, 3.6rem);
   font-weight: 700;
-  color: var(--cor-texto);
   letter-spacing: -0.02em;
+  color: var(--texto-principal);
 }
 
 .titulo-hub span {
-  color: var(--cor-secundaria);
+  color: var(--texto-destaque);
 }
 
 .subtitulo-hub {
   max-width: 620px;
   font-size: 1rem;
-  color: color-mix(in srgb, var(--cor-texto) 70%, transparent);
   line-height: 1.6;
+  color: var(--texto-suave);
 }
 
 .tags-hub {
@@ -147,8 +92,10 @@ componentes
 .tags-hub span {
   padding: 0.4rem 0.8rem;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--cor-terciaria) 70%, transparent);
-  color: var(--cor-texto);
+
+  background: var(--bg-suave);
+  color: var(--texto-principal);
+
   font-size: 0.8rem;
   font-weight: 600;
 }
@@ -157,34 +104,40 @@ componentes
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: var(--cor-secundaria);
   font-weight: 700;
+
+  color: var(--texto-destaque);
 }
 
 .cabecalho-ferramentas h2 {
   font-size: clamp(1.6rem, 2.6vw, 2.2rem);
-  color: var(--cor-texto);
   margin-top: 0.4rem;
+  color: var(--texto-principal);
 }
 
 .cartao-ferramenta {
   display: flex;
   gap: 0.9rem;
   padding: 1.2rem;
-  border-radius: 16px;
+
+  border-radius: var(--borda-raio-lg);
   text-decoration: none;
   color: inherit;
-  background: color-mix(in srgb, var(--cor-primaria) 92%, #ffffff);
-  border-style: solid;
-  border-width: 1px 1px 10px 1px;
-  border-color: color-mix(in srgb, var(--cor-terciaria) 70%, transparent);
+
+  background: var(--bg-container);
+  border: 1px solid var(--border-suave);
+
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
-  transition: transform var(--duracao-transicao-media), box-shadow var(--duracao-transicao-media), border-color var(--duracao-transicao-media);
+
+  transition:
+    transform var(--transicao-media),
+    box-shadow var(--transicao-media),
+    border-color var(--transicao-media);
 }
 
 .cartao-ferramenta:hover {
   transform: translateY(-4px);
-  border-color: color-mix(in srgb, var(--cor-secundaria) 60%, transparent);
+  border-color: var(--border-destaque);
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
 }
 
@@ -194,21 +147,23 @@ componentes
   border-radius: 12px;
   display: grid;
   place-items: center;
-  background: color-mix(in srgb, var(--cor-secundaria) 20%, transparent);
-  color: var(--cor-secundaria);
+
+  background: var(--bg-destaque-suave);
+  color: var(--texto-destaque);
+
   flex: 0 0 auto;
 }
 
 .conteudo-cartao h3 {
   font-size: 1rem;
   margin-bottom: 0.3rem;
-  color: var(--cor-texto);
+  color: var(--texto-principal);
 }
 
 .conteudo-cartao p {
   font-size: 0.85rem;
   line-height: 1.5;
-  color: color-mix(in srgb, var(--cor-texto) 70%, transparent);
+  color: var(--texto-suave);
 }
 
 /* =====================

@@ -1,284 +1,91 @@
 /* =====================
-Tema escuro
+Tema escuro / componente
 ===================== */
-body.escuro .logotabelaperiodica {
-  color: var(--cor-texto-escuro);
-}
-
-body.escuro .logotabelaperiodica i {
-  background: var(--cor-terciaria-escura);
-  color: var(--cor-secundaria-escura);
-}
-
-body.escuro #descricao {
-  color: color-mix(in srgb, var(--cor-texto-escuro) 70%, transparent);
-}
-
-body.escuro .busca__item {
-  background: color-mix(in srgb, var(--cor-terciaria-escura) 45%, transparent);
-  border-color: color-mix(in srgb, var(--cor-terciaria-escura) 65%, transparent);
-}
-
-body.escuro .busca__item:hover,
-body.escuro .busca__item:focus-visible {
-  background: color-mix(in srgb, var(--cor-terciaria-escura) 60%, transparent);
-  border-color: color-mix(in srgb, var(--cor-secundaria-escura) 55%, transparent);
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
-}
-
-body.escuro .busca__simbolo {
-  background: color-mix(in srgb, var(--cor-secundaria-escura) 22%, transparent);
-  color: var(--cor-secundaria-escura);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--cor-secundaria-escura) 35%, transparent);
-}
-
-body.escuro .busca__nome {
-  color: var(--cor-texto-escuro);
-}
-
-body.escuro .busca__meta,
-body.escuro .busca__vazio {
-  color: color-mix(in srgb, var(--cor-texto-escuro) 70%, transparent);
-}
-
-body.escuro .busca__resultados {
-  scrollbar-color: color-mix(in srgb, var(--cor-secundaria-escura) 60%, var(--cor-terciaria-escura)) transparent;
-}
-
-body.escuro .busca__resultados::-webkit-scrollbar-track {
-  background: color-mix(in srgb, var(--cor-terciaria-escura) 75%, var(--cor-terciaria-escura));
-}
-
-body.escuro .busca__resultados::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--cor-secundaria-escura) 70%, var(--cor-terciaria-escura));
-  border-color: color-mix(in srgb, var(--cor-terciaria-escura) 70%, var(--cor-terciaria-escura));
-}
-
-body.escuro .nomeedescricao {
-  border-color: var(--cor-secundaria-escura);
-  color: var(--cor-texto-escuro);
-}
-
-body.escuro .cardnomeelemento {
-  background: var(--cor-primaria-escura);
-  color: var(--cor-secundaria-escura);
-}
-
-body.escuro .descricaodoelemento {
-  color: var(--cor-texto-escuro);
-}
-
-body.escuro .maisinformacoes-grid .info-item {
-  border-color: color-mix(in srgb, var(--cor-terciaria-escura) 70%, transparent);
-}
-
-body.escuro .maisinformacoes-grid .info-label {
-  color: color-mix(in srgb, var(--cor-texto-escuro) 70%, transparent);
-}
-
-body.escuro .maisinformacoes-grid .info-value {
-  color: var(--cor-texto-escuro);
-}
-
-body.escuro .icone-aumentar {
-  border-color: color-mix(in srgb, var(--cor-terciaria-escura) 70%, transparent);
-  color: color-mix(in srgb, var(--cor-texto-escuro) 70%, transparent);
-}
-
-body.escuro .icone-aumentar:hover {
-  border-color: color-mix(in srgb, var(--cor-secundaria-escura) 60%, transparent);
-  color: var(--cor-secundaria-escura);
-}
-
-body.escuro .tabela-scroll {
-  border-color: var(--cor-secundaria-escura);
-  scrollbar-color: var(--cor-secundaria-escura) var(--cor-terciaria-escura);
-}
-
-body.escuro .tabela-scroll::-webkit-scrollbar-track {
-  background: var(--cor-terciaria-escura);
-}
-
-body.escuro .tabela-scroll::-webkit-scrollbar-thumb {
-  background: var(--cor-secundaria-escura);
-  border-color: var(--cor-terciaria-escura);
-}
-
-body.escuro .tabela-periodica {
-  --celula-fundo: var(--cor-secundaria-escura);
-}
-
-body.escuro .celula-elemento {
-  color: var(--cor-texto-escuro);
-}
-
-body.escuro .celula-elemento:hover {
-  filter: brightness(1.2);
-}
-
-/* Pauling modo escuro */
-
-body.escuro .eletronegatividadetabela p {
-  color: color-mix(in srgb, var(--cor-texto-escuro) 70%, transparent);
-}
-
-body.escuro .conceito,
-body.escuro .cientista {
-  color: var(--cor-secundaria-escura);
-}
-
-body.escuro .tabela-pauling figcaption {
-  color: var(--cor-secundaria-escura);
-}
-
-body.escuro .lista-pauling li .simbolo {
-  color: var(--cor-texto-escuro);
-  font-size: 0.9rem;
-  font-weight: bold;
-}
-
-body.escuro .lista-pauling li .nome {
-  color: var(--cor-texto-escuro);
-  font-size: 0.6rem;
-}
 
 /* =====================
-Estrutura (layout)
+Campo de Busca
 ===================== */
-.tabelaefiltro {
+.busca_item {
   align-items: center;
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin: 0 auto;
   width: 100%;
-}
-
-/* =====================
-Componentes
-===================== */
-.logotabelaperiodica {
-  align-items: center;
-  color: var(--cor-texto);
-  display: flex;
-  flex-direction: column;
-  font-size: 1rem;
-  font-weight: bold;
-  margin: 1rem 0;
-}
-
-.logotabelaperiodica i {
-  background: var(--cor-terciaria);
-  border-radius: 15%;
-  color: var(--cor-secundaria);
-  font-size: 2rem;
-  margin-bottom: 0.3rem;
-  padding: 0.8rem;
-}
-
-#descricao {
-  color: color-mix(in srgb, var(--cor-texto) 70%, transparent);
-  font-size: 1rem;
-  line-height: 1.6;
-  text-align: center;
-}
-
-/* Campo de Busca */
-
-.tabelaefiltro .busca {
-  max-width: 880px;
-}
-
-.busca__resultados {
-  scrollbar-width: thin;
-  scrollbar-color: color-mix(in srgb, var(--cor-secundaria) 60%, var(--cor-terciaria)) transparent;
-}
-
-.busca__resultados::-webkit-scrollbar {
-  width: 10px;
-}
-
-.busca__resultados::-webkit-scrollbar-track {
-  background: color-mix(in srgb, var(--cor-terciaria) 80%, var(--cor-terciaria));
-  border-radius: 999px;
-}
-
-.busca__resultados::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--cor-secundaria) 60%, var(--cor-terciaria));
-  border-radius: 999px;
-  border: 2px solid color-mix(in srgb, var(--cor-terciaria) 70%, var(--cor-terciaria));
-}
-
-.busca__item {
-  align-items: center;
-  background: color-mix(in srgb, var(--cor-terciaria) 65%, var(--cor-terciaria));
-  border: 1px solid color-mix(in srgb, var(--cor-terciaria) 70%, transparent);
-  border-radius: 12px;
-  color: inherit;
-  display: flex;
-  font: inherit;
   gap: 0.8rem;
   padding: 0.65rem 0.9rem;
-  cursor: pointer;
+  border: 1px solid var(--border-suave);
+  border-radius: var(--borda-raio-md);
+  background: var(--bg-suave);
+  color: inherit;
+  font: inherit;
   text-align: left;
-  transition: background var(--duracao-transicao-curta), border-color var(--duracao-transicao-curta), box-shadow var(--duracao-transicao-curta), transform var(--duracao-transicao-curta);
-  width: 100%;
+  cursor: pointer;
+  transition:
+    background var(--transicao-curta),
+    border-color var(--transicao-curta),
+    box-shadow var(--transicao-curta),
+    transform var(--transicao-curta);
 }
 
-.busca__item + .busca__item {
+.busca_item + .busca_item {
   margin-top: 0.45rem;
 }
 
-.busca__item:hover,
-.busca__item:focus-visible {
-  background: color-mix(in srgb, var(--cor-secundaria) 10%, var(--cor-terciaria));
-  border-color: color-mix(in srgb, var(--cor-secundaria) 50%, transparent);
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+.busca_item:hover,
+.busca_item:focus-visible {
+  background: var(--bg-hover);
+  border-color: var(--border-destaque);
+  box-shadow: var(--sombra-elevada);
   transform: translateY(-1px);
   outline: none;
 }
 
-.busca__simbolo {
+.busca_simbolo {
   width: 36px;
   height: 36px;
   display: grid;
   place-items: center;
   border-radius: 10px;
   font-weight: 700;
-  background: color-mix(in srgb, var(--cor-secundaria) 14%, var(--cor-terciaria));
-  color: var(--cor-secundaria);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--cor-secundaria) 25%, transparent);
+  background: var(--bg-destaque-suave);
+  color: var(--texto-destaque);
+  box-shadow: inset 0 0 0 1px var(--border-destaque-suave);
 }
 
-.busca__info {
+.busca_info {
   display: flex;
   flex-direction: column;
 }
 
-.busca__nome {
+.busca_nome {
   font-weight: 700;
+  color: var(--texto-principal);
 }
 
-.busca__meta {
+.busca_meta,
+.busca_vazio {
+  color: var(--texto-suave);
+}
+
+.busca_meta {
   font-size: var(--fonte-xs);
-  color: var(--texto-suave);
 }
 
-.busca__vazio {
-  color: var(--texto-suave);
+.busca_vazio {
   text-align: center;
   padding: var(--espaco-md);
 }
 
+/* =====================
+Nome / descrição
+===================== */
 .nomeedescricao {
   align-items: center;
   box-sizing: border-box;
-  color: var(--cor-texto);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   min-height: 150px;
   width: 100%;
+  color: var(--texto-principal);
 }
 
 .minimizaraumentar {
@@ -287,24 +94,30 @@ Componentes
 }
 
 .icone-aumentar {
-  align-items: center;
-  background: transparent;
-  border: 1px solid color-mix(in srgb, var(--cor-terciaria) 70%, transparent);
-  border-radius: 999px;
-  color: color-mix(in srgb, var(--cor-texto) 70%, transparent);
-  cursor: pointer;
   display: inline-flex;
-  font-size: 0.75rem;
+  align-items: center;
   gap: 0.35rem;
   padding: 0.45rem 0.8rem;
-  transition: color var(--duracao-transicao-curta), border-color var(--duracao-transicao-curta), transform var(--duracao-transicao-curta);
+  border: 1px solid var(--border-suave);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--texto-suave);
+  cursor: pointer;
+  font-size: var(--fonte-xs);
+  transition:
+    color var(--transicao-curta),
+    border-color var(--transicao-curta),
+    transform var(--transicao-curta),
+    background var(--transicao-curta);
 }
 
-.icone-aumentar:hover {
-  border-color: color-mix(in srgb, var(--cor-secundaria) 60%, transparent);
-  color: var(--cor-secundaria);
+.icone-aumentar:hover,
+.icone-aumentar:focus-visible {
+  border-color: var(--border-destaque);
+  color: var(--texto-destaque);
+  background: var(--bg-destaque-suave);
   transform: translateY(-1px);
-  transition: var(--duracao-transicao-curta);
+  outline: none;
 }
 
 .icone-aumentar .texto-menos,
@@ -322,6 +135,9 @@ Componentes
   display: inline-flex;
 }
 
+/* =====================
+Mais informações
+===================== */
 .maisinformacoes {
   display: flex;
   flex-direction: column;
@@ -330,14 +146,17 @@ Componentes
 
 .maisinformacoes-grid {
   display: grid;
-  gap: 0.75rem;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 0.75rem;
   max-height: 0;
   opacity: 0;
   overflow: hidden;
   pointer-events: none;
   transform: translateY(-4px);
-  transition: max-height var(--duracao-transicao-media), opacity var(--duracao-transicao-media), transform var(--duracao-transicao-media);
+  transition:
+    max-height var(--transicao-media),
+    opacity var(--transicao-media),
+    transform var(--transicao-media);
 }
 
 .maisinformacoes.aberta .maisinformacoes-grid {
@@ -348,100 +167,114 @@ Componentes
 }
 
 .maisinformacoes-grid .info-item {
-  border: 1px solid color-mix(in srgb, var(--cor-terciaria) 55%, transparent);
-  border-radius: 12px;
   display: flex;
   gap: 0.35rem;
   padding: 0.4rem 0.6rem;
+  border: 1px solid var(--border-suave);
+  border-radius: var(--borda-raio-md);
+  background: var(--bg-base);
 }
 
 .maisinformacoes-grid .info-label {
-  color: color-mix(in srgb, var(--cor-texto) 70%, transparent);
-  font-size: 0.75rem;
+  color: var(--texto-suave);
+  font-size: var(--fonte-xs);
 }
 
 .maisinformacoes-grid .info-value {
-  color: var(--cor-texto);
-  font-size: 0.75rem;
+  color: var(--texto-principal);
+  font-size: var(--fonte-xs);
 }
 
+/* =====================
+Card nome do elemento
+===================== */
 .cardnomeelemento {
-  border: 10px solid var(--cor-secundaria);
-  box-sizing: border-box;
-  color: var(--cor-secundaria);
+  position: relative;
   display: flex;
   flex: 0 0 130px;
   flex-direction: column;
-  height: 130px;
-  opacity: 0.3;
-  position: relative;
-  transition: background var(--duracao-transicao-curta), color var(--duracao-transicao-curta), border 0.2s;
   width: 130px;
+  height: 130px;
+  box-sizing: border-box;
+  border: 10px solid var(--texto-destaque);
+  color: var(--texto-destaque);
+  opacity: 0.3;
+  transition:
+    background var(--transicao-curta),
+    color var(--transicao-curta),
+    border-color var(--transicao-curta),
+    opacity var(--transicao-curta);
 }
 
 .cardnomeelemento.ativo {
-  border: 10px solid var(--borda-elemento-desativado);
+  border-color: var(--borda-elemento-desativado, color-mix(in srgb, var(--texto-principal) 18%, transparent));
   opacity: 1;
 }
 
 .cardnomeelemento .numeroCard {
-  font-size: 1.2rem;
-  font-weight: bold;
-  left: 4px;
   position: absolute;
   top: 2px;
+  left: 4px;
+  font-size: var(--fonte-lg);
+  font-weight: 700;
 }
 
 .cardnomeelemento .simboloCard {
-  font-size: 2rem;
-  font-weight: bold;
   margin-top: 25px;
+  font-size: var(--fonte-2xl);
+  font-weight: 700;
   text-align: center;
 }
 
 .cardnomeelemento .nomeCard {
-  font-size: 0.9rem;
   margin-top: 4px;
+  font-size: var(--fonte-sm);
   text-align: center;
 }
 
 .cardnomeelemento .massaCard {
-  font-size: 0.8rem;
   margin-top: auto;
+  font-size: var(--fonte-xs);
   text-align: center;
 }
 
 .cardnomeelemento .camadasCard {
-  font-size: 0.6rem;
   position: absolute;
+  top: 2px;
   right: 4px;
   text-align: right;
-  top: 2px;
   white-space: pre-line;
+  font-size: var(--fonte-2xs);
 }
 
+/* =====================
+Descrição do elemento
+===================== */
 .descricaodoelemento {
-  align-items: center;
-  box-sizing: border-box;
-  color: var(--cor-texto);
-  cursor: default;
   display: flex;
   flex: 1 1 auto;
   flex-wrap: wrap;
-  font-size: 16px;
+  align-items: center;
+  box-sizing: border-box;
   min-width: 0;
   padding: 8px;
-  transition: background var(--duracao-transicao-curta), color var(--duracao-transicao-curta);
+  color: var(--texto-principal);
+  cursor: default;
+  font-size: var(--fonte-md);
+  transition: background var(--transicao-curta), color var(--transicao-curta);
 }
 
+/* =====================
+Filtro / lista
+===================== */
 .filtragem {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  font-size: 0.7rem;
+  width: 100%;
   height: auto;
   padding: 0.2rem;
-  width: 100%;
+  font-size: var(--fonte-xs);
 }
 
 .grupo {
@@ -462,27 +295,27 @@ Componentes
 }
 
 .itens-filtro {
-  align-items: center;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: center;
   gap: 0.2rem;
   width: 100%;
 }
 
 .filtro-item {
-  cursor: pointer;
   padding: 4px;
+  cursor: pointer;
 }
 
 .filtro-item:hover {
   filter: brightness(0.8);
-  transition: var(--duracao-transicao-curta);
+  transition: var(--transicao-curta);
 }
 
 .filtro-item.ativo {
   filter: brightness(0.9);
-  outline: 2px solid var(--cor-texto);
+  outline: 2px solid var(--texto-principal);
   outline-offset: 1px;
 }
 
@@ -529,30 +362,9 @@ Componentes
 /* =====================
 Tabela
 ===================== */
-.tabela-scroll {
-  scrollbar-color: var(--cor-secundaria) var(--cor-terciaria);
-  scrollbar-width: thin;
-  -webkit-overflow-scrolling: touch;
-}
-
-.tabela-scroll::-webkit-scrollbar {
-  height: 10px;
-}
-
-.tabela-scroll::-webkit-scrollbar-track {
-  background: linear-gradient(90deg, var(--cor-terciaria), var(--cor-terciaria));
-  border-radius: 999px;
-}
-
-.tabela-scroll::-webkit-scrollbar-thumb {
-  background: var(--cor-secundaria);
-  border: 2px solid var(--cor-terciaria);
-  border-radius: 999px;
-}
-
 .tabela-periodica {
   --cell-min: 45px;
-  --celula-fundo: var(--cor-secundaria);
+  --celula-fundo: var(--texto-destaque);
   cursor: default;
   display: grid;
   gap: 1px;
@@ -569,12 +381,12 @@ Tabela
 
 .periodos span,
 .grupos span {
-  align-items: center;
-  aspect-ratio: 1 / 1;
   display: flex;
+  align-items: center;
   justify-content: center;
-  min-height: var(--cell-min);
   min-width: var(--cell-min);
+  min-height: var(--cell-min);
+  aspect-ratio: 1 / 1;
   text-align: center;
 }
 
@@ -592,19 +404,21 @@ Tabela
 }
 
 .celula-elemento {
-  align-items: center;
-  aspect-ratio: 1 / 1;
-  background-color: var(--celula-fundo);
-  border: 3px solid var(--borda-elemento-desativado);
-  box-sizing: border-box;
-  cursor: pointer;
+  position: relative;
   display: flex;
   flex-direction: column;
-  font-size: 0.6rem;
+  align-items: center;
   justify-content: center;
-  padding: 2px;
-  position: relative;
-  transition: filter var(--duracao-transicao-curta), opacity var(--duracao-transicao-media), transform var(--duracao-transicao-media);
+  aspect-ratio: 1 / 1;
+  box-sizing: border-box;
+  border: 3px solid var(--borda-elemento-desativado, color-mix(in srgb, var(--texto-principal) 18%, transparent));
+  background-color: var(--celula-fundo);
+  cursor: pointer;
+  font-size: var(--fonte-2xs);
+  transition:
+    filter var(--transicao-curta),
+    opacity var(--transicao-media),
+    transform var(--transicao-media);
 }
 
 .celula-elemento.categoria-alcalino {
@@ -654,45 +468,44 @@ Tabela
 .celula-elemento:hover {
   filter: brightness(1.05);
   transform: scale(1.05);
-  transition: var(--duracao-transicao-curta);
   z-index: 2;
 }
 
 .celula-elemento.selecionado {
-  border: 2px solid var(--borda-selecionada);
-  filter: brightness(1.3);
+  border-color: var(--borda-selecionada);
+  filter: brightness(1.1);
 }
 
 .celula-elemento .simbolo {
-  font-size: 0.9rem;
-  font-weight: bold;
+  font-size: var(--fonte-sm);
+  font-weight: 700;
   white-space: pre-line;
 }
 
 .tabela-periodica .celula-elemento.celulas-comeco-lact .simbolo {
-  align-items: center;
   display: flex;
-  font-size: 0.5rem;
+  align-items: center;
   justify-content: center;
   text-align: center;
+  font-size: var(--fonte-3xs);
 }
 
 .celula-elemento .nome {
-  font-size: 0.4rem;
+  font-size: var(--fonte-3xs);
   line-height: 1em;
   text-align: center;
 }
 
 .celula-elemento.fbloco {
-  font-size: 0.6rem;
   margin-top: 0.3rem;
+  font-size: var(--fonte-2xs);
 }
 
 .tabela-periodica .celula-elemento.celulas-listagem-lact {
-  background: transparent;
-  border: none;
-  cursor: default;
   margin-top: 0.3rem;
+  border: none;
+  background: transparent;
+  cursor: default;
   opacity: 0.6;
   pointer-events: none;
 }
@@ -703,75 +516,55 @@ Tabela
 }
 
 .tabela-periodica .celula-elemento.celulas-listagem-lact .simbolo {
-  font-size: 0.5rem;
+  font-size: var(--fonte-3xs);
 }
 
 /* =====================
 Tabela de Pauling
 ===================== */
-
-.tabeladepropriedades {
+.info-tabela-periodica {
   align-items: center;
-}
-
-.eletronegatividadetabela {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 700px;
-  padding: 0.2rem;
-}
-
-.eletronegatividadetabela p {
-  color: color-mix(in srgb, var(--cor-texto) 70%, transparent);
-  font-size: 1rem;
-  line-height: 1.6;
-  text-align: center;
-}
-
-.conceito,
-.cientista {
-  color: var(--cor-secundaria);
 }
 
 .tabela-pauling {
-  align-items: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
 }
 
 .tabela-pauling figcaption {
-  color: var(--cor-secundaria);
-  font-size: 0.8rem;
-  line-height: 1.6;
   margin-bottom: 0.5rem;
+  color: var(--texto-destaque);
+  font-size: var(--fonte-xs);
+  line-height: 1.6;
   text-align: center;
 }
 
 .lista-pauling {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
   justify-content: center;
-  list-style: none;
+  gap: 0.4rem;
+  width: 100%;
   margin: 0;
   padding: 0;
-  width: 100%;
+  list-style: none;
 }
 
 .lista-pauling li {
-  align-items: center;
-  aspect-ratio: 1 / 1;
-  border: 5px solid var(--borda-elemento-desativado);
-  cursor: default;
   display: flex;
   flex: 1 1 60px;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
   max-width: 60px;
-  transition: transform var(--duracao-transicao-curta), filter var(--duracao-transicao-curta);
+  aspect-ratio: 1 / 1;
+  border: 5px solid var(--borda-elemento-desativado, color-mix(in srgb, var(--texto-principal) 18%, transparent));
+  cursor: default;
+  transition:
+    transform var(--transicao-curta),
+    filter var(--transicao-curta);
 }
 
 .lista-pauling li:hover {
@@ -780,63 +573,62 @@ Tabela de Pauling
 }
 
 .lista-pauling li .simbolo {
-  color: var(--cor-texto);
-  font-size: 0.9rem;
-  font-weight: bold;
+  color: var(--texto-principal);
+  font-size: var(--fonte-sm);
+  font-weight: 700;
 }
 
 .lista-pauling li .nome {
-  color: var(--cor-texto);
-  font-size: 0.6rem;
+  color: var(--texto-principal);
+  font-size: var(--fonte-2xs);
 }
 
-.fluor {
-  background: var(--categoria-halogenio);
-}
-
-.oxigenio {
-  background: var(--categoria-nao-metal);
-}
-
-.cloro {
-  background: var(--categoria-halogenio);
-}
-
-.nitrogenio {
-  background: var(--categoria-nao-metal);
-}
-
-.bromo {
-  background: var(--categoria-halogenio);
-}
-
+.fluor,
+.cloro,
+.bromo,
 .iodo {
   background: var(--categoria-halogenio);
 }
 
-.enxofre {
-  background: var(--categoria-nao-metal);
-}
-
-.carbono {
-  background: var(--categoria-nao-metal);
-}
-
+.oxigenio,
+.nitrogenio,
+.enxofre,
+.carbono,
 .fosforo {
   background: var(--categoria-nao-metal);
 }
 
 .tendencia {
-  align-items: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .tendencia p {
-  color: color-mix(in srgb, var(--cor-texto) 70%, transparent);
-  font-size: 0.8rem;
+  color: var(--texto-suave);
+  font-size: var(--fonte-xs);
   line-height: 1.6;
   text-align: center;
+}
+
+/* =====================
+Tema escuro específico
+===================== */
+body.escuro .celula-elemento:hover,
+body.escuro .lista-pauling li:hover {
+  filter: brightness(1.08);
+}
+
+body.escuro .tabela-periodica {
+  --celula-fundo: var(--cor-secundaria-escura);
+}
+
+body.escuro .nomeedescricao,
+body.escuro .descricaodoelemento,
+body.escuro .cardnomeelemento,
+body.escuro .lista-pauling li .simbolo,
+body.escuro .lista-pauling li .nome {
+  color: var(--texto-principal);
 }
 
 /* =====================
@@ -850,11 +642,11 @@ Responsividade
   }
 
   .celula-elemento .numero {
-    font-size: 0.5rem;
+    font-size: var(--fonte-3xs);
   }
 
   .descricaodoelemento {
-    font-size: 15px;
+    font-size: var(--fonte-sm);
   }
 }
 
@@ -867,51 +659,21 @@ Responsividade
   }
 
   .descricaodoelemento {
-    font-size: 12px;
-  }
-
-  body.escuro .filtragem {
-    border-color: var(--cor-secundaria-escura);
-    scrollbar-color: var(--cor-secundaria-escura) var(--cor-terciaria-escura);
+    font-size: var(--fonte-xs);
   }
 
   .grupo,
   .metais-f-bloco,
   .itens-filtro {
-    align-items: center;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
     gap: 0.3rem;
   }
 
   .grupo {
     margin: 0;
     writing-mode: horizontal-tb;
-  }
-
-  .filtragem::-webkit-scrollbar {
-    border-radius: 999px;
-    height: 8px;
-  }
-
-  .filtragem::-webkit-scrollbar-track {
-    background: var(--cor-terciaria);
-    border-radius: 999px;
-  }
-
-  .filtragem::-webkit-scrollbar-thumb {
-    background: var(--cor-secundaria);
-    border: 2px solid var(--cor-terciaria);
-    border-radius: 999px;
-  }
-
-  body.escuro .filtragem::-webkit-scrollbar-track {
-    background: var(--cor-terciaria-escura);
-  }
-
-  body.escuro .filtragem::-webkit-scrollbar-thumb {
-    background: var(--cor-secundaria-escura);
-    border-color: var(--cor-terciaria-escura);
   }
 }

@@ -1,555 +1,447 @@
-﻿/* =====================
-Variáveis e Tema Claro
-===================== */
-.massa-molar {
-  --massa-card-borda: color-mix(in srgb, var(--cor-terciaria) 70%, transparent);
-  --massa-chip-bg: var(--ferramenta-chip-bg);
-  --massa-chip-borda: var(--ferramenta-chip-borda);
-  --massa-input-bg: var(--ferramenta-input-bg);
-  --massa-foco: var(--ferramenta-foco);
-}
-
 /* =====================
-Tema Escuro
+Massa Molar
 ===================== */
-body.escuro .massa-molar {
-  --massa-card-borda: color-mix(in srgb, var(--cor-terciaria-escura) 70%, transparent);
+
+.massa-molar_titulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
 }
 
-body.escuro .massa-voltar {
-  color: var(--cor-texto-escuro);
+.massa-molar_subtitulo {
+  font-size: var(--fonte-sm);
+  color: var(--texto-suave);
 }
 
-body.escuro .massa-voltar i {
-  background: color-mix(in srgb, var(--cor-secundaria-escura) 20%, transparent);
-  color: var(--cor-secundaria-escura);
+.massa-molar_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
 }
 
-body.escuro .massa-icone {
-  background: color-mix(in srgb, var(--cor-secundaria-escura) 20%, transparent);
-  color: var(--cor-secundaria-escura);
+.massa-molar_label {
+  font-size: var(--fonte-sm);
+  font-weight: 600;
+  color: var(--texto-principal);
 }
 
-body.escuro .massa-form input {
-  caret-color: var(--cor-texto-escuro);
+.massa-molar_campo .campo-busca {
+  width: 100%;
 }
 
-body.escuro .massa-form input:focus {
-  border-color: var(--cor-secundaria-escura);
+.massa-molar_campo--erro .campo-busca {
+  border-color: var(--error);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--error) 20%, transparent);
 }
 
-body.escuro .elemento-chip:hover,
-body.escuro .elemento-chip:focus-visible {
-  border-color: color-mix(in srgb, var(--cor-secundaria-escura) 60%, transparent);
+.massa-molar_preview {
+  min-height: 1.3rem;
+  font-size: var(--fonte-sm);
+  font-weight: 600;
+  color: var(--texto-destaque);
 }
 
-body.escuro .elemento-simbolo {
-  color: var(--cor-secundaria-escura);
+.massa-molar_alerta {
+  min-height: 1.1rem;
+  font-size: var(--fonte-xs);
+  color: var(--error);
 }
 
-body.escuro .tecla:hover,
-body.escuro .tecla:focus-visible {
-  border-color: color-mix(in srgb, var(--cor-secundaria-escura) 60%, transparent);
+.massa-molar_secao {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 }
 
-body.escuro .tecla {
-  color: var(--cor-secundaria-escura);
+.massa-molar_secao-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
 }
 
-body.escuro .tecla-acao {
-  background: color-mix(in srgb, var(--cor-secundaria-escura) 15%, var(--massa-chip-bg));
+.massa-molar_secao-header h4 {
+  font-size: var(--fonte-md);
+  color: var(--texto-principal);
 }
 
-body.escuro .resultado-valor-destaque {
-  color: var(--cor-secundaria-escura);
+.massa-molar_secao-header span {
+  font-size: var(--fonte-2xs);
+  color: var(--texto-suave);
 }
 
-body.escuro .resultado-simbolo {
-  background: color-mix(in srgb, var(--cor-secundaria-escura) 20%, transparent);
-  color: var(--cor-secundaria-escura);
+.massa-molar_elementos,
+.massa-molar_compostos-grid {
+  display: grid;
+  gap: 0.45rem;
 }
 
-body.escuro .resultado-rodape span:last-child {
-  color: var(--cor-secundaria-escura);
+.massa-molar_elementos {
+  grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
 }
 
-body.escuro .percentual-barra span {
-  background: var(--cor-secundaria-escura);
+.massa-molar_compostos-grid {
+  grid-template-columns: repeat(auto-fit, minmax(92px, 1fr));
 }
 
-body.escuro .massa-resultado.erro {
-  color: #ffb3b3;
-  background: color-mix(in srgb, #7a1d1d 35%, var(--massa-chip-bg));
+.massa-molar_elemento,
+.massa-molar_composto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.15rem;
+  min-height: 46px;
+  padding: 0.35rem 0.45rem;
+  border: 1px solid var(--border-suave);
+  border-radius: var(--borda-raio-md);
+  background: var(--bg-suave);
+  color: var(--texto-principal);
+  font-family: inherit;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    transform var(--transicao-curta),
+    box-shadow var(--transicao-curta),
+    background var(--transicao-curta),
+    border-color var(--transicao-curta);
 }
 
-body.escuro .composto-chip:hover,
-body.escuro .composto-chip:focus-visible {
-  border-color: color-mix(in srgb, var(--cor-secundaria-escura) 60%, transparent);
+.massa-molar_elemento:hover,
+.massa-molar_composto:hover,
+.massa-molar_elemento:focus-visible,
+.massa-molar_composto:focus-visible {
+  background: var(--bg-hover);
+  border-color: var(--border-destaque);
+  box-shadow: var(--sombra-elevada);
+  outline: none;
+  transform: translateY(-1px);
 }
 
-body.escuro .composto-chip {
-  color: var(--cor-texto-escuro);
+.massa-molar_elemento-simbolo,
+.massa-molar_composto-formula {
+  font-size: var(--fonte-sm);
+  font-weight: 700;
+  color: var(--texto-principal);
 }
 
-body.escuro .composto-formula {
-  color: var(--cor-secundaria-escura);
+.massa-molar_elemento-massa,
+.massa-molar_composto-nome {
+  font-size: var(--fonte-2xs);
+  line-height: 1.2;
+  color: var(--texto-suave);
 }
 
-/* =====================
-Estrutura e Layout
-===================== */
-.massa-molar {
-  --massa-card-borda: color-mix(in srgb, var(--cor-terciaria) 70%, transparent);
-  --massa-chip-bg: var(--ferramenta-chip-bg);
-  --massa-chip-borda: var(--ferramenta-chip-borda);
-  --massa-input-bg: var(--ferramenta-input-bg);
-  --massa-foco: var(--ferramenta-foco);
-}.massa-molar-topo {
+.massa-molar_teclado {
+  display: grid;
+  gap: 0.4rem;
+  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+  justify-items: stretch;
+}
+
+.massa-molar_tecla {
+  min-height: 36px;
+  padding: 0.35rem 0.25rem;
+  border: 1px solid var(--border-suave);
+  border-radius: var(--borda-raio-md);
+  background: var(--bg-suave);
+  color: var(--texto-principal);
+  font-family: inherit;
+  font-size: var(--fonte-xs);
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform var(--transicao-curta),
+    background var(--transicao-curta),
+    border-color var(--transicao-curta),
+    box-shadow var(--transicao-curta);
+}
+
+.massa-molar_tecla:hover,
+.massa-molar_tecla:focus-visible {
+  background: var(--bg-hover);
+  border-color: var(--border-destaque);
+  box-shadow: var(--sombra-elevada);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.massa-molar_tecla--acao {
+  background: var(--bg-destaque-suave);
+}
+
+.massa-molar_tecla--acao:hover,
+.massa-molar_tecla--acao:focus-visible {
+  background: color-mix(in srgb, var(--texto-destaque) 18%, var(--bg-base));
+  border-color: var(--border-destaque);
+}
+
+.massa-molar_tecla--limpar {
+  grid-column: span 2;
+  min-width: 72px;
+}
+
+.massa-molar_botao {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: var(--borda-raio-md);
+  background: var(--texto-destaque);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: var(--fonte-sm);
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform var(--transicao-curta),
+    box-shadow var(--transicao-curta),
+    background var(--transicao-curta),
+    opacity var(--transicao-curta);
+}
+
+.massa-molar_botao:hover,
+.massa-molar_botao:focus-visible {
+  box-shadow: var(--sombra-elevada);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.massa-molar_botao:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: none;
+  box-shadow: none;
+}
+
+.massa-molar_resultado {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--border-suave);
+  border-radius: var(--borda-raio-lg);
+  background: var(--bg-container);
+}
+
+.massa-molar_resultado[hidden] {
+  display: none;
+}
+
+.massa-molar_resumo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  text-align: center;
+}
+
+.massa-molar_resumo-label {
+  font-size: var(--fonte-xs);
+  color: var(--texto-suave);
+}
+
+.massa-molar_resumo-formula {
+  font-size: var(--fonte-lg);
+  font-weight: 700;
+  color: var(--texto-principal);
+}
+
+.massa-molar_resumo-valor {
+  font-size: var(--fonte-2xl);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--texto-destaque);
+}
+
+.massa-molar_tabela {
+  overflow: hidden;
+  border: 1px solid var(--border-suave);
+  border-radius: var(--borda-raio-md);
+  background: var(--bg-base);
+}
+
+.massa-molar_linha {
+  display: grid;
+  grid-template-columns: 1.2fr 0.6fr 0.8fr 0.8fr;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.75rem;
+}
+
+.massa-molar_linha > span {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--texto-principal);
+}
+
+.massa-molar_linha--cab {
+  background: var(--texto-destaque);
+  color: #ffffff;
+  font-size: var(--fonte-2xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.massa-molar_linha--cab span {
+  color: #ffffff;
+}
+
+.massa-molar_linha--cab span:first-child {
+  text-align: left;
+}
+
+.massa-molar_linhas .massa-molar_linha {
+  font-size: var(--fonte-xs);
+}
+
+.massa-molar_linhas .massa-molar_linha:nth-child(even) {
+  background: var(--bg-suave);
+}
+
+.massa-molar_elemento-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.massa-molar_tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  padding: 0.1rem 0.35rem;
+  border-radius: 6px;
+  background: var(--bg-destaque-suave);
+  color: var(--texto-destaque);
+  font-size: var(--fonte-2xs);
+  font-weight: 700;
+}
+
+.massa-molar_elemento-nome {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: var(--fonte-2xs);
+  color: var(--texto-suave);
+}
+
+.massa-molar_rodape {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.massa-voltar {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-decoration: none;
-  color: var(--cor-texto);
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.massa-voltar i {
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
-  display: grid;
-  place-items: center;
-  background: color-mix(in srgb, var(--cor-secundaria) 20%, transparent);
-  color: var(--cor-secundaria);
-}
-
-.massa-molar-titulo {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-}
-
-.massa-icone {
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  background: color-mix(in srgb, var(--cor-secundaria) 20%, transparent);
-  color: var(--cor-secundaria);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-}
-
-.massa-titulo-texto h1 {
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
-  margin-bottom: 0.2rem;
-}
-
-.massa-titulo-texto p {
-  color: var(--texto-suave);
-  font-size: 0.95rem;
-}
-
-.massa-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.massa-form label {
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--texto-suave);
+  padding: 0.5rem 0.75rem;
+  border-top: 1px solid var(--border-suave);
+  font-size: var(--fonte-xs);
   font-weight: 700;
-  margin-bottom: -0.4rem;
+  color: var(--texto-principal);
 }
 
-.massa-input-wrap {
-  position: relative;
-  width: 100%;
-}
-
-.massa-form input {
-  width: 100%;
-  padding: 0.85rem 1rem;
-  border-radius: 12px;
-  border: 1px solid var(--massa-card-borda);
-  background: var(--massa-input-bg);
-  color: transparent;
-  font-size: 1rem;
-  transition: border-color var(--duracao-transicao-curta), box-shadow var(--duracao-transicao-curta);
-  caret-color: var(--cor-texto);
-}
-
-.massa-form input::placeholder {
-  color: transparent;
-}
-
-.massa-form input:focus {
-  outline: none;
-  border-color: var(--cor-secundaria);
-  box-shadow: 0 0 0 3px var(--massa-foco);
-}
-
-.massa-input-visual {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  padding: 0.85rem 1rem;
-  font-size: 1rem;
-  color: inherit;
-  pointer-events: none;
-  white-space: pre;
-  line-height: 1;
-}
-
-.massa-input-visual.placeholder {
-  color: var(--texto-suave);
-}
-
-.massa-input-visual sub {
-  font-size: 0.65em;
-  line-height: 0;
-  vertical-align: baseline;
-  position: relative;
-  top: 0.35em;
-}
-
-.resultado-formula-destaque sub {
-  font-size: 0.7em;
-  vertical-align: baseline;
-  position: relative;
-  top: 0.25em;
-}
-
-.massa-bloco {
+.massa-molar_percentual {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
-.massa-bloco h3 {
-  font-size: 0.95rem;
-  color: var(--texto-suave);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+.massa-molar_percentual h4 {
+  font-size: var(--fonte-md);
+  color: var(--texto-principal);
 }
 
-.elementos-grade {
+.massa-molar_percentual-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.massa-molar_percentual-item {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
-  gap: 0.6rem;
-}
-
-.teclado-grade {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.massa-resultado {
-  border-radius: 14px;
-  border: 1px solid var(--massa-card-borda);
-  background: color-mix(in srgb, var(--massa-chip-bg) 70%, transparent);
-  padding: 1rem 1.1rem;
-  display: none;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.massa-resultado.visivel {
-  display: flex;
-}
-
-.resultado-topo {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  padding-bottom: 0.8rem;
-  border-bottom: 1px solid var(--massa-card-borda);
-}
-
-.resultado-legenda {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--texto-suave);
-  font-weight: 600;
-}
-
-.resultado-formula-destaque {
-  font-size: 1.1rem;
-  font-weight: 700;
-}
-
-.resultado-valor-destaque {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--cor-secundaria);
-}
-
-.resultado-bloco {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  margin-top: 0.6rem;
-}
-
-.resultado-titulo-bloco {
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--texto-suave);
-  font-weight: 700;
-}
-
-.resultado-tabela {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.resultado-cabecalho,
-.resultado-linha,
-.resultado-rodape {
-  display: grid;
-  grid-template-columns: 1.2fr 0.9fr 1.1fr 1.1fr;
-  gap: 0.6rem;
+  grid-template-columns: 1.5fr 3fr 0.9fr;
   align-items: center;
-  font-size: 0.85rem;
+  gap: 0.6rem;
+  font-size: var(--fonte-xs);
+  color: var(--texto-principal);
 }
 
-.resultado-cabecalho {
-  color: var(--texto-suave);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.7rem;
-  padding: 0 0.4rem;
-}
-
-.resultado-linha {
-  padding: 0.6rem 0.4rem;
-  border-radius: 10px;
-  background: color-mix(in srgb, var(--massa-chip-bg) 65%, transparent);
-}
-
-.resultado-simbolo {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
-  background: color-mix(in srgb, var(--cor-secundaria) 20%, transparent);
-  color: var(--cor-secundaria);
-  font-weight: 700;
-}
-
-.resultado-rodape {
-  padding: 0.6rem 0.4rem;
-  border-radius: 10px;
-  background: color-mix(in srgb, var(--massa-chip-bg) 45%, transparent);
-  font-weight: 700;
-}
-
-.resultado-rodape span:last-child {
-  color: var(--cor-secundaria);
+.massa-molar_percentual-item strong {
   text-align: right;
+  font-variant-numeric: tabular-nums;
 }
 
-.resultado-percentual {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.percentual-cabecalho,
-.percentual-linha {
-  display: grid;
-  grid-template-columns: 0.6fr 2.4fr 0.8fr;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.percentual-cabecalho {
-  color: var(--texto-suave);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.7rem;
-  padding: 0 0.4rem;
-}
-
-.percentual-linha {
-  padding: 0.55rem 0.4rem;
-  border-radius: 10px;
-  background: color-mix(in srgb, var(--massa-chip-bg) 65%, transparent);
-}
-
-.percentual-barra {
-  position: relative;
-  height: 8px;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--massa-chip-bg) 40%, transparent);
+.massa-molar_barra {
+  height: 6px;
   overflow: hidden;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--texto-principal) 12%, transparent);
 }
 
-.percentual-barra span {
-  position: absolute;
-  inset: 0;
+.massa-molar_barra span {
+  display: block;
   width: 0%;
-  background: var(--cor-secundaria);
-  border-radius: inherit;
+  height: 100%;
+  background: var(--texto-destaque);
 }
 
-.percentual-valor {
-  text-align: right;
-  font-weight: 600;
+.info-massa-molar {
+  align-items: center;
 }
 
-.massa-resultado .resultado-titulo {
-  font-weight: 600;
-  font-size: 0.85rem;
-  color: var(--texto-suave);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+.info-equilibrio-quimico {
+  align-items:center;
 }
 
-.massa-resultado .resultado-valor {
-  font-size: 1.4rem;
-  font-weight: 700;
-}
-
-.massa-resultado .resultado-formula {
-  font-size: 0.9rem;
-  color: var(--texto-suave);
-}
-
-.massa-resultado.erro {
-  border-color: color-mix(in srgb, #ff5a5a 55%, var(--massa-card-borda));
-  color: #c72f2f;
-  background: color-mix(in srgb, #ffb3b3 20%, var(--massa-chip-bg));
-}
-
-.compostos-grade {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 0.7rem;
+.equacao {
+  cursor: help;
+  border-bottom: 1px dashed #888;
+  position: relative;
 }
 
 /* =====================
-Componentes
+Estados de tema
 ===================== */
-.elemento-chip {
-  border: 1px solid var(--massa-chip-borda);
-  background: var(--massa-chip-bg);
-  border-radius: 12px;
-  padding: 0.45rem 0.2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.2rem;
-  cursor: pointer;
-  transition: transform var(--duracao-transicao-curta), border-color var(--duracao-transicao-curta), box-shadow var(--duracao-transicao-curta);
+body.escuro .massa-molar_botao {
+  color: #ffffff;
 }
 
-.elemento-chip:hover,
-.elemento-chip:focus-visible {
-  transform: translateY(-2px);
-  border-color: color-mix(in srgb, var(--cor-secundaria) 50%, transparent);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+body.escuro .massa-molar_linha--cab {
+  background: var(--cor-secundaria-escura);
 }
 
-.elemento-simbolo {
-  font-weight: 700;
-  font-size: 1rem;
-}
-
-.elemento-massa {
-  font-size: 0.7rem;
-  color: var(--texto-suave);
-}
-
-.tecla {
-  min-width: 38px;
-  padding: 0.45rem 0.75rem;
-  border-radius: 10px;
-  border: 1px solid var(--massa-chip-borda);
-  background: var(--massa-chip-bg);
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform var(--duracao-transicao-curta), border-color var(--duracao-transicao-curta);
-}
-
-.tecla:hover,
-.tecla:focus-visible {
-  transform: translateY(-2px);
-  border-color: color-mix(in srgb, var(--cor-secundaria) 50%, transparent);
-}
-
-.tecla-acao {
-  background: color-mix(in srgb, var(--cor-secundaria) 12%, var(--massa-chip-bg));
-}
-
-.composto-chip {
-  border: 1px solid var(--massa-chip-borda);
-  background: var(--massa-chip-bg);
-  border-radius: 14px;
-  padding: 0.75rem 0.8rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  cursor: pointer;
-  transition: transform var(--duracao-transicao-curta), border-color var(--duracao-transicao-curta);
-  text-align: left;
-}
-
-.composto-chip:hover,
-.composto-chip:focus-visible {
-  transform: translateY(-2px);
-  border-color: color-mix(in srgb, var(--cor-secundaria) 50%, transparent);
-}
-
-.composto-formula {
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--cor-secundaria);
-}
-
-.composto-nome {
-  font-size: 0.85rem;
-  color: var(--texto-suave);
+body.escuro .massa-molar_barra span {
+  background: var(--cor-secundaria-escura);
 }
 
 /* =====================
 Responsividade
 ===================== */
-@media (max-width: 720px) {
-  .massa-molar {
-  --massa-card-borda: color-mix(in srgb, var(--cor-terciaria) 70%, transparent);
-  --massa-chip-bg: var(--ferramenta-chip-bg);
-  --massa-chip-borda: var(--ferramenta-chip-borda);
-  --massa-input-bg: var(--ferramenta-input-bg);
-  --massa-foco: var(--ferramenta-foco);
-}.elementos-grade {
-    grid-template-columns: repeat(auto-fit, minmax(56px, 1fr));
+@media (max-width: 900px) {
+  .massa-molar_elementos,
+  .massa-molar_compostos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(58px, 1fr));
   }
 
-  .compostos-grade {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  .massa-molar_teclado {
+    grid-template-columns: repeat(auto-fit, minmax(34px, 1fr));
   }
 }
 
+@media (max-width: 600px) {
+  .massa-molar_compostos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(86px, 1fr));
+  }
 
+  .massa-molar_tabela {
+    overflow-x: auto;
+  }
+
+  .massa-molar_linha {
+    min-width: 420px;
+  }
+
+  .massa-molar_tecla--limpar {
+    grid-column: span 3;
+  }
+}
 

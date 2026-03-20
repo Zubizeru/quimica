@@ -215,7 +215,8 @@ app.get('/tabela', (req, res) => {
     periodos,
     /* …outros dados… */
     additionalStyles: '<link rel="stylesheet" href="/css/tabela.css">',
-    showBackButton: true
+    showBackButton: true,
+    tooltipPage: 'tabela'
   });
 });
 
@@ -223,7 +224,8 @@ app.get('/massamolar', (req, res) => {
   res.render('massamolar', {
     additionalStyles: '<link rel="stylesheet" href="/css/massamolar.css">',
     additionalScripts: '<script src="/js/massamolar.js"></script>',
-    showBackButton: true
+    showBackButton: true,
+    tooltipPage: 'massamolar'
   });
 });
 
@@ -239,7 +241,8 @@ app.get('/conversormolmassa', (req, res) => {
   res.render('conversormolmassa', {
     additionalStyles: '<link rel="stylesheet" href="/css/conversormolmassa.css">',
     additionalScripts: '<script src="/js/conversormolmassa.js"></script>',
-    showBackButton: true
+    showBackButton: true,
+    tooltipPage: 'conversormolmassa'
   });
 });
 
