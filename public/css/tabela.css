@@ -257,7 +257,6 @@ Descrição do elemento
   align-items: center;
   box-sizing: border-box;
   min-width: 0;
-  padding: 8px;
   color: var(--texto-principal);
   cursor: default;
   font-size: var(--fonte-md);
@@ -412,7 +411,8 @@ Tabela
   aspect-ratio: 1 / 1;
   box-sizing: border-box;
   border: 3px solid var(--borda-elemento-desativado, color-mix(in srgb, var(--texto-principal) 18%, transparent));
-  background-color: var(--celula-fundo);
+  --cor-categoria: var(--celula-fundo);
+  background-color: var(--cor-categoria);
   cursor: pointer;
   font-size: var(--fonte-2xs);
   transition:
@@ -422,47 +422,47 @@ Tabela
 }
 
 .celula-elemento.categoria-alcalino {
-  background-color: var(--categoria-alcalino);
+  --cor-categoria: var(--categoria-alcalino);
 }
 
 .celula-elemento.categoria-alcalino-terroso {
-  background-color: var(--categoria-alcalino-terroso);
+  --cor-categoria: var(--categoria-alcalino-terroso);
 }
 
 .celula-elemento.categoria-metal-transicao {
-  background-color: var(--categoria-metal-transicao);
+  --cor-categoria: var(--categoria-metal-transicao);
 }
 
 .celula-elemento.categoria-metal-pos-transicao {
-  background-color: var(--categoria-pos-transicao);
+  --cor-categoria: var(--categoria-pos-transicao);
 }
 
 .celula-elemento.categoria-lantanideo {
-  background-color: var(--categoria-lantanideo);
+  --cor-categoria: var(--categoria-lantanideo);
 }
 
 .celula-elemento.categoria-actinideo {
-  background-color: var(--categoria-actinideo);
+  --cor-categoria: var(--categoria-actinideo);
 }
 
 .celula-elemento.categoria-metaloide {
-  background-color: var(--categoria-metaloide);
+  --cor-categoria: var(--categoria-metaloide);
 }
 
 .celula-elemento.categoria-nao-metal {
-  background-color: var(--categoria-nao-metal);
+  --cor-categoria: var(--categoria-nao-metal);
 }
 
 .celula-elemento.categoria-halogenio {
-  background-color: var(--categoria-halogenio);
+  --cor-categoria: var(--categoria-halogenio);
 }
 
 .celula-elemento.categoria-gas-nobre {
-  background-color: var(--categoria-gas-nobre);
+  --cor-categoria: var(--categoria-gas-nobre);
 }
 
 .celula-elemento.categoria-outro {
-  background-color: var(--categoria-outro);
+  --cor-categoria: var(--categoria-outro);
 }
 
 .celula-elemento:hover {
@@ -472,7 +472,7 @@ Tabela
 }
 
 .celula-elemento.selecionado {
-  border-color: var(--borda-selecionada);
+  border-color: color-mix(in srgb, var(--cor-categoria) 40%, black);
   filter: brightness(1.1);
 }
 

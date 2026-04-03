@@ -1,8 +1,11 @@
-// ========================================
+﻿// ========================================
 // SCRIPT TABELA PERIÓDICA
 // ========================================
 
 document.addEventListener('DOMContentLoaded', () => {
+  // ========================================
+  // 1) Seletores do DOM
+  // ========================================
   const $ = s => document.querySelector(s);
   const $$ = s => document.querySelectorAll(s);
 
@@ -10,12 +13,79 @@ document.addEventListener('DOMContentLoaded', () => {
   const descricaoBox = $('.descricaodoelemento');
   const maisInfo = $('.maisinformacoes');
   const botaoMaisInfo = $('.icone-aumentar');
+  const infoGrid = $('.maisinformacoes-grid');
   const pesquisaWrapper = $('.busca');
   const pesquisaInput = $('.campo-busca_input');
   const pesquisaResultados = $('.busca_resultados');
   const botaoLimparPesquisa = $('.campo-busca_limpar');
   const elementos = $$('.celula-elemento');
   const filtros = $$('.filtro-item');
+
+  // ========================================
+  // 2) Estado
+  // ========================================
+  let ultimaCelula = null;
+  let elementosPorNumero = {};
+  let elementosPorSimbolo = {};
+  let elementosCarregados = false;
+  let fecharResultados = null;
+
+  // ========================================
+  // 3) Utilitários de dados
+  // ========================================
+  const dentroDe = (alvo, seletores) => {
+    if (!(alvo instanceof Element)) return false;
+    return seletores.some((selector) => alvo.closest(selector));
+  };
+
+  const normalizarValorTexto = (valor) => {
+    if (valor === null || valor === undefined) return '';
+    if (Array.isArray(valor)) return valor.join(',');
+    return String(valor).trim();
+  };
+
+  const escolherValor = (datasetValor, jsonValor) => {
+    const textoDataset = normalizarValorTexto(datasetValor);
+    if (textoDataset) return textoDataset;
+    return normalizarValorTexto(jsonValor);
+  };
+
+  const obterElementoJson = (dataset) => {
+    if (!elementosCarregados || !dataset) return null;
+    const numero = parseInt(dataset.numero, 10);
+    if (Number.isFinite(numero) && elementosPorNumero[numero]) {
+      return elementosPorNumero[numero];
+    }
+    if (dataset.simbolo && elementosPorSimbolo[dataset.simbolo]) {
+      return elementosPorSimbolo[dataset.simbolo];
+    }
+    return null;
+  };
+
+  // ========================================
+  // 4) Carregamento de elementos
+  // ========================================
+  const carregarElementos = async () => {
+    try {
+      const resposta = await fetch('/data/elementos.json', { cache: 'reload' });
+      if (!resposta.ok) throw new Error('Falha ao carregar elementos.json');
+      const data = await resposta.json();
+      elementosPorNumero = {};
+      elementosPorSimbolo = {};
+      data.forEach((item) => {
+        if (item.numero !== null && item.numero !== undefined) {
+          elementosPorNumero[item.numero] = item;
+        }
+        if (item.simbolo) {
+          elementosPorSimbolo[item.simbolo] = item;
+        }
+      });
+      elementosCarregados = true;
+      if (ultimaCelula) atualizarCartao(ultimaCelula);
+    } catch (erro) {
+      console.warn('NÃ£o foi possÃ­vel carregar elementos.json', erro);
+    }
+  };
 
   const formatarValor = (valor) => {
     if (valor === null || valor === undefined) return 'N/A';
@@ -31,41 +101,74 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const setInfoValue = (classe, valor, unidade) => {
-    const alvo = document.querySelector(`.${classe} .info-value`);
+    const contexto = infoGrid || document;
+    const alvo = contexto.querySelector(`.${classe} .info-value`);
     if (alvo) alvo.textContent = formatarValorComUnidade(valor, unidade);
   };
 
+  // ========================================
+  // 5) Cartão de detalhes
+  // ========================================
   function atualizarCartao(cell) {
     if (!cell || !card) return;
 
+    ultimaCelula = cell;
+
     const d = cell.dataset;
+    const dadosJson = obterElementoJson(d);
+
+    const numeroTexto = escolherValor(d.numero, dadosJson?.numero);
+    const simboloTexto = escolherValor(d.simbolo, dadosJson?.simbolo);
+    const nomeTexto = escolherValor(d.nome, dadosJson?.nome);
+    const massaValor = escolherValor(d.massa, dadosJson?.massa_molar);
+    const massaUnidade = escolherValor(d.massaUnidade, dadosJson?.massa_molar_unidade);
+    const camadasTexto = escolherValor(
+      d.camadas,
+      Array.isArray(dadosJson?.camadas) ? dadosJson.camadas.join(',') : dadosJson?.camadas
+    );
+    const descricaoTexto = escolherValor(d.descricao, dadosJson?.descricao);
+
     const numero = $('.numeroCard');
     const simbolo = $('.simboloCard');
     const nome = $('.nomeCard');
     const massa = $('.massaCard');
     const camadas = $('.camadasCard');
 
-    if (numero) numero.textContent = d.numero || '';
-    if (simbolo) simbolo.textContent = d.simbolo || '';
-    if (nome) nome.textContent = d.nome || '';
+    if (numero) numero.textContent = numeroTexto || '';
+    if (simbolo) simbolo.textContent = simboloTexto || '';
+    if (nome) nome.textContent = nomeTexto || '';
     if (massa) {
-      const massaTexto = d.massa ? `${d.massa}${d.massaUnidade ? ` ${d.massaUnidade}` : ''}` : '';
+      const massaTexto = massaValor ? `${massaValor}${massaUnidade ? ` ${massaUnidade}` : ''}` : '';
       massa.textContent = massaTexto;
     }
-    if (camadas) camadas.textContent = (d.camadas || '').split(',').join('\n');
+    if (camadas) camadas.textContent = camadasTexto ? camadasTexto.split(',').join('\n') : '';
 
-    if (descricaoBox) descricaoBox.textContent = d.descricao || 'Sem descrição disponível';
+    if (descricaoBox) {
+      descricaoBox.textContent = descricaoTexto || 'Sem descriÃ§Ã£o disponÃ­vel';
+    }
 
-    setInfoValue('massaatomica', d.massa, d.massaUnidade);
-    setInfoValue('bloco', d.bloco);
-    setInfoValue('configuracaoeletronica', d.configuracaoEletronica);
-    setInfoValue('eletronegatividade', d.eletronegatividade);
-    setInfoValue('densidade', d.densidade, d.densidadeUnidade);
-    setInfoValue('pontodefusao', d.pontoFusao, d.pontoFusaoUnidade);
-    setInfoValue('pontodeebulicao', d.pontoEbulicao, d.pontoEbulicaoUnidade);
-    setInfoValue('periodo', d.periodo);
-    setInfoValue('grupo', d.grupo);
-    setInfoValue('anodedescoberta', d.anoDescoberta);
+    setInfoValue('massaatomica', massaValor, massaUnidade);
+    setInfoValue('bloco', escolherValor(d.bloco, dadosJson?.bloco));
+    setInfoValue('configuracaoeletronica', escolherValor(d.configuracaoEletronica, dadosJson?.configuracao_eletronica));
+    setInfoValue('eletronegatividade', escolherValor(d.eletronegatividade, dadosJson?.eletronegatividade));
+    setInfoValue(
+      'densidade',
+      escolherValor(d.densidade, dadosJson?.densidade),
+      escolherValor(d.densidadeUnidade, dadosJson?.densidade_unidade)
+    );
+    setInfoValue(
+      'pontodefusao',
+      escolherValor(d.pontoFusao, dadosJson?.ponto_fusao),
+      escolherValor(d.pontoFusaoUnidade, dadosJson?.ponto_fusao_unidade)
+    );
+    setInfoValue(
+      'pontodeebulicao',
+      escolherValor(d.pontoEbulicao, dadosJson?.ponto_ebulicao),
+      escolherValor(d.pontoEbulicaoUnidade, dadosJson?.ponto_ebulicao_unidade)
+    );
+    setInfoValue('periodo', escolherValor(d.periodo, dadosJson?.periodo));
+    setInfoValue('grupo', escolherValor(d.grupo, dadosJson?.grupo));
+    setInfoValue('anodedescoberta', escolherValor(d.anoDescoberta, dadosJson?.ano_descoberta));
 
     card.classList.add('ativo');
 
@@ -113,6 +216,9 @@ document.addEventListener('DOMContentLoaded', () => {
     setInfoValue('anodedescoberta', '');
   }
 
+  // ========================================
+  // 6) Seleção de células
+  // ========================================
   function limparSelecao() {
     const selecionada = document.querySelector('.celula-elemento.selecionado');
     if (!selecionada) return;
@@ -126,6 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (selecionada && selecionada !== cell) selecionada.classList.remove('selecionado');
 
     if (toggle && selecionada === cell) {
+      selecionada.classList.remove('selecionado');
       resetarCartao();
       return;
     }
@@ -141,6 +248,26 @@ document.addEventListener('DOMContentLoaded', () => {
     cell.addEventListener('click', () => selecionarCelula(cell, { toggle: true }));
   });
 
+  // ========================================
+  // 7) Eventos globais
+  // ========================================
+  document.addEventListener('pointerdown', (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+
+    if (fecharResultados && !target.closest('.busca')) fecharResultados();
+
+    const zonasSeguras = [
+      '.celula-elemento',
+      '.busca',
+      '.filtro-item',
+      '.icone-aumentar',
+      '.maisinformacoes'
+    ];
+
+    if (!dentroDe(target, zonasSeguras)) limparSelecao();
+  });
+
   if (botaoMaisInfo && maisInfo) {
     botaoMaisInfo.addEventListener('click', () => {
       const aberto = maisInfo.classList.toggle('aberta');
@@ -148,13 +275,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ========================================
+  // 8) Busca e autocomplete
+  // ========================================
   if (pesquisaWrapper && pesquisaInput && pesquisaResultados) {
     const normalizarTexto = texto => texto.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     const listaElementos = Array.from(elementos)
       .filter(el => el.dataset.numero && el.dataset.simbolo)
-      .map(el => ({ numero: el.dataset.numero, nome: el.dataset.nome || '', simbolo: el.dataset.simbolo || '', cell: el }));
+      .map(el => ({
+        numero: el.dataset.numero,
+        nome: el.dataset.nome || '',
+        simbolo: el.dataset.simbolo || ''
+      }));
 
-    const fecharResultados = () => {
+    fecharResultados = () => {
       pesquisaWrapper.classList.remove('busca--aberta');
       pesquisaResultados.innerHTML = '';
     };
@@ -186,11 +320,13 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="busca_simbolo">${item.simbolo}</span>
           <span class="busca_info">
             <span class="busca_nome">${item.nome}</span>
-            <span class="busca_meta">${item.nome} - Nº ${item.numero}</span>
+            <span class="busca_meta">${item.nome} - NÂº ${item.numero}</span>
           </span>
         `;
         botao.addEventListener('click', () => {
-          selecionarCelula(item.cell);
+          const cell = document.querySelector(`.celula-elemento[data-numero="${item.numero}"]`)
+            || document.querySelector(`.celula-elemento[data-simbolo="${item.simbolo}"]`);
+          selecionarCelula(cell);
           pesquisaInput.value = item.nome;
           atualizarBotaoLimpar();
           fecharResultados();
@@ -232,13 +368,11 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    document.addEventListener('click', (event) => {
-      const caminho = event.composedPath ? event.composedPath() : [];
-      const dentroPesquisa = caminho.some(node => node instanceof Element && node.classList?.contains('busca'));
-      if (!dentroPesquisa) fecharResultados();
-    });
   }
 
+  // ========================================
+  // 9) Filtros
+  // ========================================
   let filtroAtivo = null;
 
   const aplicarFiltro = (categoria) => {
@@ -270,4 +404,10 @@ document.addEventListener('DOMContentLoaded', () => {
       aplicarFiltro(categoria);
     });
   });
+
+  // ========================================
+  // 10) Inicialização
+  // ========================================
+  carregarElementos();
 });
+

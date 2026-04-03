@@ -1,19 +1,38 @@
+﻿// ========================================
+// SERVIDOR EXPRESS - CHEMSTUDY
+// ========================================
+
+// ========================================
+// 1) Imports e configuração base
+// ========================================
 const express = require('express');
 const { engine } = require('express-handlebars');
 const path = require('path');
+const fs = require('fs');
 const compression = require('compression');
-
+// ========================================
+// 2) Engine / Views
+// ========================================
 const app = express();
+const viewsRoot = path.join(__dirname, 'views');
+const viewsMinRoot = path.join(__dirname, 'views-min');
+const useMinifiedViews = process.env.MINIFY_VIEWS === '1' && fs.existsSync(viewsMinRoot);
+const viewsBase = useMinifiedViews ? viewsMinRoot : viewsRoot;
+
 app.engine('handlebars', engine({
   extname: '.handlebars',
-  layoutsDir: path.join(__dirname, 'views', 'layouts'),
-  partialsDir: path.join(__dirname, 'views', 'partials')
+  layoutsDir: path.join(viewsBase, 'layouts'),
+  partialsDir: path.join(viewsBase, 'partials')
 }));
 app.set('view engine', 'handlebars');
-app.set('views', path.join(__dirname, 'views', 'partials'));
-
+app.set('views', path.join(viewsBase, 'partials'));
+// ========================================
+// 3) Middlewares
+// ========================================
 app.use(compression());
-
+// ========================================
+// 4) Dados e constantes químicas
+// ========================================
 // carregar dados dos elementos
 const elementos = require('./data/elementos.json');
 
@@ -37,7 +56,9 @@ const CSS_LOOKUP = {
   'metal-alcalino-terroso': 'alcalino-terroso',
   'metal-pos-transicao': 'pos-transicao'
 };
-
+// ========================================
+// 5) Helpers
+// ========================================
 const normalizarValor = (valor) => {
   if (valor === null || valor === undefined) return '';
   return String(valor).trim();
@@ -111,6 +132,9 @@ const addPlaceholder = (arr, { simbolo, row, col, cssVar, category, extraClass }
 };
 
 // === construção da tabela ===============================================
+// ========================================
+// 6) Construção da tabela
+// ========================================
 let tabelaElements = elementos.map(e => {
   let row = computeRow(e.numero);
   let isFblock = false;
@@ -201,6 +225,9 @@ tabelaElements = tabelaElements.map(el => ({
 }));
 
 // exemplo no seu router/handler
+// ========================================
+// 7) Rotas
+// ========================================
 const grupos = Array.from({ length: 18 }, (_, i) => ({
   value: i + 1,
   col: i + 2
@@ -217,8 +244,8 @@ app.get('/tabela', (req, res) => {
     grupos,
     periodos,
     /* …outros dados… */
-    additionalStyles: '<link rel="stylesheet" href="/css/tabela.min.css">',
-    additionalScripts: '<script src="/js/tabela.min.js" defer></script>',
+    additionalStyles: '<link rel="stylesheet" href="/css/tabela.css">',
+    additionalScripts: '<script src="/js/tabela.js" defer></script>',
     showBackButton: true,
     tooltipPage: 'tabela'
   });
@@ -226,8 +253,8 @@ app.get('/tabela', (req, res) => {
 
 app.get('/massamolar', (req, res) => {
   res.render('massamolar', {
-    additionalStyles: '<link rel="stylesheet" href="/css/massamolar.min.css">',
-    additionalScripts: '<script src="/js/massamolar.min.js" defer></script>',
+    additionalStyles: '<link rel="stylesheet" href="/css/massamolar.css">',
+    additionalScripts: '<script src="/js/shared/quimica-utils.js" defer></script><script src="/js/massamolar.js" defer></script>',
     showBackButton: true,
     tooltipPage: 'massamolar'
   });
@@ -236,17 +263,26 @@ app.get('/massamolar', (req, res) => {
 // simplifica: redireciona / para /tabela (ou repete a mesma renderização)
 app.get('/', (req, res) => {
   res.render('hubinicial', {
-    additionalStyles: '<link rel="stylesheet" href="/css/hubinicial.min.css">',
+    additionalStyles: '<link rel="stylesheet" href="/css/hubinicial.css">',
     showBackButton: false
   });
 });
 
 app.get('/conversormolmassa', (req, res) => {
   res.render('conversormolmassa', {
-    additionalStyles: '<link rel="stylesheet" href="/css/conversormolmassa.min.css">',
-    additionalScripts: '<script src="/js/conversormolmassa.min.js" defer></script>',
+    additionalStyles: '<link rel="stylesheet" href="/css/conversormolmassa.css">',
+    additionalScripts: '<script src="/js/shared/quimica-utils.js" defer></script><script src="/js/conversormolmassa.js" defer></script>',
     showBackButton: true,
     tooltipPage: 'conversormolmassa'
+  });
+});
+
+app.get('/estruturaatomica', (req, res) => {
+  res.render('estruturaatomica', {
+    additionalStyles: '<link rel="stylesheet" href="/css/estruturaatomica.css">',
+    additionalScripts: '<script src="/js/shared/quimica-utils.js" defer></script><script src="/js/estruturaatomica.js" defer></script>',
+    showBackButton: true,
+    tooltipPage: 'estruturaatomica'
   });
 });
 
@@ -254,15 +290,20 @@ app.get('/conversormolmassa', (req, res) => {
 // rotas para as demais páginas precriadas
 app.get('/ferramentas', (req, res) => res.render('ferramentas', { showBackButton: true }));
 app.get('/topicos', (req, res) => res.render('topicos', { showBackButton: true }));
-
-
+// ========================================
+// 8) Arquivos estáticos e cache
+// ========================================
 app.use(express.static('public', {
-  maxAge: '1d', // cache por 1 dia
+  maxAge: 0, // desabilitar cache para desenvolvimento
   setHeaders: (res, path) => {
     if (path.endsWith('.css') || path.endsWith('.js')) {
-      res.setHeader('Cache-Control', 'public, max-age=86400'); // 1 dia
+      res.setHeader('Cache-Control', 'no-cache');
     }
   }
 }));
-
+// ========================================
+// 9) Inicialização do servidor
+// ========================================
 app.listen(3000, () => console.log('Servidor rodando em http://localhost:3000'));
+
+

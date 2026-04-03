@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "minify": "node minify.js"
   },
   "keywords": [],
   "author": "",
@@ -18,8 +19,12 @@
     "express-handlebars": "^8.0.6"
   },
   "devDependencies": {
+    "clean-css": "^5.3.3",
+    "fast-glob": "^3.3.2",
+    "html-minifier-terser": "^7.2.0",
     "nodemon": "^3.1.14",
     "postcss": "^8.4.38",
-    "postcss-prefix-selector": "^1.16.0"
+    "postcss-prefix-selector": "^1.16.0",
+    "terser": "^5.31.3"
   }
 }

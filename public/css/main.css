@@ -593,6 +593,25 @@ paginas-ferramentas padronizadas
   border-radius: 999px;
 }
 
+/* Botão de Resultado */
+.resultado_botao {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: var(--borda-raio-md);
+  background: var(--texto-destaque);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: var(--fonte-sm);
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform var(--transicao-curta),
+    box-shadow var(--transicao-curta),
+    background var(--transicao-curta),
+    opacity var(--transicao-curta);
+}
+
 /* informações */
 .card_info_escrita {
   color: var(--texto-suave);

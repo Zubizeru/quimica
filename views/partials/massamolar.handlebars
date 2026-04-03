@@ -15,7 +15,7 @@
       <div class="busca" id="massaMolarCampo">
         <div class="campo-busca">
           <i class="fa-solid fa-flask campo-busca_icone" aria-hidden="true"></i>
-          <input id="formulaInput" class="campo-busca_input" type="text" inputmode="text" autocomplete="off"
+          <input id="formulaInput" class="campo-busca_input" type="text" inputmode="text" pattern="[A-Za-z0-9()\\[\\]{}·]*" autocomplete="off"
             spellcheck="false" placeholder="Ex: H2O, CO2, Ca(OH)2" aria-describedby="formulaPreview">
           <button type="button" class="campo-busca_limpar" id="limparFormula" aria-label="Limpar fórmula">
             <i class="fa-solid fa-xmark"></i>
@@ -36,13 +36,21 @@
 
     <div class="massa-molar_secao">
       <div class="massa-molar_secao-header">
+        <h4>Compostos Comuns</h4>
+        <span>Toque para inserir</span>
+      </div>
+      <div class="massa-molar_elementos massa-molar_compostos-grid" id="compostosComuns" aria-live="polite"></div>
+    </div>
+
+    <div class="massa-molar_secao">
+      <div class="massa-molar_secao-header">
         <h4>Teclado Químico</h4>
         <span>Parênteses, números e hidratação</span>
       </div>
       <div class="massa-molar_teclado" id="tecladoQuimico"></div>
     </div>
 
-    <button class="massa-molar_botao" id="calcularMassa" type="button">Calcular Massa Molar</button>
+    <button class="resultado_botao" id="calcularMassa" type="button">Calcular Massa Molar</button>
 
     <div class="massa-molar_resultado" id="massaResultado" hidden>
       <div class="massa-molar_resumo">
@@ -70,17 +78,6 @@
         <div class="massa-molar_percentual-lista" id="resultadoPercentual"></div>
       </div>
     </div>
-  </section>
-
-  <!-- Seção Compostos Comuns -->
-  <section class="card massa-molar_compostos" aria-labelledby="massaMolarCompostos">
-    <header class="massa-molar_titulo">
-      <h3 id="massaMolarCompostos">Compostos Comuns</h3>
-      <p class="massa-molar_subtitulo">
-        Clique em um composto para preencher e calcular automaticamente.
-      </p>
-    </header>
-    <div class="massa-molar_compostos-grid" id="compostosComuns"></div>
   </section>
 
   <!-- Informações sobre Massa Molar -->

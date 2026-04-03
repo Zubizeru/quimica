@@ -78,12 +78,9 @@ Massa Molar
   gap: 0.45rem;
 }
 
-.massa-molar_elementos {
-  grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
-}
-
+.massa-molar_elementos,
 .massa-molar_compostos-grid {
-  grid-template-columns: repeat(auto-fit, minmax(92px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
 }
 
 .massa-molar_elemento,
@@ -92,7 +89,6 @@ Massa Molar
   flex-direction: column;
   justify-content: center;
   gap: 0.15rem;
-  min-height: 46px;
   padding: 0.35rem 0.45rem;
   border: 1px solid var(--border-suave);
   border-radius: var(--borda-raio-md);
@@ -167,19 +163,38 @@ Massa Molar
   transform: translateY(-1px);
 }
 
-.massa-molar_tecla--acao {
-  background: var(--bg-destaque-suave);
+/* Estilo base compartilhado */
+.massa-molar_tecla--acao,
+.massa-molar_tecla--limpar {
+  border: 1px solid var(--border-suave);
+  border-radius: var(--borda-raio-md);
+  background: var(--bg-suave);
+  color: var(--texto-principal);
+  font-family: inherit;
+  font-size: var(--fonte-xs);
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform var(--transicao-curta),
+    background var(--transicao-curta),
+    border-color var(--transicao-curta),
+    box-shadow var(--transicao-curta);
 }
 
+/* Hover e foco */
 .massa-molar_tecla--acao:hover,
-.massa-molar_tecla--acao:focus-visible {
+.massa-molar_tecla--acao:focus-visible,
+.massa-molar_tecla--limpar:hover,
+.massa-molar_tecla--limpar:focus-visible {
   background: color-mix(in srgb, var(--texto-destaque) 18%, var(--bg-base));
   border-color: var(--border-destaque);
 }
 
+/* Específico do botão limpar */
 .massa-molar_tecla--limpar {
   grid-column: span 2;
   min-width: 72px;
+  padding: 0.25rem 0;
 }
 
 .massa-molar_botao {
@@ -269,7 +284,7 @@ Massa Molar
   padding: 0.45rem 0.75rem;
 }
 
-.massa-molar_linha > span {
+.massa-molar_linha>span {
   text-align: right;
   font-variant-numeric: tabular-nums;
   color: var(--texto-principal);
@@ -389,7 +404,7 @@ Massa Molar
 }
 
 .info-equilibrio-quimico {
-  align-items:center;
+  align-items: center;
 }
 
 .equacao {
@@ -417,6 +432,7 @@ body.escuro .massa-molar_barra span {
 Responsividade
 ===================== */
 @media (max-width: 900px) {
+
   .massa-molar_elementos,
   .massa-molar_compostos-grid {
     grid-template-columns: repeat(auto-fit, minmax(58px, 1fr));
@@ -428,10 +444,6 @@ Responsividade
 }
 
 @media (max-width: 600px) {
-  .massa-molar_compostos-grid {
-    grid-template-columns: repeat(auto-fit, minmax(86px, 1fr));
-  }
-
   .massa-molar_tabela {
     overflow-x: auto;
   }
@@ -440,8 +452,4 @@ Responsividade
     min-width: 420px;
   }
 
-  .massa-molar_tecla--limpar {
-    grid-column: span 3;
-  }
 }
-

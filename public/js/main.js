@@ -3,6 +3,9 @@
 // ========================================
 
 document.addEventListener('DOMContentLoaded', () => {
+  // ========================================
+  // 1) Seletores do DOM
+  // ========================================
   const body = document.body;
   const menu = document.querySelector('.menuinicial');
   const botaoMenu = document.querySelector('#botaoMenu');
@@ -10,7 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const botaoTema = document.querySelector('#botaoTema');
   const iconeTema = document.querySelector('#iconeTema');
 
-  // Menu responsivo
+  // ========================================
+  // 2) Menu responsivo
+  // ========================================
   if (botaoMenu && menu) {
     botaoMenu.addEventListener('click', () => {
       const aberto = menu.classList.toggle('menu-aberto');
@@ -23,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+    // Fecha o menu ao clicar em um link (em telas pequenas)
     linksMenu.forEach(link => {
       link.addEventListener('click', () => {
         if (!menu.classList.contains('menu-aberto')) return;
@@ -37,7 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Tema claro/escuro
+  // ========================================
+  // 3) Tema claro/escuro
+  // ========================================
   if (localStorage.getItem('tema') === 'escuro') {
     body.classList.add('escuro');
     if (iconeTema) iconeTema.classList.replace('fa-sun', 'fa-moon');
@@ -56,7 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Tooltip global (lazy load)
+  // ========================================
+  // 4) Tooltip: estado e carregamento (lazy load)
+  // ========================================
   const siteTooltipDefinitions = {};
   let tooltipsLoaded = false;
 
@@ -91,6 +101,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // ========================================
+  // 5) Tooltip: renderização (fallback para HTML)
+  // ========================================
   const tooltipElementId = 'tooltip-global';
   let tooltipElement = document.getElementById(tooltipElementId);
   if (!tooltipElement) {
@@ -101,6 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(tooltipElement);
   }
 
+  // Exibe o tooltip próximo ao elemento alvo, com texto do JSON ou fallback
   const showTooltip = (target) => {
     if (!target) return;
     const key = target.dataset.tooltipKey;
@@ -121,6 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     tooltipElement.style.left = `${left}px`;
   };
 
+  // Esconde o tooltip
   const hideTooltip = () => {
     tooltipElement.setAttribute('data-visible', 'false');
     tooltipElement.setAttribute('aria-hidden', 'true');
@@ -131,6 +146,9 @@ document.addEventListener('DOMContentLoaded', () => {
     showTooltip(target);
   };
 
+  // ========================================
+  // 6) Tooltip: eventos (hover e focus)
+  // ========================================
   const setupTooltipTriggers = () => {
     const triggers = document.querySelectorAll('.tooltip-trigger, [data-tooltip-key]');
     triggers.forEach((el) => {
@@ -141,5 +159,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
+  // ========================================
+  // 7) Inicialização
+  // ========================================
   setupTooltipTriggers();
 });
